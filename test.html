@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+	<title>Grid coordinates - Leaflet</title>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+
+	<style>
+		html, body {
+			height: 100%;
+			margin: 0;
+		}
+		.leaflet-container {
+			height: 400px;
+			width: 600px;
+			max-width: 100%;
+			max-height: 100%;
+		}
+	</style>
+
+	
+</head>
+<body>
+
+<div id='map'></div>
+
+<script type="text/javascript">
+	var factorx = 0.125
+	var factory = 0.125
+	L.CRS.dod = L.extend({}, L.CRS.Simple, {
+	projection: L.Projection.LonLat,
+	transformation: new L.Transformation(factorx, 0, -factory, 0),
+	// Changing the transformation is the key part, everything else is the same.
+	// By specifying a factor, you specify what distance in meters one pixel occupies (as it still is CRS.Simple in all other regards).
+	// In this case, I have a tile layer with 256px pieces, so Leaflet thinks it's only 256 meters wide.
+	// I know the map is supposed to be 2048x2048 meters, so I specify a factor of 0.125 to multiply in both directions.
+	// In the actual project, I compute all that from the gdal2tiles tilemapresources.xml, 
+	// which gives the necessary information about tilesizes, total bounds and units-per-pixel at different levels.
+
+
+	// Scale, zoom and distance are entirely unchanged from CRS.Simple
+	scale: function (zoom) {
+		return Math.pow(2, zoom);
+	},
+
+	zoom: function (scale) {
+		return Math.log(scale) / Math.LN2;
+	},
+
+	distance: function (latlng1, latlng2) {
+		var dx = latlng2.lng - latlng1.lng,
+			dy = latlng2.lat - latlng1.lat;
+
+		return Math.sqrt(dx * dx + dy * dy);
+	},
+	infinite: false
+	});
+
+	var map = L.map('map', {
+		crs: L.CRS.dod,
+		center: [0, 0],
+		zoom: 0
+	});
+
+	L.GridLayer.DebugCoords = L.GridLayer.extend({
+		createTile: function (coords, done) {
+			var tile = document.createElement('div');
+			tile.innerHTML = [coords.x, coords.y, coords.z].join(', ');
+			tile.style.outline = '1px solid red';
+
+			setTimeout(function () {
+				done(null, tile); // Syntax is 'done(error, tile)'
+			}, 500 + Math.random() * 1500);
+
+			return tile;
+		}
+	});
+	
+	L.gridLayer.debugCoords = function (opts) {
+		return new L.GridLayer.DebugCoords(opts);
+	};
+
+	var debugCoordsGrid = L.gridLayer.debugCoords();
+	map.addLayer(debugCoordsGrid);
+	
+</script>
+
+
+
+</body>
+</html>

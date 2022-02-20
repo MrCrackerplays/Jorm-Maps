@@ -1,32 +1,62 @@
-const bounds = [[0,0], [100,100]];
-const map = L.map("map", {
-  crs: L.CRS.Simple
+const bounds = [[0, 0], [2560, 2560]];
+var factorx = 0.125
+var factory = 0.125
+L.CRS.dod = L.extend({}, L.CRS.Simple, {
+	projection: L.Projection.LonLat,
+	transformation: new L.Transformation(factorx, 0, -factory, 0),
+	// Changing the transformation is the key part, everything else is the same.
+	// By specifying a factor, you specify what distance in meters one pixel occupies (as it still is CRS.Simple in all other regards).
+	// In this case, I have a tile layer with 256px pieces, so Leaflet thinks it's only 256 meters wide.
+	// I know the map is supposed to be 2048x2048 meters, so I specify a factor of 0.125 to multiply in both directions.
+	// In the actual project, I compute all that from the gdal2tiles tilemapresources.xml, 
+	// which gives the necessary information about tilesizes, total bounds and units-per-pixel at different levels.
+
+
+	// Scale, zoom and distance are entirely unchanged from CRS.Simple
+	scale: function (zoom) {
+		return Math.pow(2, zoom);
+	},
+
+	zoom: function (scale) {
+		return Math.log(scale) / Math.LN2;
+	},
+
+	distance: function (latlng1, latlng2) {
+		var dx = latlng2.lng - latlng1.lng,
+			dy = latlng2.lat - latlng1.lat;
+
+		return Math.sqrt(dx * dx + dy * dy);
+	},
+	infinite: false
 });
-const maplink = "https://lh3.googleusercontent.com/fife/AAWUweV8lqN7QmiWV4iGg6y78a0KtITqMaPxkthLkle_Up4u-ZH_c6F8-x6L344rn4QbE3PXqxD4Va3iaeGV82ux0CvxqO6O5hKdDAq3s--Wz3PtbbtlBgA7My8PavLzS_fdG3Z8cD_cahPGk8angn_ZMIqQSZyRAWxGCGI0qvQTyzGJ9xtKARpFqY7jCSVLD9aevuJO41Tzh23T-e_lZmmhGpNS5jXtH10kax0XCkvDYrsiEmFHLXxu1OLIJ4oT7ySKxQ0VAXx2y9Ps32GozonKYBVvfgz0QvsWMBPhMRLSTAu8UcgUzGiq-jkJwOAC1j0M7kFkYfHNAmW6G8KPs1tCJXdHCgRH0xLR9GgTgaoNOMe245HKH-q8VckPyjCq7eKaUFVSrcJpbWjJR2Y85dF4P9ST3BVGfQCblry2NdyFXRHBaiH9O1rlXEr1yHwMKxMpkZKYvjn-567WgatGldAHEUSldiYwvvc7xQuQKTmk4TOFpqz8dYshYeO9QhE4z-1qSsoSfIXPE9_Pt9XnJfyNOoVzJUVruvvBY7lGJwrelMe7AKlJm0XPy8S3xixCBAEpxqUd6r9fWB2Qy2FF61H-R58LHMpk9cqC7IRLCKlTnhMv8lWZ99uR9ZsIj_mwujNQTlFs2xTA0jLaphscs4uv0s4maZeOVmPjmtyABX6UQ82IL2XcVBIu1CW_qiGgw_MxIXdhYCJjr0FfXJbHqB0TAUo88rR8h3sRGbM=w1280-h864";
-const image = L.imageOverlay(maplink, bounds).addTo(map);
-map.setView([50, 50], 0);
+const map = L.map("map", {
+	crs: L.CRS.dod
+});
+// const maplink = "0/{-y}/{x}.png";
+const image = L.tileLayer("{z}/{y}/{x}.png", { tileSize: L.point(256, 256) }).addTo(map);
+map.setView([500, 500], 0);
 // L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-//   attribution:
-//     '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-//   }).addTo(map);
+// 	attribution:
+// 		'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+// }).addTo(map);
 
 const boundForHex = [
-  [5, 5],
-  [10, 10]
+	[5, 5],
+	[10, 10]
 ];
 
 const hexOption = {
-  type: "hexagon",
-  pathStyleOption: {
-    // color: "blue"
-  }
+	type: "hexagon",
+	pathStyleOption: {
+		// color: "blue"
+	}
 };
 
 const partition = L.partition(hexOption);
 partition.setData(boundForHex);
 const layerGroup = partition.addTo(map);
 
-const scale = L.control.scale({  }).addTo(map);
+const scale = L.control.scale({ updateWhenIdle: true }).addTo(map);
 
 // function testHexUpdate() {
 //   setInterval(function() {
