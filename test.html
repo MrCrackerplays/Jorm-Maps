@@ -10,7 +10,9 @@
 	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+	<!-- <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6/turf.min.js"></script> -->
+	<!-- <script src="dist/turf.min.js" charset="utf-8"></script> -->
 
 	<style>
 		html, body {
@@ -32,42 +34,53 @@
 <div id='map'></div>
 
 <script type="text/javascript">
+	// var point = turf.point([0.0,0.0]);
+	// var bbox = [0, 0, 10 * Math.pow(2, 16), 10 * Math.pow(2, 16)];
+	// var cellSide = 100;
+	// var options = {units: 'miles'};
+
+	// var hexgrid = turf.hexGrid(bbox, cellSide, options);
+
+	// console.log(hexgrid);
 	var factorx = 1
 	var factory = 1
 	const METER_PER_MILE = 1609.344;
 	const METER = 1;
 	const MILE_PIXEL_MODIFIER = METER / METER_PER_MILE; //transform the default length (1 meter) of a single pixel to 1 mile
-	const TARGET_PIXEL_LENGTH = 100; //how many pixels long we want our target to be
+	const TARGET_PIXEL_LENGTH = 50; //how many pixels long we want our target to be
 	const MILES_PER_TARGET = 24; //how many miles long we want our target to be
 	//this means that our target of 24 miles will be 100 pixels long
 	const SCALE_MODIFIER = TARGET_PIXEL_LENGTH * MILE_PIXEL_MODIFIER / MILES_PER_TARGET;
 	L.CRS.dod = L.extend({}, L.CRS.Simple, {
-	projection: L.Projection.LonLat,
-	transformation: new L.Transformation(SCALE_MODIFIER, 0, SCALE_MODIFIER, 0),
-	// Changing the transformation is the key part, everything else is the same.
-	// By specifying a factor, you specify what distance in meters one pixel occupies (as it still is CRS.Simple in all other regards).
-	// In this case, I have a tile layer with 256px pieces, so Leaflet thinks it's only 256 meters wide.
-	// I know the map is supposed to be 2048x2048 meters, so I specify a factor of 0.125 to multiply in both directions.
-	// In the actual project, I compute all that from the gdal2tiles tilemapresources.xml, 
-	// which gives the necessary information about tilesizes, total bounds and units-per-pixel at different levels.
+		projection: L.extend( L.Projection.LonLat, {
+			bounds: L.bounds([0, 0], [1000000, 1000000])
+		}),
+		// projection: L.Projection.LonLat,
+		transformation: new L.Transformation(SCALE_MODIFIER, 0, SCALE_MODIFIER, 0),
+		// Changing the transformation is the key part, everything else is the same.
+		// By specifying a factor, you specify what distance in meters one pixel occupies (as it still is CRS.Simple in all other regards).
+		// In this case, I have a tile layer with 256px pieces, so Leaflet thinks it's only 256 meters wide.
+		// I know the map is supposed to be 2048x2048 meters, so I specify a factor of 0.125 to multiply in both directions.
+		// In the actual project, I compute all that from the gdal2tiles tilemapresources.xml, 
+		// which gives the necessary information about tilesizes, total bounds and units-per-pixel at different levels.
 
 
-	// Scale, zoom and distance are entirely unchanged from CRS.Simple
-	scale: function (zoom) {
-		return Math.pow(2, zoom);
-	},
+		// Scale, zoom and distance are entirely unchanged from CRS.Simple
+		scale: function (zoom) {
+			return Math.pow(2, zoom);
+		},
 
-	zoom: function (scale) {
-		return Math.log(scale) / Math.LN2;
-	},
+		zoom: function (scale) {
+			return Math.log(scale) / Math.LN2;
+		},
 
-	distance: function (latlng1, latlng2) {
-		var dx = latlng2.lng - latlng1.lng,
-			dy = latlng2.lat - latlng1.lat;
+		distance: function (latlng1, latlng2) {
+			var dx = latlng2.lng - latlng1.lng,
+				dy = latlng2.lat - latlng1.lat;
 
-		return Math.sqrt(dx * dx + dy * dy);
-	},
-	infinite: false
+			return Math.sqrt(dx * dx + dy * dy);
+		},
+		infinite: false
 	});
 
 	var map = L.map('map', {
@@ -78,6 +91,7 @@
 
 	L.GridLayer.DebugCoords = L.GridLayer.extend({
 		createTile: function (coords, done) {
+			console.log(coords);
 			var tile = document.createElement('div');
 			tile.innerHTML = [coords.x, coords.y, coords.z].join(', ');
 			tile.style.outline = '1px solid red';
@@ -95,9 +109,18 @@
 		return new L.GridLayer.DebugCoords(opts);
 	};
 
-	var debugCoordsGrid = L.gridLayer.debugCoords();
+	var debugCoordsGrid = L.gridLayer.debugCoords(tileSize=L.point(100,100));
+	var testlayer = new L.TileLayer('test_0_0_0.png', {tileSize: 256});
+	map.addLayer(testlayer);
 	map.addLayer(debugCoordsGrid);
-	console.log(map.distance(map.unproject([0, 0]), map.unproject([10, 100])));
+	console.log(map.distance(map.unproject([0, 0]), map.unproject([0, 100])) / METER_PER_MILE);
+	// L.geoJSON(hexgrid, {
+    //   style: function(feature) {
+    //     return {
+    //       weight: 1
+    //     };
+    //   }
+    // }).addTo(map);
 	
 </script>
 
