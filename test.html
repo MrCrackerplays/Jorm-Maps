@@ -47,13 +47,13 @@
 	const METER_PER_MILE = 1609.344;
 	const METER = 1;
 	const MILE_PIXEL_MODIFIER = METER / METER_PER_MILE; //transform the default length (1 meter) of a single pixel to 1 mile
-	const TARGET_PIXEL_LENGTH = 50; //how many pixels long we want our target to be
-	const MILES_PER_TARGET = 24; //how many miles long we want our target to be
-	//this means that our target of 24 miles will be 100 pixels long
+	const TARGET_PIXEL_LENGTH = 48; //how many pixels long we want our target to be
+	const MILES_PER_TARGET = 48; //how many miles long we want our target to be
+	//this means that at zoom level 0 our target of 24 miles will be 100 pixels long
 	const SCALE_MODIFIER = TARGET_PIXEL_LENGTH * MILE_PIXEL_MODIFIER / MILES_PER_TARGET;
 	L.CRS.dod = L.extend({}, L.CRS.Simple, {
 		projection: L.extend( L.Projection.LonLat, {
-			bounds: L.bounds([0, 0], [1000000, 1000000])
+			bounds: L.bounds([0, 0], [197756.19072 * 2, 197756.19072 * 2])
 		}),
 		// projection: L.Projection.LonLat,
 		transformation: new L.Transformation(SCALE_MODIFIER, 0, SCALE_MODIFIER, 0),
@@ -93,8 +93,22 @@
 		createTile: function (coords, done) {
 			console.log(coords);
 			var tile = document.createElement('div');
+			var size = this.getTileSize;
+
 			tile.innerHTML = [coords.x, coords.y, coords.z].join(', ');
-			tile.style.outline = '1px solid red';
+			if ((coords.x + coords.y) % 2 == 0) {
+				if (coords.x % 2 == 0)
+				{
+					
+					tile.style.outline = '1px solid red';
+					tile.style.clipPath = 'polygon(-1px -1px, 100% 0px, 100% 50%, 75% 100%, 25% 100%, 0% 50%)';
+				}
+				else
+				{
+					tile.style.outline = '1px solid blue';
+					tile.style.clipPath = 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)';
+				}
+			}
 
 			setTimeout(function () {
 				done(null, tile); // Syntax is 'done(error, tile)'
@@ -109,7 +123,7 @@
 		return new L.GridLayer.DebugCoords(opts);
 	};
 
-	var debugCoordsGrid = L.gridLayer.debugCoords(tileSize=L.point(100,100));
+	var debugCoordsGrid = L.gridLayer.debugCoords({tileSize: 48});
 	var testlayer = new L.TileLayer('test_0_0_0.png', {tileSize: 256});
 	map.addLayer(testlayer);
 	map.addLayer(debugCoordsGrid);
