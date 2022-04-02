@@ -15,6 +15,18 @@
 	<!-- <script src="dist/turf.min.js" charset="utf-8"></script> -->
 
 	<style>
+		:root {
+			--one: red;
+			--two: blue;
+		}
+
+		.beppie {
+			outline: 1px solid var(--one);
+		}
+
+		.beppoe {
+			outline: 1px solid var(--two);
+		}
 		html, body {
 			height: 100%;
 			margin: 0;
@@ -100,13 +112,11 @@
 				if (coords.x % 2 == 0)
 				{
 					
-					tile.style.outline = '1px solid red';
-					tile.style.clipPath = 'polygon(-1px -1px, 100% 0px, 100% 50%, 75% 100%, 25% 100%, 0% 50%)';
+					tile.classList.add("beppie");
 				}
 				else
 				{
-					tile.style.outline = '1px solid blue';
-					tile.style.clipPath = 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)';
+					tile.classList.add("beppoe");
 				}
 			}
 
