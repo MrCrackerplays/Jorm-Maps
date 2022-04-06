@@ -7,12 +7,11 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
-	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+	<link rel="shortcut icon" type="image/x-icon" href="icon.png" />
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
 	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
-	<!-- <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6/turf.min.js"></script> -->
-	<!-- <script src="dist/turf.min.js" charset="utf-8"></script> -->
+	<script src="./dist/hexagonalgrid.js"></script>
 
 	<style>
 		:root {
@@ -37,6 +36,11 @@
 			max-width: 100%;
 			max-height: 100%;
 		}
+
+		.hex {
+			fill: none;
+			stroke: black;
+		}
 	</style>
 
 	
@@ -44,18 +48,9 @@
 <body>
 
 <div id='map'></div>
-
+<!--svg definition which we don't want to show but so want to reuse-->
+<!-- <div style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="hex" viewBox="0 0 720 623.53829"><polygon class="hex" points="720,311.769145 540,623.53829 180,623.53829 0,311.769145 180,0 540,0"/></svg></div> -->
 <script type="text/javascript">
-	// var point = turf.point([0.0,0.0]);
-	// var bbox = [0, 0, 10 * Math.pow(2, 16), 10 * Math.pow(2, 16)];
-	// var cellSide = 100;
-	// var options = {units: 'miles'};
-
-	// var hexgrid = turf.hexGrid(bbox, cellSide, options);
-
-	// console.log(hexgrid);
-	var factorx = 1
-	var factory = 1
 	const METER_PER_MILE = 1609.344;
 	const METER = 1;
 	const MILE_PIXEL_MODIFIER = METER / METER_PER_MILE; //transform the default length (1 meter) of a single pixel to 1 mile
@@ -67,7 +62,6 @@
 		projection: L.extend( L.Projection.LonLat, {
 			bounds: L.bounds([0, 0], [197756.19072 * 2, 197756.19072 * 2])
 		}),
-		// projection: L.Projection.LonLat,
 		transformation: new L.Transformation(SCALE_MODIFIER, 0, SCALE_MODIFIER, 0),
 		// Changing the transformation is the key part, everything else is the same.
 		// By specifying a factor, you specify what distance in meters one pixel occupies (as it still is CRS.Simple in all other regards).
@@ -101,17 +95,48 @@
 		zoom: 0
 	});
 
+	function style(feature) {
+		return {
+			fillColor: 'transparent',
+			weight: 1,
+			opacity: 1,
+			color: 'white',
+			dashArray: '0',
+			fillOpacity: 1
+		};
+	}
+
+	function click(e) {
+		popup = L.popup()
+						.setLatLng(e.latlng)
+						.setContent("Hexagon ID: "+e.target.feature.properties.id)
+						.openOn(map);
+	}
+
+	function onEachFeature(feature, layer) {
+		layer.on({
+			click: click
+		});
+	}
+
 	L.GridLayer.DebugCoords = L.GridLayer.extend({
 		createTile: function (coords, done) {
-			console.log(coords);
-			var tile = document.createElement('div');
+			var tile = document.createElement("div");
+			var text = document.createTextNode([coords.x, coords.y, coords.z].join(', '));
+			tile.appendChild(text);
+
 			var size = this.getTileSize;
 
-			tile.innerHTML = [coords.x, coords.y, coords.z].join(', ');
+			// tile.innerHTML =  + "<svg><use href=\"#hex\"></svg>";
 			if ((coords.x + coords.y) % 2 == 0) {
+				var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+				var svgNameSpace = svg.namespaceURI;
+				var use = document.createElementNS(svgNameSpace, "use");
+				use.setAttributeNS(null, "href", "#hex");
+				svg.appendChild(use);
+				// tile.appendChild(svg);
 				if (coords.x % 2 == 0)
 				{
-					
 					tile.classList.add("beppie");
 				}
 				else
@@ -133,22 +158,24 @@
 		return new L.GridLayer.DebugCoords(opts);
 	};
 
-	var debugCoordsGrid = L.gridLayer.debugCoords({tileSize: 48});
-	var testlayer = new L.TileLayer('test_0_0_0.png', {tileSize: 256});
+	const hex_side_len = METER_PER_MILE * 24 / Math.sqrt(3);
+	const world_width = map.options.crs.projection.bounds.max.x - map.options.crs.projection.bounds.min.x;
+	const world_height = map.options.crs.projection.bounds.max.y - map.options.crs.projection.bounds.min.y;
+	const columns = 1 + world_width / (hex_side_len * 1.5);
+	const rows = 1 + world_height / (hex_side_len * Math.sqrt(3));
+	const center_hex_0 = [map.options.crs.projection.bounds.min.x, map.options.crs.projection.bounds.min.y];
+
+	var debugCoordsGrid = L.gridLayer.debugCoords({tileSize: 256});
+	var testlayer = new L.TileLayer('jorm0.png', {tileSize: 256});
+	var hexGrid = L.geoJson(H.hexagonalGrid(center_hex_0, columns, rows, hex_side_len), {
+						style: style,
+						onEachFeature: onEachFeature
+	});
+
 	map.addLayer(testlayer);
+	map.addLayer(hexGrid);
 	map.addLayer(debugCoordsGrid);
 	console.log(map.distance(map.unproject([0, 0]), map.unproject([0, 100])) / METER_PER_MILE);
-	// L.geoJSON(hexgrid, {
-    //   style: function(feature) {
-    //     return {
-    //       weight: 1
-    //     };
-    //   }
-    // }).addTo(map);
-	
 </script>
-
-
-
 </body>
 </html>
