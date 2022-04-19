@@ -51,17 +51,27 @@
 <!--svg definition which we don't want to show but so want to reuse-->
 <!-- <div style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="hex" viewBox="0 0 720 623.53829"><polygon class="hex" points="720,311.769145 540,623.53829 180,623.53829 0,311.769145 180,0 540,0"/></svg></div> -->
 <script type="text/javascript">
+	// const MIN_TILE;
 	const METER_PER_MILE = 1609.344;
+	const METER_PER_FOOT = 0.3048;
 	const METER = 1;
-	const MILE_PIXEL_MODIFIER = METER / METER_PER_MILE; //transform the default length (1 meter) of a single pixel to 1 mile
-	const TARGET_PIXEL_LENGTH = 48; //how many pixels long we want our target to be
-	const MILES_PER_TARGET = 48; //how many miles long we want our target to be
-	//this means that at zoom level 0 our target of 24 miles will be 100 pixels long
-	const SCALE_MODIFIER = TARGET_PIXEL_LENGTH * MILE_PIXEL_MODIFIER / MILES_PER_TARGET;
+	const FOOT_PIXEL_MODIFIER = METER / METER_PER_FOOT; //transform the default length (1 meter) of a single pixel to 1 mile
+	const TARGET_ZOOM = 21;
+	const TWO_POW = Math.pow(2, TARGET_ZOOM);
+	const TARGET_PIXEL_LENGTH = 256 / TWO_POW; //how many pixels long we want our target to be
+	const FOOT_PER_TARGET = 5; //how many miles long we want our target to be
+	//this means that at zoom level 20 our target of 5 feet will be 256 pixels long
+	const SCALE_MODIFIER = TARGET_PIXEL_LENGTH * FOOT_PIXEL_MODIFIER / FOOT_PER_TARGET;
 	L.CRS.dod = L.extend({}, L.CRS.Simple, {
 		projection: L.extend( L.Projection.LonLat, {
-			bounds: L.bounds([0, 0], [197756.19072 * 2, 197756.19072 * 2])
+			bounds: L.bounds([0, 0], [METER_PER_FOOT * 5 * TWO_POW , METER_PER_FOOT * 5 * TWO_POW])
 		}),
+		//have: zoom=0, 1tile=1m
+		//have: zoom=20 1tile=1m/(2^20)
+		//		zoom=20 1tile=1m/(2^20) * 2^20 -> 1tile=1m
+		//		0.3048m=1ft		5ft=0.3048*5
+		//		zoom=20 1tile=1m/(2^20) * 2^20 * 0.3048 * 5 -> 1tile=5ft
+		//goal: zoom=20 1tile=5ft
 		transformation: new L.Transformation(SCALE_MODIFIER, 0, SCALE_MODIFIER, 0),
 		// Changing the transformation is the key part, everything else is the same.
 		// By specifying a factor, you specify what distance in meters one pixel occupies (as it still is CRS.Simple in all other regards).
@@ -92,7 +102,7 @@
 	var map = L.map('map', {
 		crs: L.CRS.dod,
 		center: [0, 0],
-		zoom: 0
+		zoom: 2
 	});
 
 	function style(feature) {
@@ -166,7 +176,10 @@
 	const center_hex_0 = [map.options.crs.projection.bounds.min.x, map.options.crs.projection.bounds.min.y];
 
 	var debugCoordsGrid = L.gridLayer.debugCoords({tileSize: 256});
-	var testlayer = new L.TileLayer('jorm0.png', {tileSize: 256});
+	var testlayer = new L.TileLayer('jorm0.png', {
+		maxZoom: TARGET_ZOOM,
+		maxNativeZoom: TARGET_ZOOM,
+		tileSize: 256});
 	var hexGrid = L.geoJson(H.hexagonalGrid(center_hex_0, columns, rows, hex_side_len), {
 						style: style,
 						onEachFeature: onEachFeature
@@ -175,6 +188,14 @@
 	map.addLayer(testlayer);
 	map.addLayer(hexGrid);
 	map.addLayer(debugCoordsGrid);
+	map.on('moveend', function () {
+		if ((map.getZoom() >= 7 || map.getZoom() < 2) && map.hasLayer(hexGrid)) {
+			map.removeLayer(hexGrid);
+		}
+		if (map.getZoom() >= 2 && map.getZoom() < 7 && map.hasLayer(hexGrid)==false) {
+			map.addLayer(hexGrid);
+		}
+	});
 	console.log(map.distance(map.unproject([0, 0]), map.unproject([0, 100])) / METER_PER_MILE);
 </script>
 </body>
