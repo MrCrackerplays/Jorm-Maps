@@ -47,8 +47,9 @@
 	
 </head>
 <body>
-
-<div id='map'></div>
+<div style="display: flex; justify-content: center; align-items: center;">
+	<div id='map' style="outline: none;"></div>
+</div>
 <!--svg definition which we don't want to show but so want to reuse-->
 <!-- <div style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="hex" viewBox="0 0 720 623.53829"><polygon class="hex" points="720,311.769145 540,623.53829 180,623.53829 0,311.769145 180,0 540,0"/></svg></div> -->
 <script type="text/javascript">
@@ -197,10 +198,16 @@
 	L.gridLayer.debugCoords = function (opts) {
 		return new L.GridLayer.DebugCoords(opts);
 	};
-	var debugCoordsGrid = L.gridLayer.debugCoords({tileSize: 256});
+	var debugCoordsGrid = L.gridLayer.debugCoords({tileSize: 256, zIndex:100});
 
-	var testimage = L.imageOverlay("SpireView.png", [[2779385.856,2697121.084 + 18726.912],[3611172.864,3657544.388 + 18726.912]],{opacity:0.98});
-	testimage.addTo(map);
+	var testimage = L.imageOverlay("SpireView.png", [[2779385.856,2697121.084 + 18726.912],[3611172.864,3657544.388 + 18726.912]],{
+		opacity: 0.98,
+		pane: 'tilePane'
+	}).addTo(map);
+	var townimage = L.imageOverlay("DodEstrin.jpg", [[2807524.992,3131905.344],[2823325.824,3154680.000]],{
+		opacity: 0.98,
+		pane: 'tilePane'
+	});
 	// var testlayer = L.tileLayer.fallback('jorma{z}.png', {
 	// 	maxZoom: TARGET_ZOOM,
 	// 	maxNativeZoom: TARGET_ZOOM,
@@ -248,12 +255,18 @@
 		map.removeLayer(grid_holder);
 		call = setTimeout(function () {
 			updateGrid();
-			if (map.getZoom() >= 2 && map.getZoom() < 7)
+			if (map.getZoom() >= 2 && map.getZoom() < 8)
 				map.addLayer(grid_holder);
 		}, 650);
 	}
 	function updateGrid() {
-		if (map.getZoom() >= 2 && map.getZoom() < 7) {
+		if (map.getZoom() >= 7) {
+			if (map.hasLayer(townimage) == false)
+				map.addLayer(townimage);
+		} else if (map.hasLayer(townimage)) {
+			map.removeLayer(townimage);
+		}
+		if (map.getZoom() >= 2 && map.getZoom() < 8) {
 			for (let i = 0; i < cluster_columns * cluster_rows; i++) {
 				if (map.getBounds().intersects(hexGrid[i].getBounds())) {
 					if (grid_holder.hasLayer(hexGrid[i]) == false) grid_holder.addLayer(hexGrid[i]);
@@ -264,10 +277,13 @@
 	}
 
 	// map.addLayer(testlayer);
+	updateGrid();
 	map.addLayer(debugCoordsGrid);
 	map.addLayer(grid_holder);
-	updateGrid();
 	map.on('move', onMove);
+	map.on('click', function(e) {
+		console.log("Lat, Lon : " + e.latlng.lat + ", " + e.latlng.lng)
+	});
 	console.log(map.distance(map.unproject([0, 0]), map.unproject([0, 100])) / METER_PER_FOOT);
 </script>
 </body>
