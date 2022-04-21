@@ -10,16 +10,16 @@ var H = {
     /**
     * Create the hexagon
     */
-    hexagon: function( center, size, id ){
+    hexagon: function( center, size, id_x, id_y ){
                     coordinates = [];
                     for(var i =0; i < 6; i++){
                         angle = 2 * Math.PI / 6 * i
                         x_i = center[0] + size * Math.cos(angle)
                         y_i = center[1] + size * Math.sin(angle)
-                        if (i == 0)
-                            coordinates.push([x_i, y_i])
-                        else
-                            coordinates.push([x_i, y_i])
+                        // if (i == 0)
+                        //     coordinates.push([x_i, y_i])
+                        // else
+						coordinates.push([x_i, y_i])
                     }
                     coordinates.push(coordinates[0]);
 
@@ -28,14 +28,14 @@ var H = {
                         'geometry':{
                             'type':'Polygon',coordinates: [coordinates]
                         },
-                        'properties':{'id': id}
+                        'properties':{'id': id_x+','+id_y, 'x':id_x, 'y':id_y}
                     }
                 },
 
     /**
     * Create the hexagonal grid
     */
-    hexagonalGrid: function( center, cols, lines, size ){
+    hexagonalGrid: function( center, cols, lines, size, coordinate_offset_x, coordinate_offset_y){
 
         var features = [];
         // features.push(this.hexagon(center, size));
@@ -55,9 +55,10 @@ var H = {
 
            for(var l =0; l< lines;l++){
                 newCenter = [center[0] + horiz, (center[1] + offset) + (vert*l) ]
-                features.push(this.hexagon(newCenter, size, k+','+l));
+                features.push(this.hexagon(newCenter, size, k + coordinate_offset_x, l + coordinate_offset_y));
            }
-        }
+		}
+		// console.log("created grid of size", features.length);
         return {'type':'FeatureCollection','features':features};
     }
 }
