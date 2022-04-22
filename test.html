@@ -48,6 +48,10 @@
 </head>
 <body>
 <div style="display: flex; justify-content: center; align-items: center;">
+	<div class="container">
+		<input type="checkbox" id="debugGrid" onclick="toggleDebug();" checked/>
+		<label for="debugGrid">Debug Grid</label>
+	</div>
 	<div id='map' style="outline: none;"></div>
 </div>
 <!--svg definition which we don't want to show but so want to reuse-->
@@ -103,10 +107,10 @@
 
 	var map = L.map('map', {
 		crs: L.CRS.dod,
-		center: [0, 0],
+		center: [2815256.625, 3137173.241],
 		preferCanvas: true,
 		inertiaMaxSpeed: 3000,
-		zoom: 2,
+		zoom: 17,
 		maxBounds: [[-500000, -500000],[500000 + METER_PER_FOOT * 5 * TWO_POW, 500000 + METER_PER_FOOT * 5 * TWO_POW]],
 		maxBoundsViscosity: 1.0
 	});
@@ -204,7 +208,7 @@
 		opacity: 0.98,
 		pane: 'tilePane'
 	}).addTo(map);
-	var townimage = L.imageOverlay("DodEstrin.jpg", [[2807524.992,3131905.344],[2823325.824,3154680.000]],{
+	var townimage = L.imageOverlay("DodEstrin.jpg", [[2815148.954,3137025.904],[2815409.254,3137373.376]],{
 		opacity: 0.98,
 		pane: 'tilePane'
 	});
@@ -260,7 +264,7 @@
 		}, 650);
 	}
 	function updateGrid() {
-		if (map.getZoom() >= 7) {
+		if (map.getZoom() >= 9) {
 			if (map.hasLayer(townimage) == false)
 				map.addLayer(townimage);
 		} else if (map.hasLayer(townimage)) {
@@ -278,7 +282,14 @@
 
 	// map.addLayer(testlayer);
 	updateGrid();
-	map.addLayer(debugCoordsGrid);
+	function toggleDebug() {
+		if (document.getElementById("debugGrid").checked)
+			map.addLayer(debugCoordsGrid);
+		else
+			map.removeLayer(debugCoordsGrid);
+	}
+	if (document.getElementById("debugGrid").checked)
+		map.addLayer(debugCoordsGrid);
 	map.addLayer(grid_holder);
 	map.on('move', onMove);
 	map.on('click', function(e) {
