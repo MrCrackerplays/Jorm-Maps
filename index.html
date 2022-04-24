@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	
+	<title>Grid coordinates - Leaflet</title>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="shortcut icon" type="image/x-icon" href="icon.png" />
+
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin=""/>
+	<link rel="stylesheet" href="map.css"></link>
+	<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
+	<script src="https://unpkg.com/leaflet.tilelayer.fallback@1.0.4/dist/leaflet.tilelayer.fallback.js"></script>
+	<script src="./dist/hexagonalgrid.js"></script>
+
+	
+</head>
+<body>
+	<aside id="sidebar">
+		<input type="checkbox" id="debugGrid" onclick="toggleDebug();"/>
+		<label for="debugGrid">Debug Grid</label>
+	</aside>
+	<div id="hide-sidebar">W</div>
+	<main id='map'></main>
+<script src="map.js"></script>
+</body>
+</html>
