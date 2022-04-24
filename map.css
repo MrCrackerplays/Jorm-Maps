@@ -1,0 +1,62 @@
+:root {
+	--one: red;
+	--two: blue;
+	--sidebar-width: 300px;
+	--sidebar-offset: var(--sidebar-width);
+	--background: black;
+	--text: white;
+	--highlight: grey;
+}
+
+@media (prefers-color-scheme: light) {
+	:root {
+		--background: white;
+		--text: black;
+		--highlight: darkgrey;
+	}
+}
+
+.debug-tile {
+	text-shadow: -1px -1px 0 var(--highlight), 1px -1px 0 var(--highlight), 1px 1px 0 var(--highlight), -1px 1px 0 var(--highlight);
+}
+
+.beppie {
+	outline: 1px solid var(--one, red);
+}
+
+.beppoe {
+	outline: 1px solid var(--two, blue);
+}
+
+html, body {
+	margin: 0;
+	background: var(--background);
+	color: var(--text);
+}
+
+#sidebar {
+	width: calc(max(var(--sidebar-width), var(--sidebar-offset)) - 25px);
+	padding: 15px 10px 0 15px;
+	left: min(calc(var(--sidebar-offset) - var(--sidebar-width)), 0px);
+	position: absolute;
+	overflow: hidden;
+	top: 0;
+	bottom: 0;
+	z-index: 1;
+}
+
+#hide-sidebar {
+	position: absolute;
+	left: var(--sidebar-offset);
+	background: var(--background);
+}
+
+#map {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: var(--sidebar-offset);
+	right: 0;
+	z-index: -1;
+	outline: none;
+}
