@@ -1,0 +1,39 @@
+{
+	"SpireView": {
+		"meta": {
+			"location": {
+				"bounds": [[2779385.856, 2715847.996], [3611172.864, 3676271.300]]
+			},
+			"image": "SpireView.png",
+			"layers": {
+				"min": 0,
+				"max": 22
+			}
+		},
+		"opacity": 1,
+		"pane": "tilePane"
+	},
+	"Dod'Estrin": {
+		"meta": {
+			"image": {
+				"location": {
+					"bounds": [[2815148.954, 3137025.904], [2815409.254, 3137373.376]]
+				},
+				"file": "DodEstrin.jpg",
+				"layers": {
+					"min": 9,
+					"max": 22
+				}
+			},
+			"marker": {
+				"location": [2815244.0985, 3137180.0985],
+				"layers": {
+					"min": 0,
+					"max": 13
+				}
+			}
+		},
+		"opacity": 1,
+		"pane": "tilePane"
+	}
+}
