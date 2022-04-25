@@ -6,6 +6,7 @@
 	--background: black;
 	--text: white;
 	--highlight: grey;
+	--transition-duration: 0.5s;
 }
 
 @media (prefers-color-scheme: light) {
@@ -40,15 +41,18 @@ html, body {
 	left: min(calc(var(--sidebar-offset) - var(--sidebar-width)), 0px);
 	position: absolute;
 	overflow: hidden;
+	background: var(--background);
 	top: 0;
 	bottom: 0;
 	z-index: 1;
+	transition: var(--transition-duration);
 }
 
 #hide-sidebar {
 	position: absolute;
 	left: var(--sidebar-offset);
 	background: var(--background);
+	transition: var(--transition-duration);
 }
 
 #map {
@@ -59,4 +63,5 @@ html, body {
 	right: 0;
 	z-index: -1;
 	outline: none;
+	transition-delay: var(--transition-duration);
 }

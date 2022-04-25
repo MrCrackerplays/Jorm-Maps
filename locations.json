@@ -1,21 +1,23 @@
 {
 	"SpireView": {
-		"meta": {
-			"location": {
-				"bounds": [[2779385.856, 2715847.996], [3611172.864, 3676271.300]]
+		"image": {
+			"meta": {
+				"location": {
+					"bounds": [[2779385.856, 2715847.996], [3611172.864, 3676271.300]]
+				},
+				"file": "SpireView.png",
+				"layers": {
+					"min": 0,
+					"max": 22
+				}
 			},
-			"image": "SpireView.png",
-			"layers": {
-				"min": 0,
-				"max": 22
-			}
-		},
-		"opacity": 1,
-		"pane": "tilePane"
+			"opacity": 1,
+			"pane": "tilePane"
+		}
 	},
 	"Dod'Estrin": {
-		"meta": {
-			"image": {
+		"image": {
+			"meta": {
 				"location": {
 					"bounds": [[2815148.954, 3137025.904], [2815409.254, 3137373.376]]
 				},
@@ -25,15 +27,150 @@
 					"max": 22
 				}
 			},
-			"marker": {
-				"location": [2815244.0985, 3137180.0985],
+			"opacity": 1,
+			"pane": "tilePane"
+		},
+		"marker": {
+			"meta": {
+				"location": {
+					"latlng": [2815244.0985, 3137180.0985]
+				},
+				"click": {
+					"jump_zoom": 17
+				},
 				"layers": {
 					"min": 0,
 					"max": 13
 				}
 			}
-		},
-		"opacity": 1,
-		"pane": "tilePane"
+		}
+	},
+	"Missing Histories": {
+		"marker": {
+			"meta": {
+				"location": {
+					"latlng": [2815232.0505, 3137166.954]
+				},
+				"click": {
+					"jump_zoom": 19
+				},
+				"layers": {
+					"min": 14,
+					"max": 22
+				}
+			}
+		}
+	},
+	"Meros & Raesa": {
+		"marker": {
+			"meta": {
+				"location": {
+					"latlng": [2815281.9615, 3137186.004]
+				},
+				"click": {
+					"jump_zoom": 19
+				},
+				"layers": {
+					"min": 14,
+					"max": 22
+				}
+			}
+		}
+	},
+	"The Temple": {
+		"marker": {
+			"meta": {
+				"location": {
+					"latlng": [2815255.482, 3137158.0005]
+				},
+				"click": {
+					"jump_zoom": 19
+				},
+				"layers": {
+					"min": 14,
+					"max": 22
+				}
+			}
+		}
+	},
+	"The Hunter's Lodge": {
+		"marker": {
+			"meta": {
+				"location": {
+					"latlng": [2815276.818, 3137074.371]
+				},
+				"click": {
+					"jump_zoom": 19
+				},
+				"layers": {
+					"min": 14,
+					"max": 22
+				}
+			}
+		}
+	},
+	"Valtros & Holdric & Kolt": {
+		"marker": {
+			"meta": {
+				"location": {
+					"latlng": [2815284.6285, 3137143.5225]
+				},
+				"click": {
+					"jump_zoom": 19
+				},
+				"layers": {
+					"min": 14,
+					"max": 22
+				}
+			}
+		}
+	},
+	"Town Farm": {
+		"marker": {
+			"meta": {
+				"location": {
+					"latlng": [2815255.101, 3137223.9135]
+				},
+				"click": {
+					"jump_zoom": 19
+				},
+				"layers": {
+					"min": 14,
+					"max": 22
+				}
+			}
+		}
+	},
+	"Trusted Toolbox": {
+		"marker": {
+			"meta": {
+				"location": {
+					"latlng": [2815184.997, 3137152.2855]
+				},
+				"click": {
+					"jump_zoom": 19
+				},
+				"layers": {
+					"min": 14,
+					"max": 22
+				}
+			}
+		}
+	},
+	"Kathryn": {
+		"marker": {
+			"meta": {
+				"location": {
+					"latlng": [2815238.1465, 3137151.1425]
+				},
+				"click": {
+					"jump_zoom": 19
+				},
+				"layers": {
+					"min": 14,
+					"max": 22
+				}
+			}
+		}
 	}
 }

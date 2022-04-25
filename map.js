@@ -80,24 +80,34 @@ function onEachFeature(feature, layer) {
 	});
 }
 
-let call = undefined;
+// let move_end_call = undefined;
+function onMoveEnd() {
+	// move_end_call = setTimeout(function () {
+	if (map.getZoom() != prevZoom) {
+		updateLocations();
+		prevZoom = map.getZoom();
+	}
+	// }, 850);
+}
+
+let move_call = undefined;
 let grid_holder = L.layerGroup();
 function onMove() {
-	clearTimeout(call);
+	clearTimeout(move_call);
 	map.removeLayer(grid_holder);
-	call = setTimeout(function () {
+	move_call = setTimeout(function () {
 		updateGrid();
 		if (map.getZoom() >= 2 && map.getZoom() < 8)
 			map.addLayer(grid_holder);
 	}, 650);
 }
 function updateGrid() {
-	if (map.getZoom() >= 9) {
-		if (map.hasLayer(townimage) == false)
-			map.addLayer(townimage);
-	} else if (map.hasLayer(townimage)) {
-		map.removeLayer(townimage);
-	}
+	// if (map.getZoom() >= 9) {
+	// 	if (map.hasLayer(townimage) == false)
+	// 		map.addLayer(townimage);
+	// } else if (map.hasLayer(townimage)) {
+	// 	map.removeLayer(townimage);
+	// }
 	if (map.getZoom() >= 2 && map.getZoom() < 8) {
 		for (let i = 0; i < CLUSTER_COLUMNS * CLUSTER_ROWS; i++) {
 			if (map.getBounds().intersects(hexGrid[i].getBounds())) {
@@ -116,10 +126,13 @@ function toggleDebug() {
 }
 
 function updateSidebar() {
-	if (localStorage.getItem("sidebar-hidden") == "true")
+	if (localStorage.getItem("sidebar-hidden") == "true") {
+		document.getElementById("map").style.setProperty("transition-delay", "1ms");
 		document.body.style.setProperty("--sidebar-offset", "0px");
-	else
+	} else {
+		document.getElementById("map").style.removeProperty("transition-delay");
 		document.body.style.removeProperty("--sidebar-offset");
+	}
 }
 
 
@@ -135,6 +148,7 @@ var map = L.map('map', {
 	preferCanvas: true,
 	inertiaMaxSpeed: 3000,
 	zoom: 17,
+	maxZoom: TARGET_ZOOM,
 	maxBoundsViscosity: 1.0
 });
 map.setMaxBounds(L.latLngBounds(L.latLng(L.CRS.dod.projection.bounds.min.x - 500000, L.CRS.dod.projection.bounds.min.y - 500000),
@@ -210,24 +224,122 @@ const LOCATIONS_JSON_URL = "locations.json";
 // 	const response = await fetch('locations.json');
 // 	locations = await response.json();
 // }
-var testimage = L.imageOverlay("SpireView.png", [[2779385.856, 2715847.996], [3611172.864, 3676271.300]],{
-	opacity: 0.98,
-	pane: 'tilePane'
-}).addTo(map);
-var townimage = L.imageOverlay("DodEstrin.jpg", [[2815148.954, 3137025.904], [2815409.254, 3137373.376]],{
-	opacity: 0.98,
-	pane: 'tilePane'
+// var testimage = L.imageOverlay("SpireView.png", [[2779385.856, 2715847.996], [3611172.864, 3676271.300]],{
+// 	opacity: 0.98,
+// 	pane: 'tilePane'
+// }).addTo(map);
+// var townimage = L.imageOverlay("DodEstrin.jpg", [[2815148.954, 3137025.904], [2815409.254, 3137373.376]],{
+// 	opacity: 0.98,
+// 	pane: 'tilePane'
+// });
+document.getElementById("map").addEventListener('transitionend', function(e) {
+	map.invalidateSize();
 });
 
+var locations;
+var markers = {};
+var images = {};
+
+var markerCluster = L.markerClusterGroup({});
+markerCluster.addTo(map);
+var imageLayer = L.layerGroup([]);
+imageLayer.addTo(map);
+function updateMarker(marker, name) {
+	if (map.getZoom() >= marker.meta.layers.min && map.getZoom() <= marker.meta.layers.max)
+		markerCluster.addLayer(markers[name]);
+	else
+		markerCluster.removeLayer(markers[name]);
+}
+function updateImage(image, name) {
+	if (map.getZoom() >= image.meta.layers.min && map.getZoom() <= image.meta.layers.max)
+		imageLayer.addLayer(images[name]);
+	else
+		imageLayer.removeLayer(images[name]);
+}
+
+function getCorners(location) {
+	//https://github.com/publiclab/Leaflet.DistortableImage#corners
+	if (location.corners)
+		return [L.latLng(location.corners[0]),
+		L.latLng(location.corners[1]),
+		L.latLng(location.corners[2]),
+		L.latLng(location.corners[3])];
+	if (location.bounds)
+		return [L.latLng(location.bounds[0][0], location.bounds[0][1]),
+		L.latLng(location.bounds[0][0], location.bounds[1][1]),
+		L.latLng(location.bounds[1][0], location.bounds[0][1]),
+		L.latLng(location.bounds[1][0], location.bounds[1][1])];
+	console.warn("Not able to get corners based on location data");
+	return [L.latLng(0, 0), L.latLng(0, 0), L.latLng(0, 0), L.latLng(0, 0)];
+}
+
+function getCoordinates(location) {
+	if (location.latlng)
+		return (L.latLng(location.latlng));
+	console.warn("Not able to get coordinates based on location data");
+	return (L.latLng(0, 0));
+}
+
+function loadImages() {
+	for (let loc in locations) {
+		if (locations[loc].image) {
+			let options = {};
+			for (let opt in locations[loc].image)
+				if (opt != "meta")
+					options[opt] = locations[loc].image[opt];
+			// options.corners = getCorners(locations[loc].image.meta.location);
+			// options.actions = [];
+			// images[loc] = L.distortableImageOverlay(locations[loc].image.meta.file, options);
+			images[loc] = L.imageOverlay(locations[loc].image.meta.file, locations[loc].image.meta.location.bounds, options);
+		}
+	}
+}
+
+function loadMarkers() {
+	for (let loc in locations) {
+		if (locations[loc].marker) {
+			let options = {};
+			for (let opt in locations[loc].marker)
+				if (opt != "meta")
+					options[opt] = locations[loc].marker[opt];
+			markers[loc] = L.marker(getCoordinates(locations[loc].marker.meta.location), options);
+			if (locations[loc].marker.meta.click.jump_zoom)
+				markers[loc].on('click', function(e) {
+					map.flyTo(getCoordinates(locations[loc].marker.meta.location), locations[loc].marker.meta.click.jump_zoom);
+				});
+			markers[loc].bindPopup("Oh hey, look it's " + loc + "!");
+			markers[loc].on('mouseover', function(e) {
+				this.openPopup();
+			});
+			markers[loc].on('mouseout', function(e) {
+				this.closePopup();
+			});
+		}
+	}
+}
+
+function updateLocations() {
+	for (let loc in locations){
+		if (locations[loc].marker)
+			updateMarker(locations[loc].marker, loc)
+		if (locations[loc].image)
+			updateImage(locations[loc].image, loc)
+	}
+}
+
+var prevZoom = map.getZoom();
 async function main() {
 	const response = await fetch(LOCATIONS_JSON_URL);
-	const locations = await response.json();
-	console.log(locations);
+	locations = await response.json();
+	loadImages();
+	loadMarkers();
+	updateLocations();
 	updateGrid();
 	if (document.getElementById("debugGrid").checked)
 		map.addLayer(debugCoordsGrid);
 	map.addLayer(grid_holder);
 	map.on('move', onMove);
+	map.on('move', onMoveEnd);
 	map.on('click', function(e) {
 		console.log("Lat, Lon : " + e.latlng.lat + ", " + e.latlng.lng)
 	});
