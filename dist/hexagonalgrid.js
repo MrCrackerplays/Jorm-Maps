@@ -16,9 +16,9 @@ var H = {
                         angle = 2 * Math.PI / 6 * i
                         x_i = center[0] + size * Math.cos(angle)
                         y_i = center[1] + size * Math.sin(angle)
-                        // if (i == 0)
-                        //     coordinates.push([x_i, y_i])
-                        // else
+						// if (i == 0)
+						//     coordinates.push([x_i, y_i])
+						// else
 						coordinates.push([x_i, y_i])
                     }
                     coordinates.push(coordinates[0]);
@@ -35,10 +35,10 @@ var H = {
     /**
     * Create the hexagonal grid
     */
-    hexagonalGrid: function( center, cols, lines, size, coordinate_offset_x, coordinate_offset_y){
+	hexagonalGrid: function( center, cols, lines, size, coordinate_offset_x, coordinate_offset_y){
 
         var features = [];
-        // features.push(this.hexagon(center, size));
+		// features.push(this.hexagon(center, size));
 
         width = size*2;
 
@@ -55,7 +55,7 @@ var H = {
 
            for(var l =0; l< lines;l++){
                 newCenter = [center[0] + horiz, (center[1] + offset) + (vert*l) ]
-                features.push(this.hexagon(newCenter, size, k + coordinate_offset_x, l + coordinate_offset_y));
+				features.push(this.hexagon(newCenter, size, k + coordinate_offset_x, l + coordinate_offset_y));
            }
 		}
 		// console.log("created grid of size", features.length);
