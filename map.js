@@ -235,20 +235,33 @@ function updateImage(image, name) {
 		imageLayer.removeLayer(images[name]);
 }
 
-function getCorners(location) {
-	//https://github.com/publiclab/Leaflet.DistortableImage#corners
-	if (location.corners != undefined)
-		return [L.latLng(location.corners[0]),
-		L.latLng(location.corners[1]),
-		L.latLng(location.corners[2]),
-		L.latLng(location.corners[3])];
+function rotatePoint(pivot, angle_radians, point) {
+	const s = Math.sin(-angle_radians);
+	const c = Math.cos(-angle_radians);
+	let rotated = [point[0] - pivot[0], point[1] - pivot[1]];
+	let xnew = rotated[1] * c - rotated[0] * s;
+	let ynew = rotated[1] * s + rotated[0] * c;
+	rotated[1] = xnew + pivot[1];
+	rotated[0] = xnew + pivot[0];
+	return L.latLng(rotated);
+}
+
+function getBounds(location) {
 	if (location.bounds != undefined)
 		return [L.latLng(location.bounds[0][0], location.bounds[0][1]),
-		L.latLng(location.bounds[0][0], location.bounds[1][1]),
-		L.latLng(location.bounds[1][0], location.bounds[0][1]),
 		L.latLng(location.bounds[1][0], location.bounds[1][1])];
+	if (location.width != undefined && location.height != undefined && location.center != undefined) {
+		let width = calculateLength(location.width);
+		let height = calculateLength(location.height);
+		let middle = location.center;
+		let topleft = [middle[0] - (height / 2), middle[1] - (width / 2)];
+		console.log(width, height, middle);
+		console.log("unrotated", topleft, "rotated", rotatePoint(middle, 33 * (Math.PI / 180), topleft));
+		return [topleft,
+		L.latLng(middle[0] + (height / 2), middle[1] + (width / 2))];
+	}
 	console.error("Not able to get corners based on location data");
-	return [L.latLng(0, 0), L.latLng(0, 0), L.latLng(0, 0), L.latLng(0, 0)];
+	return [L.latLng(0, 0), L.latLng(0, 0)];
 }
 
 function getDistancePerHour() {
@@ -376,7 +389,9 @@ function loadImages() {
 			// options.corners = getCorners(locations[loc].image.meta.location);
 			// options.actions = [];
 			// images[loc] = L.distortableImageOverlay(locations[loc].image.meta.file, options);
-			images[loc] = L.imageOverlay(locations[loc].image.meta.file, locations[loc].image.meta.location.bounds, options);
+			let bounds = getBounds(locations[loc].image.meta.location);
+			console.log(bounds);
+			images[loc] = L.imageOverlay(locations[loc].image.meta.file, bounds, options);
 		}
 	}
 }
