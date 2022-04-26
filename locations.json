@@ -172,5 +172,47 @@
 				}
 			}
 		}
+	},
+	"Research Center": {
+		"marker": {
+			"meta": {
+				"location": {
+					"latlng": [2815272.4365, 3137172.669]
+				},
+				"click": {
+					"jump_zoom": 19
+				},
+				"layers": {
+					"min": 14,
+					"max": 22
+				}
+			}
+		}
+	},
+	"Wizard Tower": {
+		"marker": {
+			"meta": {
+				"location": {
+					"distance": {
+						"duration": {
+							"hour_timestamp": "2:00"
+						}
+					},
+					"direction": {
+						"compass": "N"
+					},
+					"origin": {
+						"location": "Dod'Estrin"
+					}
+				},
+				"click": {
+					"jump_zoom": 19
+				},
+				"layers": {
+					"min": 0,
+					"max": 22
+				}
+			}
+		}
 	}
 }
