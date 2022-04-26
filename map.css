@@ -55,6 +55,35 @@ html, body {
 	transition: var(--transition-duration);
 }
 
+#toggle-sidebar {
+  display: none;
+}
+
+#toggle-sidebar:checked ~ #sidebar,
+#toggle-sidebar:checked ~ #map,
+#toggle-sidebar:checked ~ label {
+  --sidebar-offset: 0px;
+}
+
+#toggle-sidebar:checked ~ #map {
+  transition-delay: 1ms;
+}
+
+.toggle-sidebar-label {
+  width: 1em;
+  height: 1em;
+  background-color: var(--background);
+  position: absolute;
+  z-index: 2;
+  left: var(--sidebar-offset);
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: var(--transition-duration);
+  cursor: pointer;
+}
+
 #map {
 	position: absolute;
 	top: 0;

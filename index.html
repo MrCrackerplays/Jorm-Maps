@@ -31,11 +31,12 @@
 </head>
 
 <body>
+  <input type="checkbox" id="toggle-sidebar">
+  <label class="toggle-sidebar-label" for="toggle-sidebar" tabindex="0">&times;</label>
 	<aside id="sidebar">
 		<input type="checkbox" id="debugGrid" onclick="toggleDebug();" />
 		<label for="debugGrid">Debug Grid</label>
 	</aside>
-	<div id="hide-sidebar" tabindex="0">W</div>
 	<main id='map'></main>
 	<script src="map.js"></script>
 </body>
