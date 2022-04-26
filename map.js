@@ -80,14 +80,11 @@ function onEachFeature(feature, layer) {
 	});
 }
 
-// let move_end_call = undefined;
 function onMoveEnd() {
-	// move_end_call = setTimeout(function () {
 	if (map.getZoom() != prevZoom) {
 		updateLocations();
 		prevZoom = map.getZoom();
 	}
-	// }, 850);
 }
 
 let move_call = undefined;
@@ -102,12 +99,6 @@ function onMove() {
 	}, 650);
 }
 function updateGrid() {
-	// if (map.getZoom() >= 9) {
-	// 	if (map.hasLayer(townimage) == false)
-	// 		map.addLayer(townimage);
-	// } else if (map.hasLayer(townimage)) {
-	// 	map.removeLayer(townimage);
-	// }
 	if (map.getZoom() >= 2 && map.getZoom() < 8) {
 		for (let i = 0; i < CLUSTER_COLUMNS * CLUSTER_ROWS; i++) {
 			if (map.getBounds().intersects(hexGrid[i].getBounds())) {
@@ -219,19 +210,6 @@ const LOCATIONS_JSON_URL = "locations.json";
 // 	tileSize: 256});
 // map.addLayer(testlayer);
 
-// var locations;
-// async function loadLocations() {
-// 	const response = await fetch('locations.json');
-// 	locations = await response.json();
-// }
-// var testimage = L.imageOverlay("SpireView.png", [[2779385.856, 2715847.996], [3611172.864, 3676271.300]],{
-// 	opacity: 0.98,
-// 	pane: 'tilePane'
-// }).addTo(map);
-// var townimage = L.imageOverlay("DodEstrin.jpg", [[2815148.954, 3137025.904], [2815409.254, 3137373.376]],{
-// 	opacity: 0.98,
-// 	pane: 'tilePane'
-// });
 document.getElementById("map").addEventListener('transitionend', function(e) {
 	map.invalidateSize();
 });
@@ -259,25 +237,133 @@ function updateImage(image, name) {
 
 function getCorners(location) {
 	//https://github.com/publiclab/Leaflet.DistortableImage#corners
-	if (location.corners)
+	if (location.corners != undefined)
 		return [L.latLng(location.corners[0]),
 		L.latLng(location.corners[1]),
 		L.latLng(location.corners[2]),
 		L.latLng(location.corners[3])];
-	if (location.bounds)
+	if (location.bounds != undefined)
 		return [L.latLng(location.bounds[0][0], location.bounds[0][1]),
 		L.latLng(location.bounds[0][0], location.bounds[1][1]),
 		L.latLng(location.bounds[1][0], location.bounds[0][1]),
 		L.latLng(location.bounds[1][0], location.bounds[1][1])];
-	console.warn("Not able to get corners based on location data");
+	console.error("Not able to get corners based on location data");
 	return [L.latLng(0, 0), L.latLng(0, 0), L.latLng(0, 0), L.latLng(0, 0)];
 }
 
-function getCoordinates(location) {
+function getDistancePerHour() {
+	const FOOT_PER_MINUTE_TO_MILE_PER_HOUR = 0.01; // 400ft->4mile 300ft->3mile 200ft->2mile according to PHB travel pace
+	const FOOT_PER_MINUTE = 300;//should be changeable by user
+	const MILE_PER_HOUR = FOOT_PER_MINUTE * FOOT_PER_MINUTE_TO_MILE_PER_HOUR;
+	return MILE_PER_HOUR;
+}
+
+function getDistancePerDay() {
+	const TRAVEL_HOURS_PER_DAY = 8;//should be changeable by user
+	const MILE_PER_HOUR = getDistancePerHour();
+	const TRAVEL_MILES_PER_DAY = MILE_PER_HOUR * TRAVEL_HOURS_PER_DAY;
+	return TRAVEL_MILES_PER_DAY;
+}
+
+function calculateLength(distance) {
+	if (distance.meter != undefined)
+		return distance.meter;
+	if (distance.feet != undefined)
+		return distance.feet * METER_PER_FOOT;
+	if (distance.kilometers != undefined)
+		return distance.kilometers * 1000;
+	if (distance.mile != undefined)
+		return distance.mile * METER_PER_MILE;
+	if (distance.duration != undefined) {
+		if (distance.duration.days != undefined)
+			return getDistancePerDay() * distance.duration.days;
+		if (distance.duration.hours != undefined)
+			return METER_PER_MILE * getDistancePerHour() * distance.duration.hours;
+		if (distance.duration.hour_timestamp != undefined) {
+			const timeArray = distance.duration.hour_timestamp.split(":");
+			return METER_PER_MILE * getDistancePerHour() * (parseInt(timeArray[0]) + parseInt(timeArray[1]) / 60);
+		}
+	}
+	return undefined;
+}
+
+function getDegreesFromCompass(compass) {
+	if (compass == "N")
+		return 0;
+	if (compass == "NNE")
+		return 22.5;
+	if (compass == "NE")
+		return 45;
+	if (compass == "ENE")
+		return 67.5;
+	if (compass == "E")
+		return 90;
+	if (compass == "ESE")
+		return 112.5;
+	if (compass == "SE")
+		return 135;
+	if (compass == "SSE")
+		return 157.5;
+	if (compass == "S")
+		return 180;
+	if (compass == "SSW")
+		return 202.5;
+	if (compass == "SW")
+		return 225;
+	if (compass == "WSW")
+		return 247.5;
+	if (compass == "W")
+		return 270;
+	if (compass == "WNW")
+		return 292.5;
+	if (compass == "NW")
+		return 315;
+	if (compass == "NNW")
+		return 337.5;
+	return undefined;
+}
+
+function calculateAngle(direction) {
+	if (direction.degrees != undefined)
+		return direction.degrees - 90;
+	if (direction.radians != undefined)
+		return (direction.radians * 180 / Math.PI) - 90;
+	if (direction.compass != undefined)
+		return getDegreesFromCompass(direction.compass) - 90;
+	return undefined;
+}
+
+function getStartCoordinates(origin, name) {
+	if (origin.latlng != undefined)
+		return L.latLng(origin.latlng);
+	if (origin.location != undefined && origin.location != name)
+		return getCoordinates(locations[origin.location].marker.meta.location, origin.location);
+	return undefined;
+}
+
+function calculateCoordinates(distance, direction, origin, name) {
+	let length = calculateLength(distance);
+	let angle = calculateAngle(direction);
+	let start = getStartCoordinates(origin, name);
+	if (length != undefined && angle != undefined && start != undefined)
+		return L.latLng(start.lat + Math.sin(angle*Math.PI/180) * length, start.lng + Math.cos(angle*Math.PI/180) * length);
+	console.error("Not able to get " + (length ? "" : "length ") + (angle ? "" : "angle ") + (start ? "" : "start ") + "based on location data for", name);
+	return L.latLng(0, 0);
+}
+
+let coordinates = {};
+function getCoordinates(location, name) {
+	if (coordinates[name])
+		return coordinates[name];
+	let result = L.latLng(0, 0);
 	if (location.latlng)
-		return (L.latLng(location.latlng));
-	console.warn("Not able to get coordinates based on location data");
-	return (L.latLng(0, 0));
+		result = L.latLng(location.latlng);
+	else if (location.distance && location.direction && location.origin)
+		result = calculateCoordinates(location.distance, location.direction, location.origin, name);
+	else
+		console.error("Not able to get coordinates based on location data for", name);
+	coordinates[name] = result;
+	return result;
 }
 
 function loadImages() {
@@ -302,10 +388,10 @@ function loadMarkers() {
 			for (let opt in locations[loc].marker)
 				if (opt != "meta")
 					options[opt] = locations[loc].marker[opt];
-			markers[loc] = L.marker(getCoordinates(locations[loc].marker.meta.location), options);
+			markers[loc] = L.marker(getCoordinates(locations[loc].marker.meta.location, loc), options);
 			if (locations[loc].marker.meta.click.jump_zoom)
 				markers[loc].on('click', function(e) {
-					map.flyTo(getCoordinates(locations[loc].marker.meta.location), locations[loc].marker.meta.click.jump_zoom);
+					map.flyTo(getCoordinates(locations[loc].marker.meta.location, loc), locations[loc].marker.meta.click.jump_zoom);
 				});
 			markers[loc].bindPopup("Oh hey, look it's " + loc + "!");
 			markers[loc].on('mouseover', function(e) {
