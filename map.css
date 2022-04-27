@@ -40,12 +40,18 @@ html, body {
 	padding: 15px 10px 0 15px;
 	left: min(calc(var(--sidebar-offset) - var(--sidebar-width)), 0px);
 	position: absolute;
-	overflow: hidden;
 	background: var(--background);
 	top: 0;
 	bottom: 0;
 	z-index: 1;
 	transition: var(--transition-duration);
+	overflow-y: auto;
+	-ms-overflow-style: none; /* for Internet Explorer, Edge */
+	scrollbar-width: none; /* for Firefox */
+}
+
+#sidebar::-webkit-scrollbar {
+	display: none; /* for Chrome, Safari, and Opera */
 }
 
 #hide-sidebar {
