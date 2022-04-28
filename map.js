@@ -148,6 +148,8 @@ function rotatePoint(pivot, angle_radians, point) {
 	return rotated;
 }
 
+let image_coordinates = {};
+let marker_coordinates = {};
 function getBounds(location, name) {
 	if (location.bounds != undefined)
 		return [L.latLng(location.bounds[0][0], location.bounds[0][1]),
@@ -157,7 +159,7 @@ function getBounds(location, name) {
 		let height = calculateLength(location.height);
 		let topleft;
 		if (location.center != undefined) {
-			let middle = getCoordinates(location.center, name);
+			let middle = getCoordinates(location.center, name, image_coordinates);
 			// if (location.center.latlng != undefined)
 			// 	middle = location.center.latlng;
 			// else if (location.center.distance != undefined && location.center.direction != undefined && location.center.origin != undefined) {
@@ -262,26 +264,26 @@ function calculateAngle(direction) {
 	return undefined;
 }
 
-function getStartCoordinates(origin, name) {
+function getStartCoordinates(origin, name, coordinates) {
 	if (origin.latlng != undefined)
 		return L.latLng(origin.latlng);
 	if (origin.location != undefined && origin.location != name)
-		return getCoordinates(locations[origin.location].marker.meta.location, origin.location);
+		return getCoordinates(locations[origin.location].marker.meta.location, origin.location, coordinates);
 	return undefined;
 }
 
-function calculateCoordinates(distance, direction, origin, name) {
+function calculateCoordinates(distance, direction, origin, name, coordinates) {
 	let length = calculateLength(distance);
 	let angle = calculateAngle(direction);
-	let start = getStartCoordinates(origin, name);
+	let start = getStartCoordinates(origin, name, coordinates);
 	if (length != undefined && angle != undefined && start != undefined)
 		return L.latLng(start.lat + Math.sin(angle*Math.PI/180) * length, start.lng + Math.cos(angle*Math.PI/180) * length);
 	console.error("Not able to get " + (length ? "" : "length ") + (angle ? "" : "angle ") + (start ? "" : "start ") + "based on location data for", name);
 	return L.latLng(0, 0);
 }
 
-function offsetCoordinates(origin, offset, name) {
-	let start = getStartCoordinates(origin, name);
+function offsetCoordinates(origin, offset, name, coordinates) {
+	let start = getStartCoordinates(origin, name, coordinates);
 	console.log("start", start, name, origin);
 	console.log("lat offset", calculateLength(offset.lat));
 	console.log("lng offset", calculateLength(offset.lng));
@@ -289,9 +291,9 @@ function offsetCoordinates(origin, offset, name) {
 	return start;
 }
 
-let coordinates = {};
 let resolving = [];
-function getCoordinates(location, name) {
+function getCoordinates(location, name, coordinates) {
+	console.log(name, location);
 	if (coordinates[name])
 		return coordinates[name];
 	let result = L.latLng(0, 0);
@@ -303,9 +305,9 @@ function getCoordinates(location, name) {
 	if (location.latlng != undefined)
 		result = L.latLng(location.latlng);
 	else if (location.origin != undefined && location.offset != undefined)
-		result = offsetCoordinates(location.origin, location.offset, name);
+		result = offsetCoordinates(location.origin, location.offset, name, coordinates);
 	else if (location.distance != undefined && location.direction != undefined && location.origin != undefined)
-		result = calculateCoordinates(location.distance, location.direction, location.origin, name);
+		result = calculateCoordinates(location.distance, location.direction, location.origin, name, coordinates);
 	else
 		console.error("Not able to get coordinates based on location data for", name);
 	console.log("DEFINING COORDINATE FOR", name, result, "location data", location); // TODOL FIX WRONG LATLNG FOR DODESTRIN
@@ -341,10 +343,11 @@ function loadMarkers() {
 			for (let opt in locations[loc].marker)
 				if (opt != "meta")
 					options[opt] = locations[loc].marker[opt];
-			markers[loc] = L.marker(getCoordinates(locations[loc].marker.meta.location, loc), options);
+				markers[loc] = L.marker(getCoordinates(locations[loc].marker.meta.location, loc, marker_coordinates), options);
+				// console.log("MARKERLOADING", loc, "markermeta", locations[loc].marker.meta.location, "markersloc", markers[loc], "getcoords", getCoordinates(locations[loc].marker.meta.location, loc))
 			if (locations[loc].marker.meta.click.jump_zoom)
 				markers[loc].on('click', function(e) {
-					map.flyTo(getCoordinates(locations[loc].marker.meta.location, loc), locations[loc].marker.meta.click.jump_zoom);
+					map.flyTo(getCoordinates(locations[loc].marker.meta.location, loc, marker_coordinates), locations[loc].marker.meta.click.jump_zoom);
 				});
 			markers[loc].bindTooltip(loc, {});
 		}
