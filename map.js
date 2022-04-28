@@ -159,7 +159,7 @@ function getBounds(location, name) {
 		let height = calculateLength(location.height);
 		let topleft;
 		if (location.center != undefined) {
-			let middle = getCoordinates(location.center, name, image_coordinates);
+			let middle = getCoordinates(location.center, name, image_coordinates);//FIXME: THIS GOES WRONG BECAUSE IT HAS TO BE USED FOR BOTH ABSOLUTE AND RELATIVE POSITIONS AND THE RELATIVE POSITIONS REQUIRE MARKER POSITIONS RATHER THAN IMAGE CENTER POSITIONS
 			// if (location.center.latlng != undefined)
 			// 	middle = location.center.latlng;
 			// else if (location.center.distance != undefined && location.center.direction != undefined && location.center.origin != undefined) {
@@ -287,7 +287,7 @@ function offsetCoordinates(origin, offset, name, coordinates) {
 	console.log("start", start, name, origin);
 	console.log("lat offset", calculateLength(offset.lat));
 	console.log("lng offset", calculateLength(offset.lng));
-	start = L.latLng(start.lat += calculateLength(offset.lat), start.lng += calculateLength(offset.lng));
+	start = L.latLng(start.lat + calculateLength(offset.lat), start.lng + calculateLength(offset.lng));
 	return start;
 }
 
@@ -302,8 +302,10 @@ function getCoordinates(location, name, coordinates) {
 		return result;
 	}
 	resolving.push(name);
-	if (location.latlng != undefined)
+	if (location.latlng != undefined){
 		result = L.latLng(location.latlng);
+		console.log("DEFINING", name, "COORDINATE BY LATLNG", location.latlng, "RESULT", result);
+	}
 	else if (location.origin != undefined && location.offset != undefined)
 		result = offsetCoordinates(location.origin, location.offset, name, coordinates);
 	else if (location.distance != undefined && location.direction != undefined && location.origin != undefined)
