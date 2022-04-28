@@ -30,12 +30,7 @@ L.CRS.dod = L.extend({}, L.CRS.Simple, {
 	infinite: false
 });
 
-let oef = true;
 function style(feature) {
-	if (oef) {
-		console.log(feature);
-		oef = false;
-	}
 	return {
 		fillColor: 'transparent',
 		weight: 1,
@@ -65,7 +60,6 @@ function resetHighlight(e) {
 }
 
 function click(e) {
-	console.log(e.target)
 	popup = L.popup()
 					.setLatLng(e.latlng)
 					.setContent("Hexagon ID: "+e.target.feature.properties.id+"<br/>"+e.latlng)
@@ -116,112 +110,20 @@ function toggleDebug() {
 		map.removeLayer(debugCoordsGrid);
 }
 
-function updateSidebar() {
-	if (localStorage.getItem("sidebar-hidden") == "true") {
-		document.getElementById("map").style.setProperty("transition-delay", "1ms");
-		document.body.style.setProperty("--sidebar-offset", "0px");
-	} else {
-		document.getElementById("map").style.removeProperty("transition-delay");
-		document.body.style.removeProperty("--sidebar-offset");
-	}
-}
-
-
-
-
-
-
-
-
-var map = L.map('map', {
-	crs: L.CRS.dod,
-	center: [2815244.0985, 3137180.0985],
-	preferCanvas: true,
-	inertiaMaxSpeed: 3000,
-	zoom: 17,
-	maxZoom: TARGET_ZOOM,
-	maxBoundsViscosity: 1.0
-});
-map.setMaxBounds(L.latLngBounds(L.latLng(L.CRS.dod.projection.bounds.min.x - 500000, L.CRS.dod.projection.bounds.min.y - 500000),
-	L.latLng(L.CRS.dod.projection.bounds.max.x + 500000, L.CRS.dod.projection.bounds.max.y + 500000)));
-const scale = L.control.scale({ updateWhenIdle: true }).addTo(map);
-
-L.GridLayer.DebugCoords = L.GridLayer.extend({
-	createTile: function (coords, done) {
-		var tile = document.createElement("div");
-		var text = document.createTextNode([coords.x, coords.y, coords.z].join(', '));
-		tile.appendChild(text);
-
-		tile.classList.add("debug-tile");
-		if ((coords.x + coords.y) % 2 == 0) {
-			if (coords.x % 2 == 0)
-				tile.classList.add("beppie");
-			else
-				tile.classList.add("beppoe");
-		}
-
-		setTimeout(function () {
-			done(null, tile); // Syntax is 'done(error, tile)'
-		}, 500 + Math.random() * 1500);
-
-		return tile;
-	}
-});
-L.gridLayer.debugCoords = function (opts) {
-	return new L.GridLayer.DebugCoords(opts);
+function isExternalLink(url) {
+	const tmp = document.createElement('a');
+	tmp.href = url;
+	return tmp.host !== window.location.host;
 };
-var debugCoordsGrid = L.gridLayer.debugCoords({tileSize: 256, zIndex:100});
 
-
-
-const ROOT_3 = Math.sqrt(3);
-const HEX_SIDE_LEN = METER_PER_MILE * 24 / ROOT_3;
-const WORLD_WIDTH = map.options.crs.projection.bounds.max.x - map.options.crs.projection.bounds.min.x;
-const WORLD_HEIGHT = map.options.crs.projection.bounds.max.y - map.options.crs.projection.bounds.min.y;
-const TOTAL_COLUMNS = Math.ceil(WORLD_WIDTH / (HEX_SIDE_LEN * 1.5));
-const TOTAL_ROWS = Math.ceil(WORLD_HEIGHT / (HEX_SIDE_LEN * ROOT_3));
-const CLUSTER_SIZE = 8;
-const CLUSTER_COLUMNS = TOTAL_COLUMNS < CLUSTER_SIZE * 2 ? 1 : CLUSTER_SIZE;
-const CLUSTER_ROWS = TOTAL_ROWS < CLUSTER_SIZE * 2 ? 1 : CLUSTER_SIZE;
-const COLUMNS = Math.floor(TOTAL_COLUMNS / CLUSTER_COLUMNS);
-const ROWS = Math.floor(TOTAL_ROWS / CLUSTER_ROWS);
-const ORIGIN_HEX_CENTER = [map.options.crs.projection.bounds.min.x, map.options.crs.projection.bounds.min.y];
-var hexGrid = [];
-for (let i = 0; i < CLUSTER_COLUMNS; i++) {
-	const local_columns = i == CLUSTER_SIZE - 1 ? COLUMNS + (TOTAL_COLUMNS % CLUSTER_COLUMNS) : COLUMNS;
-	for (let j = 0; j < CLUSTER_ROWS; j++) {
-		const local_rows = j == CLUSTER_SIZE - 1 ? ROWS + (TOTAL_ROWS % CLUSTER_ROWS) : ROWS;
-		hexGrid[j + i * CLUSTER_ROWS] = L.geoJson(H.hexagonalGrid([ORIGIN_HEX_CENTER[0] + (i * COLUMNS * 1.5 * HEX_SIDE_LEN),
-							ORIGIN_HEX_CENTER[1] + (j * ROWS * ROOT_3 * HEX_SIDE_LEN)],
-						local_columns, local_rows, HEX_SIDE_LEN, COLUMNS * i, ROWS * j), {
-							style: style,
-							onEachFeature: onEachFeature
-		});
-	}
+function updateSidebar() {
+	if (localStorage.getItem("sidebar-hidden") === "true")
+		document.getElementById("toggle-sidebar").checked = true;
+	else
+		document.getElementById("toggle-sidebar").checked = false;
 }
 
-const LOCATIONS_JSON_URL = "locations.json";
 
-
-
-// var testlayer = L.tileLayer.fallback('jorma{z}.png', {
-// 	maxZoom: TARGET_ZOOM,
-// 	maxNativeZoom: TARGET_ZOOM,
-// 	tileSize: 256});
-// map.addLayer(testlayer);
-
-document.getElementById("map").addEventListener('transitionend', function(e) {
-	map.invalidateSize();
-});
-
-var locations;
-var markers = {};
-var images = {};
-
-var markerCluster = L.markerClusterGroup({});
-markerCluster.addTo(map);
-var imageLayer = L.layerGroup([]);
-imageLayer.addTo(map);
 function updateMarker(marker, name) {
 	if (map.getZoom() >= marker.meta.layers.min && map.getZoom() <= marker.meta.layers.max)
 		markerCluster.addLayer(markers[name]);
@@ -236,29 +138,41 @@ function updateImage(image, name) {
 }
 
 function rotatePoint(pivot, angle_radians, point) {
-	const s = Math.sin(-angle_radians);
-	const c = Math.cos(-angle_radians);
+	const s = Math.sin(angle_radians);
+	const c = Math.cos(angle_radians);
 	let rotated = [point[0] - pivot[0], point[1] - pivot[1]];
 	let xnew = rotated[1] * c - rotated[0] * s;
 	let ynew = rotated[1] * s + rotated[0] * c;
 	rotated[1] = xnew + pivot[1];
-	rotated[0] = xnew + pivot[0];
-	return L.latLng(rotated);
+	rotated[0] = ynew + pivot[0];
+	return rotated;
 }
 
-function getBounds(location) {
+function getBounds(location, name) {
 	if (location.bounds != undefined)
 		return [L.latLng(location.bounds[0][0], location.bounds[0][1]),
 		L.latLng(location.bounds[1][0], location.bounds[1][1])];
-	if (location.width != undefined && location.height != undefined && location.center != undefined) {
+	if (location.width != undefined && location.height != undefined && (location.topleft != undefined || location.center != undefined)) {
 		let width = calculateLength(location.width);
 		let height = calculateLength(location.height);
-		let middle = location.center;
-		let topleft = [middle[0] - (height / 2), middle[1] - (width / 2)];
-		console.log(width, height, middle);
-		console.log("unrotated", topleft, "rotated", rotatePoint(middle, 33 * (Math.PI / 180), topleft));
-		return [topleft,
-		L.latLng(middle[0] + (height / 2), middle[1] + (width / 2))];
+		let topleft;
+		if (location.center != undefined) {
+			let middle = getCoordinates(location.center, name);
+			// if (location.center.latlng != undefined)
+			// 	middle = location.center.latlng;
+			// else if (location.center.distance != undefined && location.center.direction != undefined && location.center.origin != undefined) {
+			// 	middle = calculateCoordinates(location.center.distance, location.center.direction, location.center.origin, name);
+			middle = [middle.lat, middle.lng];
+			// } else
+			// 	console.error("Not able to get location center middle")
+			topleft = [middle[0] - (height / 2), middle[1] - (width / 2)];
+			if (location.rotation != undefined)
+				topleft = rotatePoint(middle, 33 * (Math.PI / 180), topleft);
+		} else {
+			topleft = location.topleft;
+		}
+		return [L.latLng(topleft),
+		L.latLng(topleft[0] + height, topleft[1] + width)];
 	}
 	console.error("Not able to get corners based on location data");
 	return [L.latLng(0, 0), L.latLng(0, 0)];
@@ -283,6 +197,8 @@ function calculateLength(distance) {
 		return distance.meter;
 	if (distance.feet != undefined)
 		return distance.feet * METER_PER_FOOT;
+	if (distance.tiles != undefined)
+		return distance.tiles * 5 * METER_PER_FOOT;
 	if (distance.kilometers != undefined)
 		return distance.kilometers * 1000;
 	if (distance.mile != undefined)
@@ -364,18 +280,37 @@ function calculateCoordinates(distance, direction, origin, name) {
 	return L.latLng(0, 0);
 }
 
+function offsetCoordinates(origin, offset, name) {
+	let start = getStartCoordinates(origin, name);
+	console.log("start", start, name, origin);
+	console.log("lat offset", calculateLength(offset.lat));
+	console.log("lng offset", calculateLength(offset.lng));
+	start = L.latLng(start.lat += calculateLength(offset.lat), start.lng += calculateLength(offset.lng));
+	return start;
+}
+
 let coordinates = {};
+let resolving = [];
 function getCoordinates(location, name) {
 	if (coordinates[name])
 		return coordinates[name];
 	let result = L.latLng(0, 0);
-	if (location.latlng)
+	if (resolving.includes(name)) {
+		console.error("Circular reference for", name);
+		return result;
+	}
+	resolving.push(name);
+	if (location.latlng != undefined)
 		result = L.latLng(location.latlng);
-	else if (location.distance && location.direction && location.origin)
+	else if (location.origin != undefined && location.offset != undefined)
+		result = offsetCoordinates(location.origin, location.offset, name);
+	else if (location.distance != undefined && location.direction != undefined && location.origin != undefined)
 		result = calculateCoordinates(location.distance, location.direction, location.origin, name);
 	else
 		console.error("Not able to get coordinates based on location data for", name);
+	console.log("DEFINING COORDINATE FOR", name, result, "location data", location); // TODOL FIX WRONG LATLNG FOR DODESTRIN
 	coordinates[name] = result;
+	resolving.splice(resolving.indexOf(name), 1);
 	return result;
 }
 
@@ -386,12 +321,15 @@ function loadImages() {
 			for (let opt in locations[loc].image)
 				if (opt != "meta")
 					options[opt] = locations[loc].image[opt];
-			// options.corners = getCorners(locations[loc].image.meta.location);
-			// options.actions = [];
-			// images[loc] = L.distortableImageOverlay(locations[loc].image.meta.file, options);
-			let bounds = getBounds(locations[loc].image.meta.location);
-			console.log(bounds);
-			images[loc] = L.imageOverlay(locations[loc].image.meta.file, bounds, options);
+			let bounds = getBounds(locations[loc].image.meta.location, loc);
+			if (!isExternalLink(locations[loc].image.meta.file))
+				locations[loc].image.meta.file = "images/" + locations[loc].image.meta.file;
+			if (locations[loc].image.meta.location.rotation != undefined) {
+				options.rotation = locations[loc].image.meta.location.rotation;
+				images[loc] = L.rotateImageOverlay(locations[loc].image.meta.file, bounds, options);
+			} else {
+				images[loc] = L.imageOverlay(locations[loc].image.meta.file, bounds, options);
+			}
 		}
 	}
 }
@@ -408,13 +346,7 @@ function loadMarkers() {
 				markers[loc].on('click', function(e) {
 					map.flyTo(getCoordinates(locations[loc].marker.meta.location, loc), locations[loc].marker.meta.click.jump_zoom);
 				});
-			markers[loc].bindPopup("Oh hey, look it's " + loc + "!");
-			markers[loc].on('mouseover', function(e) {
-				this.openPopup();
-			});
-			markers[loc].on('mouseout', function(e) {
-				this.closePopup();
-			});
+			markers[loc].bindTooltip(loc, {});
 		}
 	}
 }
@@ -427,6 +359,138 @@ function updateLocations() {
 			updateImage(locations[loc].image, loc)
 	}
 }
+
+
+
+
+
+
+var map = L.map('map', {
+	crs: L.CRS.dod,
+	center: [2815244.0985, 3137180.0985],
+	preferCanvas: true,
+	inertiaMaxSpeed: 3000,
+	zoom: 17,
+	maxZoom: TARGET_ZOOM,
+	maxBoundsViscosity: 1.0
+});
+map.setMaxBounds(L.latLngBounds(L.latLng(L.CRS.dod.projection.bounds.min.x - 500000, L.CRS.dod.projection.bounds.min.y - 500000),
+	L.latLng(L.CRS.dod.projection.bounds.max.x + 500000, L.CRS.dod.projection.bounds.max.y + 500000)));
+const scale = L.control.scale({ updateWhenIdle: true }).addTo(map);
+
+L.GridLayer.DebugCoords = L.GridLayer.extend({
+	createTile: function (coords, done) {
+		var tile = document.createElement("div");
+		var text = document.createTextNode([coords.x, coords.y, coords.z].join(', '));
+		tile.appendChild(text);
+
+		tile.classList.add("debug-tile");
+		if ((coords.x + coords.y) % 2 == 0) {
+			if (coords.x % 2 == 0)
+				tile.classList.add("beppie");
+			else
+				tile.classList.add("beppoe");
+		}
+
+		setTimeout(function () {
+			done(null, tile); // Syntax is 'done(error, tile)'
+		}, 500 + Math.random() * 1500);
+
+		return tile;
+	}
+});
+L.gridLayer.debugCoords = function (opts) {
+	return new L.GridLayer.DebugCoords(opts);
+};
+
+L.rotateImageOverlay = function(url, bounds, options) {
+	return new L.RotateImageOverlay(url, bounds, options);
+};
+// A quick extension to allow image layer rotation.
+L.RotateImageOverlay = L.ImageOverlay.extend({
+	options: {rotation: 0},
+	_animateZoom: function(e){
+		L.ImageOverlay.prototype._animateZoom.call(this, e);
+		var img = this._image;
+		img.style[L.DomUtil.TRANSFORM] += ' rotate(' + this.options.rotation + 'deg)';
+	},
+	_reset: function(){
+		L.ImageOverlay.prototype._reset.call(this);
+		var img = this._image;
+		img.style[L.DomUtil.TRANSFORM] += ' rotate(' + this.options.rotation + 'deg)';
+	}
+});
+
+
+var debugCoordsGrid = L.gridLayer.debugCoords({tileSize: 256, zIndex:100});
+
+
+
+const ROOT_3 = Math.sqrt(3);
+const HEX_SIDE_LEN = METER_PER_MILE * 24 / ROOT_3;
+const WORLD_WIDTH = map.options.crs.projection.bounds.max.x - map.options.crs.projection.bounds.min.x;
+const WORLD_HEIGHT = map.options.crs.projection.bounds.max.y - map.options.crs.projection.bounds.min.y;
+const TOTAL_COLUMNS = Math.ceil(WORLD_WIDTH / (HEX_SIDE_LEN * 1.5));
+const TOTAL_ROWS = Math.ceil(WORLD_HEIGHT / (HEX_SIDE_LEN * ROOT_3));
+const CLUSTER_SIZE = 8;
+const CLUSTER_COLUMNS = TOTAL_COLUMNS < CLUSTER_SIZE * 2 ? 1 : CLUSTER_SIZE;
+const CLUSTER_ROWS = TOTAL_ROWS < CLUSTER_SIZE * 2 ? 1 : CLUSTER_SIZE;
+const COLUMNS = Math.floor(TOTAL_COLUMNS / CLUSTER_COLUMNS);
+const ROWS = Math.floor(TOTAL_ROWS / CLUSTER_ROWS);
+const ORIGIN_HEX_CENTER = [map.options.crs.projection.bounds.min.x, map.options.crs.projection.bounds.min.y];
+var hexGrid = [];
+for (let i = 0; i < CLUSTER_COLUMNS; i++) {
+	const local_columns = i == CLUSTER_SIZE - 1 ? COLUMNS + (TOTAL_COLUMNS % CLUSTER_COLUMNS) : COLUMNS;
+	for (let j = 0; j < CLUSTER_ROWS; j++) {
+		const local_rows = j == CLUSTER_SIZE - 1 ? ROWS + (TOTAL_ROWS % CLUSTER_ROWS) : ROWS;
+		hexGrid[j + i * CLUSTER_ROWS] = L.geoJson(H.hexagonalGrid([ORIGIN_HEX_CENTER[0] + (i * COLUMNS * 1.5 * HEX_SIDE_LEN),
+							ORIGIN_HEX_CENTER[1] + (j * ROWS * ROOT_3 * HEX_SIDE_LEN)],
+						local_columns, local_rows, HEX_SIDE_LEN, COLUMNS * i, ROWS * j), {
+							style: style,
+							onEachFeature: onEachFeature
+		});
+	}
+}
+
+const LOCATIONS_JSON_URL = "locations.json";
+
+
+
+// var testlayer = L.tileLayer.fallback('jorma{z}.png', {
+// 	maxZoom: TARGET_ZOOM,
+// 	maxNativeZoom: TARGET_ZOOM,
+// 	tileSize: 256});
+// map.addLayer(testlayer);
+
+document.querySelector(".toggle-sidebar-label").addEventListener("click", function () {
+	if (localStorage.getItem("sidebar-hidden") === "true")
+		localStorage.setItem("sidebar-hidden", "false");
+	else
+		localStorage.setItem("sidebar-hidden", "true");
+	updateSidebar();
+});
+document.querySelector(".toggle-sidebar-label").addEventListener("keydown", (e) => {
+	if (e.code === "Space" || e.code === "Enter")
+		e.target.click();
+});
+
+document.getElementById("map").addEventListener('transitionend', function(e) {
+	map.invalidateSize();
+});
+
+document.getElementById("map").addEventListener("keydown", (e) => {
+	if (e.code === "Space" || e.code === "Enter")
+		e.target.click();
+}, true);
+
+var locations;
+var markers = {};
+var images = {};
+
+var markerCluster = L.markerClusterGroup({});
+markerCluster.addTo(map);
+var imageLayer = L.layerGroup([]);
+imageLayer.addTo(map);
 
 var prevZoom = map.getZoom();
 async function main() {
@@ -443,15 +507,6 @@ async function main() {
 	map.on('move', onMoveEnd);
 	map.on('click', function(e) {
 		console.log("Lat, Lon : " + e.latlng.lat + ", " + e.latlng.lng)
-	});
-	console.log(map.distance(map.unproject([0, 0]), map.unproject([0, 100])) / METER_PER_FOOT);
-
-	document.getElementById("hide-sidebar").addEventListener("click", function () {
-		if (localStorage.getItem("sidebar-hidden") == "true")
-			localStorage.setItem("sidebar-hidden", "false");
-		else
-			localStorage.setItem("sidebar-hidden", "true");
-		updateSidebar();
 	});
 	updateSidebar();
 }

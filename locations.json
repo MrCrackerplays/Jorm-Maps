@@ -8,18 +8,27 @@
 				"file": "SpireView.png",
 				"layers": {
 					"min": 0,
-					"max": 22
+					"max": 19
 				}
 			},
 			"opacity": 1,
-			"pane": "tilePane"
+			"pane": "tilePane",
+			"zIndex": -5
 		}
 	},
 	"Dod'Estrin": {
 		"image": {
 			"meta": {
 				"location": {
-					"bounds": [[2815148.954, 3137025.904], [2815409.254, 3137373.376]]
+					"center": {
+						"latlng": [2815279.104, 3137199.640]
+					},
+					"width": {
+						"feet": 1971.27
+					},
+					"height": {
+						"feet": 1478.45
+					}
 				},
 				"file": "DodEstrin.jpg",
 				"layers": {
@@ -28,12 +37,13 @@
 				}
 			},
 			"opacity": 1,
-			"pane": "tilePane"
+			"pane": "tilePane",
+			"zIndex": -3
 		},
 		"marker": {
 			"meta": {
 				"location": {
-					"latlng": [2815244.0985, 3137180.0985]
+					"latlng": [2815221.192, 3137168.859]
 				},
 				"click": {
 					"jump_zoom": 17
@@ -56,7 +66,7 @@
 				},
 				"layers": {
 					"min": 14,
-					"max": 22
+					"max": 19
 				}
 			}
 		}
@@ -65,36 +75,57 @@
 		"image": {
 			"meta": {
 				"location": {
-					"center": [2815281.9615, 3137186.004],
+					"center": {
+						"origin": {
+							"location": "Dod'Estrin"
+						},
+						"offset": {
+							"lat": {
+								"meter": 63.4365
+							},
+							"lng": {
+								"meter": 7.334
+							}
+						}
+					},
 					"width": {
 						"feet": 100
 					},
 					"height": {
 						"feet": 80
 					},
-					"rotation-origin": "center//TODO:CHANGE BOUNDS TO ADD AN OFFSET BASED ON WHERE THE CALCULATED CENTER-ROTATED TOP LEFT WOULD END UP, THEN THE ROTATIOM-ORIGIN DOESN'T HAVE TO BE CHANGED",
-					"rotation": "33deg"
+					"rotation": 33
 				},
 				"file": "MerosRaesaFloor1.png",
 				"layers": {
-					"min": 9,
+					"min": 15,
 					"max": 22
 				}
 			},
-			"opacity": 0.5,
+			"opacity": 0.8,
 			"pane": "tilePane"
 		},
 		"marker": {
 			"meta": {
 				"location": {
-					"latlng": [2815281.9615, 3137186.004]
+					"origin": {
+						"location": "Dod'Estrin"
+					},
+					"offset": {
+						"lat": {
+							"meter": 63.4365
+						},
+						"lng": {
+							"meter": 7.334
+						}
+					}
 				},
 				"click": {
 					"jump_zoom": 19
 				},
 				"layers": {
 					"min": 14,
-					"max": 22
+					"max": 19
 				}
 			}
 		}
@@ -110,7 +141,7 @@
 				},
 				"layers": {
 					"min": 14,
-					"max": 22
+					"max": 19
 				}
 			}
 		}
@@ -126,7 +157,7 @@
 				},
 				"layers": {
 					"min": 14,
-					"max": 22
+					"max": 19
 				}
 			}
 		}
@@ -142,7 +173,7 @@
 				},
 				"layers": {
 					"min": 14,
-					"max": 22
+					"max": 19
 				}
 			}
 		}
@@ -158,7 +189,7 @@
 				},
 				"layers": {
 					"min": 14,
-					"max": 22
+					"max": 19
 				}
 			}
 		}
@@ -174,7 +205,7 @@
 				},
 				"layers": {
 					"min": 14,
-					"max": 22
+					"max": 19
 				}
 			}
 		}
@@ -190,7 +221,7 @@
 				},
 				"layers": {
 					"min": 14,
-					"max": 22
+					"max": 19
 				}
 			}
 		}
@@ -206,12 +237,44 @@
 				},
 				"layers": {
 					"min": 14,
-					"max": 22
+					"max": 19
 				}
 			}
 		}
 	},
 	"Wizard Tower": {
+		"image": {
+			"meta": {
+				"location": {
+					"center": {
+						"distance": {
+							"duration": {
+								"hour_timestamp": "2:00"
+							}
+						},
+						"direction": {
+							"compass": "N"
+						},
+						"origin": {
+							"location": "Dod'Estrin"
+						}
+					},
+					"width": {
+						"tiles": 51
+					},
+					"height": {
+						"tiles": 50
+					}
+				},
+				"file": "https://i.imgur.com/Zqp507E.png",
+				"layers": {
+					"min": 15,
+					"max": 22
+				}
+			},
+			"opacity": 1,
+			"pane": "tilePane"
+		},
 		"marker": {
 			"meta": {
 				"location": {
@@ -232,7 +295,7 @@
 				},
 				"layers": {
 					"min": 0,
-					"max": 22
+					"max": 19
 				}
 			}
 		}
