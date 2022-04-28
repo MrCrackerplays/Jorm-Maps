@@ -148,8 +148,6 @@ function rotatePoint(pivot, angle_radians, point) {
 	return rotated;
 }
 
-let image_coordinates = {};
-let marker_coordinates = {};
 function getBounds(location, name) {
 	if (location.bounds != undefined)
 		return [L.latLng(location.bounds[0][0], location.bounds[0][1]),
@@ -159,7 +157,7 @@ function getBounds(location, name) {
 		let height = calculateLength(location.height);
 		let topleft;
 		if (location.center != undefined) {
-			let middle = getCoordinates(location.center, name, image_coordinates);//FIXME: THIS GOES WRONG BECAUSE IT HAS TO BE USED FOR BOTH ABSOLUTE AND RELATIVE POSITIONS AND THE RELATIVE POSITIONS REQUIRE MARKER POSITIONS RATHER THAN IMAGE CENTER POSITIONS
+			let middle = getCoordinates(location.center, name, false);//FIXME: THIS GOES WRONG BECAUSE IT HAS TO BE USED FOR BOTH ABSOLUTE AND RELATIVE POSITIONS AND THE RELATIVE POSITIONS REQUIRE MARKER POSITIONS RATHER THAN IMAGE CENTER POSITIONS
 			// if (location.center.latlng != undefined)
 			// 	middle = location.center.latlng;
 			// else if (location.center.distance != undefined && location.center.direction != undefined && location.center.origin != undefined) {
@@ -264,37 +262,34 @@ function calculateAngle(direction) {
 	return undefined;
 }
 
-function getStartCoordinates(origin, name, coordinates) {
+function getStartCoordinates(origin, name) {
 	if (origin.latlng != undefined)
 		return L.latLng(origin.latlng);
 	if (origin.location != undefined && origin.location != name)
-		return getCoordinates(locations[origin.location].marker.meta.location, origin.location, coordinates);
+		return getCoordinates(locations[origin.location].marker.meta.location, origin.location);
 	return undefined;
 }
 
-function calculateCoordinates(distance, direction, origin, name, coordinates) {
+function calculateCoordinates(distance, direction, origin, name) {
 	let length = calculateLength(distance);
 	let angle = calculateAngle(direction);
-	let start = getStartCoordinates(origin, name, coordinates);
+	let start = getStartCoordinates(origin, name);
 	if (length != undefined && angle != undefined && start != undefined)
 		return L.latLng(start.lat + Math.sin(angle*Math.PI/180) * length, start.lng + Math.cos(angle*Math.PI/180) * length);
 	console.error("Not able to get " + (length ? "" : "length ") + (angle ? "" : "angle ") + (start ? "" : "start ") + "based on location data for", name);
 	return L.latLng(0, 0);
 }
 
-function offsetCoordinates(origin, offset, name, coordinates) {
-	let start = getStartCoordinates(origin, name, coordinates);
-	console.log("start", start, name, origin);
-	console.log("lat offset", calculateLength(offset.lat));
-	console.log("lng offset", calculateLength(offset.lng));
+function offsetCoordinates(origin, offset, name) {
+	let start = getStartCoordinates(origin, name);
 	start = L.latLng(start.lat + calculateLength(offset.lat), start.lng + calculateLength(offset.lng));
 	return start;
 }
 
+let coordinates = {};
 let resolving = [];
-function getCoordinates(location, name, coordinates) {
-	console.log(name, location);
-	if (coordinates[name])
+function getCoordinates(location, name, for_marker = true) {
+	if (for_marker && coordinates[name])
 		return coordinates[name];
 	let result = L.latLng(0, 0);
 	if (resolving.includes(name)) {
@@ -302,18 +297,16 @@ function getCoordinates(location, name, coordinates) {
 		return result;
 	}
 	resolving.push(name);
-	if (location.latlng != undefined){
+	if (location.latlng != undefined)
 		result = L.latLng(location.latlng);
-		console.log("DEFINING", name, "COORDINATE BY LATLNG", location.latlng, "RESULT", result);
-	}
 	else if (location.origin != undefined && location.offset != undefined)
-		result = offsetCoordinates(location.origin, location.offset, name, coordinates);
+		result = offsetCoordinates(location.origin, location.offset, name);
 	else if (location.distance != undefined && location.direction != undefined && location.origin != undefined)
-		result = calculateCoordinates(location.distance, location.direction, location.origin, name, coordinates);
+		result = calculateCoordinates(location.distance, location.direction, location.origin, name);
 	else
 		console.error("Not able to get coordinates based on location data for", name);
-	console.log("DEFINING COORDINATE FOR", name, result, "location data", location); // TODOL FIX WRONG LATLNG FOR DODESTRIN
-	coordinates[name] = result;
+	if (for_marker)
+		coordinates[name] = result;
 	resolving.splice(resolving.indexOf(name), 1);
 	return result;
 }
@@ -345,11 +338,10 @@ function loadMarkers() {
 			for (let opt in locations[loc].marker)
 				if (opt != "meta")
 					options[opt] = locations[loc].marker[opt];
-				markers[loc] = L.marker(getCoordinates(locations[loc].marker.meta.location, loc, marker_coordinates), options);
-				// console.log("MARKERLOADING", loc, "markermeta", locations[loc].marker.meta.location, "markersloc", markers[loc], "getcoords", getCoordinates(locations[loc].marker.meta.location, loc))
+				markers[loc] = L.marker(getCoordinates(locations[loc].marker.meta.location, loc), options);
 			if (locations[loc].marker.meta.click.jump_zoom)
 				markers[loc].on('click', function(e) {
-					map.flyTo(getCoordinates(locations[loc].marker.meta.location, loc, marker_coordinates), locations[loc].marker.meta.click.jump_zoom);
+					map.flyTo(getCoordinates(locations[loc].marker.meta.location, loc), locations[loc].marker.meta.click.jump_zoom);
 				});
 			markers[loc].bindTooltip(loc, {});
 		}
