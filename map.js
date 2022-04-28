@@ -501,7 +501,7 @@ async function main() {
 		map.addLayer(debugCoordsGrid);
 	map.addLayer(grid_holder);
 	map.on('move', onMove);
-	map.on('move', onMoveEnd);
+	map.on('moveend', onMoveEnd);
 	map.on('click', function(e) {
 		console.log("Lat, Lon : " + e.latlng.lat + ", " + e.latlng.lng)
 	});
