@@ -59,7 +59,17 @@
 		"marker": {
 			"meta": {
 				"location": {
-					"latlng": [2815232.0505, 3137166.954]
+					"origin": {
+						"location": "Dod'Estrin"
+					},
+					"offset": {
+						"lat": {
+							"meter": -23.622
+						},
+						"lng": {
+							"meter": -26.289
+						}
+					}
 				},
 				"click": {
 					"jump_zoom": 19
@@ -134,7 +144,17 @@
 		"marker": {
 			"meta": {
 				"location": {
-					"latlng": [2815255.482, 3137158.0005]
+					"origin": {
+						"location": "Dod'Estrin"
+					},
+					"offset": {
+						"lat": {
+							"meter": 17.526
+						},
+						"lng": {
+							"meter": -41.910
+						}
+					}
 				},
 				"click": {
 					"jump_zoom": 19
@@ -150,7 +170,17 @@
 		"marker": {
 			"meta": {
 				"location": {
-					"latlng": [2815276.818, 3137074.371]
+					"origin": {
+						"location": "Dod'Estrin"
+					},
+					"offset": {
+						"lat": {
+							"meter": 53.340
+						},
+						"lng": {
+							"meter": -185.928
+						}
+					}
 				},
 				"click": {
 					"jump_zoom": 19
@@ -166,7 +196,17 @@
 		"marker": {
 			"meta": {
 				"location": {
-					"latlng": [2815284.6285, 3137143.5225]
+					"origin": {
+						"location": "Dod'Estrin"
+					},
+					"offset": {
+						"lat": {
+							"meter": 67.437
+						},
+						"lng": {
+							"meter": -66.294
+						}
+					}
 				},
 				"click": {
 					"jump_zoom": 19
@@ -182,7 +222,17 @@
 		"marker": {
 			"meta": {
 				"location": {
-					"latlng": [2815255.101, 3137223.9135]
+					"origin": {
+						"location": "Dod'Estrin"
+					},
+					"offset": {
+						"lat": {
+							"meter": 16.002
+						},
+						"lng": {
+							"meter": 72.009
+						}
+					}
 				},
 				"click": {
 					"jump_zoom": 19
@@ -198,7 +248,17 @@
 		"marker": {
 			"meta": {
 				"location": {
-					"latlng": [2815184.997, 3137152.2855]
+					"origin": {
+						"location": "Dod'Estrin"
+					},
+					"offset": {
+						"lat": {
+							"meter": -105.537
+						},
+						"lng": {
+							"meter": -50.292
+						}
+					}
 				},
 				"click": {
 					"jump_zoom": 19
@@ -214,7 +274,17 @@
 		"marker": {
 			"meta": {
 				"location": {
-					"latlng": [2815238.1465, 3137151.1425]
+					"origin": {
+						"location": "Dod'Estrin"
+					},
+					"offset": {
+						"lat": {
+							"meter": -12.954
+						},
+						"lng": {
+							"meter": -52.768
+						}
+					}
 				},
 				"click": {
 					"jump_zoom": 19
@@ -230,7 +300,17 @@
 		"marker": {
 			"meta": {
 				"location": {
-					"latlng": [2815272.4365, 3137172.669]
+					"origin": {
+						"location": "Dod'Estrin"
+					},
+					"offset": {
+						"lat": {
+							"meter": 47.244
+						},
+						"lng": {
+							"meter": -15.621
+						}
+					}
 				},
 				"click": {
 					"jump_zoom": 19
@@ -295,6 +375,474 @@
 				},
 				"layers": {
 					"min": 0,
+					"max": 19
+				}
+			}
+		}
+	},
+	"Water Tower": {
+		"marker": {
+			"meta": {
+				"location": {
+					"distance": {
+						"duration": {
+							"hour_timestamp": "1:20"
+						}
+					},
+					"direction": {
+						"compass": "N"
+					},
+					"origin": {
+						"location": "Dod'Estrin"
+					}
+				},
+				"click": {
+					"jump_zoom": 19
+				},
+				"layers": {
+					"min": 0,
+					"max": 19
+				}
+			}
+		}
+	},
+	"Starboard Hall": {
+		"marker": {
+			"meta": {
+				"location": {
+					"distance": {
+						"duration": {
+							"days": 11.87
+						}
+					},
+					"direction": {
+						"degrees": 241.0847908149244
+					},
+					"origin": {
+						"location": "Dod'Estrin"
+					}
+				},
+				"click": {
+					"jump_zoom": 19
+				},
+				"layers": {
+					"min": 0,
+					"max": 19
+				}
+			}
+		}
+	},
+	"The Mine": {
+		"marker": {
+			"meta": {
+				"location": {
+					"distance": {
+						"duration": {
+							"days": 3
+						}
+					},
+					"direction": {
+						"compass": "ENE"
+					},
+					"origin": {
+						"location": "Dod'Estrin"
+					}
+				},
+				"click": {
+					"jump_zoom": 19
+				},
+				"layers": {
+					"min": 0,
+					"max": 19
+				}
+			}
+		}
+	},
+	"Dorics Village": {
+		"marker": {
+			"meta": {
+				"location": {
+					"distance": {
+						"duration": {
+							"days": 21.408663454303397
+						}
+					},
+					"direction": {
+						"degrees": 122.042
+					},
+					"origin": {
+						"location": "Starboard Hall"
+					}
+				},
+				"click": {
+					"jump_zoom": 13
+				},
+				"layers": {
+					"min": 0,
+					"max": 19
+				}
+			}
+		}
+	},
+	"Porti Piccolli": {
+		"marker": {
+			"meta": {
+				"location": {
+					"distance": {
+						"duration": {
+							"days": 50
+						}
+					},
+					"direction": {
+						"degrees": 213.4092725318885
+					},
+					"origin": {
+						"location": "Dod'Estrin"
+					}
+				},
+				"click": {
+					"jump_zoom": 13
+				},
+				"layers": {
+					"min": 0,
+					"max": 19
+				}
+			}
+		}
+	},
+	"The Sea of Sands": {
+		"marker": {
+			"meta": {
+				"location": {
+					"distance": {
+						"duration": {
+							"days": 5
+						}
+					},
+					"direction": {
+						"compass": "SW"
+					},
+					"origin": {
+						"location": "Porti Piccolli"
+					}
+				},
+				"click": {
+					"jump_zoom": 13
+				},
+				"layers": {
+					"min": 0,
+					"max": 19
+				}
+			}
+		}
+	},
+	"Rotting Keep": {
+		"marker": {
+			"meta": {
+				"location": {
+					"distance": {
+						"duration": {
+							"days": 2.6
+						}
+					},
+					"direction": {
+						"degrees": 147.19
+					},
+					"origin": {
+						"location": "The Lone Spire"
+					}
+				},
+				"click": {
+					"jump_zoom": 13
+				},
+				"layers": {
+					"min": 0,
+					"max": 19
+				}
+			}
+		}
+	},
+	"The Lone Spire": {
+		"marker": {
+			"meta": {
+				"location": {
+					"distance": {
+						"duration": {
+							"days": 10
+						}
+					},
+					"direction": {
+						"degrees": 168
+					},
+					"origin": {
+						"location": "Dod'Estrin"
+					}
+				},
+				"click": {
+					"jump_zoom": 13
+				},
+				"layers": {
+					"min": 0,
+					"max": 13
+				}
+			}
+		}
+	},
+	"Abandoned Settlement": {
+		"marker": {
+			"meta": {
+				"location": {
+					"distance": {
+						"duration": {
+							"days": 4.12
+						}
+					},
+					"direction": {
+						"degrees": -53.236
+					},
+					"origin": {
+						"location": "The Lone Spire"
+					}
+				},
+				"click": {
+					"jump_zoom": 13
+				},
+				"layers": {
+					"min": 0,
+					"max": 19
+				}
+			}
+		}
+	},
+	"The Maw": {
+		"marker": {
+			"meta": {
+				"location": {
+					"distance": {
+						"duration": {
+							"days": 6.2
+						}
+					},
+					"direction": {
+						"degrees": 103.357
+					},
+					"origin": {
+						"location": "The Lone Spire"
+					}
+				},
+				"click": {
+					"jump_zoom": 13
+				},
+				"layers": {
+					"min": 0,
+					"max": 19
+				}
+			}
+		}
+	},
+	"Lonely Docks": {
+		"marker": {
+			"meta": {
+				"location": {
+					"distance": {
+						"duration": {
+							"days": 3.43
+						}
+					},
+					"direction": {
+						"degrees": 250.045
+					},
+					"origin": {
+						"location": "The Lone Spire"
+					}
+				},
+				"click": {
+					"jump_zoom": 13
+				},
+				"layers": {
+					"min": 0,
+					"max": 19
+				}
+			}
+		}
+	},
+	"Mysterious Lights": {
+		"marker": {
+			"meta": {
+				"location": {
+					"distance": {
+						"duration": {
+							"days": 11.758
+						}
+					},
+					"direction": {
+						"degrees": 235.114
+					},
+					"origin": {
+						"location": "The Lone Spire"
+					}
+				},
+				"click": {
+					"jump_zoom": 13
+				},
+				"layers": {
+					"min": 0,
+					"max": 19
+				}
+			}
+		}
+	},
+	"Nogdruith": {
+		"marker": {
+			"meta": {
+				"location": {
+					"distance": {
+						"duration": {
+							"days": 3
+						}
+					},
+					"direction": {
+						"compass": "WSW"
+					},
+					"origin": {
+						"location": "Dod'Estrin"
+					}
+				},
+				"click": {
+					"jump_zoom": 13
+				},
+				"layers": {
+					"min": 0,
+					"max": 13
+				}
+			}
+		}
+	},
+	"Topsy": {
+		"marker": {
+			"meta": {
+				"location": {
+					"distance": {
+						"duration": {
+							"days": 30
+						}
+					},
+					"direction": {
+						"degrees": 122.5
+					},
+					"origin": {
+						"location": "Starboard Hall"
+					}
+				},
+				"click": {
+					"jump_zoom": 13
+				},
+				"layers": {
+					"min": 0,
+					"max": 19
+				}
+			}
+		}
+	},
+	"Turvy": {
+		"marker": {
+			"meta": {
+				"location": {
+					"distance": {
+						"duration": {
+							"hours": 1
+						}
+					},
+					"direction": {
+						"compass": "S"
+					},
+					"origin": {
+						"location": "Topsy"
+					}
+				},
+				"click": {
+					"jump_zoom": 13
+				},
+				"layers": {
+					"min": 0,
+					"max": 19
+				}
+			}
+		}
+	},
+	"Blood Witch's House": {
+		"marker": {
+			"meta": {
+				"location": {
+					"distance": {
+						"duration": {
+							"days": 1.5
+						}
+					},
+					"direction": {
+						"compass": "W"
+					},
+					"origin": {
+						"location": "Dod'Estrin"
+					}
+				},
+				"click": {
+					"jump_zoom": 13
+				},
+				"layers": {
+					"min": 0,
+					"max": 19
+				}
+			}
+		}
+	},
+	"Gitta's Cottage": {
+		"marker": {
+			"meta": {
+				"location": {
+					"distance": {
+						"duration": {
+							"hours": 2.5
+						}
+					},
+					"direction": {
+						"compass": "NNW"
+					},
+					"origin": {
+						"location": "Blood Witch's House"
+					}
+				},
+				"click": {
+					"jump_zoom": 13
+				},
+				"layers": {
+					"min": 0,
+					"max": 19
+				}
+			}
+		}
+	},
+	"Area with monkshood/wolfsbane": {
+		"marker": {
+			"meta": {
+				"location": {
+					"distance": {
+						"duration": {
+							"hours": 1
+						}
+					},
+					"direction": {
+						"compass": "N"
+					},
+					"origin": {
+						"location": "Gitta's Cottage"
+					}
+				},
+				"click": {
+					"jump_zoom": 13
+				},
+				"layers": {
+					"min": 10,
 					"max": 19
 				}
 			}

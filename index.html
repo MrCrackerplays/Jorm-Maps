@@ -31,7 +31,12 @@
   <label class="toggle-sidebar-label" for="toggle-sidebar" tabindex="0">&times;</label>
 	<aside id="sidebar">
 		<input type="checkbox" id="debugGrid" onclick="toggleDebug();" />
-		<label for="debugGrid">Debug Grid</label>
+		<label for="debugGrid">Debug Grid</label><br/>
+		<div style="text-align: center;">
+			<label for="floorSlider">Floor Level</label>
+			<output id="floorOutput">0</output>
+		</div>
+		<input type="range" min="-10" max="10" value="0" class="slider" id="floorSlider" oninput="updateFloor();">
 	</aside>
 	<main id='map'></main>
 	<script src="map.js"></script>
