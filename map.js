@@ -123,6 +123,39 @@ function updateSidebar() {
 		document.getElementById("toggle-sidebar").checked = false;
 }
 
+function updateFloor() {
+	let val = document.getElementById("floorSlider").value;
+	localStorage.setItem("floor-level", val);
+	document.getElementById("floorOutput").value = val;
+	for (let loc in location) {
+		if (locations[loc].images != undefined) {
+			let floor = getClosestFloor(locations[loc].images);
+			if (floor == undefined)
+				continue;
+			if (locations[loc].image != undefined && imageLayer.hasLayer(images[loc])) {
+				;
+			}
+		}
+	}
+}
+
+function getClosestFloor(images) {
+	// if (images != undefined) { //TODO: FIX THIS TO REFERENCE THE RIGHT GROUP OF IMAGES, AND LET THE FLOOR CHANGING UPDATE THAT GROUP OF IMAGES
+	let slider = document.getElementById("floorSlider");
+	let max = parseInt(slider.getAttribute("max"));
+	let min = parseInt(slider.getAttribute("min"));
+	let current = parseInt(slider.value);
+	let found = undefined;
+	for (let i = current; i <= max; i++)
+		if (images[i] != undefined)
+			found = i;
+	if (found == undefined)
+		for (let i = current; i >= min; i--)
+			if (images[i] != undefined)
+				found = i;
+	return found;
+}
+
 
 function updateMarker(marker, name) {
 	if (map.getZoom() >= marker.meta.layers.min && map.getZoom() <= marker.meta.layers.max)
@@ -131,10 +164,11 @@ function updateMarker(marker, name) {
 		markerCluster.removeLayer(markers[name]);
 }
 function updateImage(image, name) {
+	let layer = Array.isArray(images[name]) ? images[name][getClosestFloor(locations[name].images)] : images[name];
 	if (map.getZoom() >= image.meta.layers.min && map.getZoom() <= image.meta.layers.max)
-		imageLayer.addLayer(images[name]);
+		imageLayer.addLayer(layer);
 	else
-		imageLayer.removeLayer(images[name]);
+		imageLayer.removeLayer(layer);
 }
 
 function rotatePoint(pivot, angle_radians, point) {
@@ -157,14 +191,8 @@ function getBounds(location, name) {
 		let height = calculateLength(location.height);
 		let topleft;
 		if (location.center != undefined) {
-			let middle = getCoordinates(location.center, name, false);//FIXME: THIS GOES WRONG BECAUSE IT HAS TO BE USED FOR BOTH ABSOLUTE AND RELATIVE POSITIONS AND THE RELATIVE POSITIONS REQUIRE MARKER POSITIONS RATHER THAN IMAGE CENTER POSITIONS
-			// if (location.center.latlng != undefined)
-			// 	middle = location.center.latlng;
-			// else if (location.center.distance != undefined && location.center.direction != undefined && location.center.origin != undefined) {
-			// 	middle = calculateCoordinates(location.center.distance, location.center.direction, location.center.origin, name);
+			let middle = getCoordinates(location.center, name, false);
 			middle = [middle.lat, middle.lng];
-			// } else
-			// 	console.error("Not able to get location center middle")
 			topleft = [middle[0] - (height / 2), middle[1] - (width / 2)];
 			if (location.rotation != undefined)
 				topleft = rotatePoint(middle, 33 * (Math.PI / 180), topleft);
@@ -205,7 +233,7 @@ function calculateLength(distance) {
 		return distance.mile * METER_PER_MILE;
 	if (distance.duration != undefined) {
 		if (distance.duration.days != undefined)
-			return getDistancePerDay() * distance.duration.days;
+			return METER_PER_MILE * getDistancePerDay() * distance.duration.days;
 		if (distance.duration.hours != undefined)
 			return METER_PER_MILE * getDistancePerHour() * distance.duration.hours;
 		if (distance.duration.hour_timestamp != undefined) {
@@ -313,7 +341,7 @@ function getCoordinates(location, name, for_marker = true) {
 
 function loadImages() {
 	for (let loc in locations) {
-		if (locations[loc].image) {
+		if (locations[loc].image != undefined) {
 			let options = {};
 			for (let opt in locations[loc].image)
 				if (opt != "meta")
@@ -326,6 +354,22 @@ function loadImages() {
 				images[loc] = L.rotateImageOverlay(locations[loc].image.meta.file, bounds, options);
 			} else {
 				images[loc] = L.imageOverlay(locations[loc].image.meta.file, bounds, options);
+			}
+		} else if (locations[loc].images != undefined) {
+			for (let im in range(locations[loc].images)) {//TODO:FIX THIS MY DUDE
+				let options = {};
+				for (let opt in locations[loc].image)
+					if (opt != "meta")
+						options[opt] = locations[loc].image[opt];
+				let bounds = getBounds(locations[loc].image.meta.location, loc);
+				if (!isExternalLink(locations[loc].image.meta.file))
+					locations[loc].image.meta.file = "images/" + locations[loc].image.meta.file;
+				if (locations[loc].image.meta.location.rotation != undefined) {
+					options.rotation = locations[loc].image.meta.location.rotation;
+					images[loc] = L.rotateImageOverlay(locations[loc].image.meta.file, bounds, options);
+				} else {
+					images[loc] = L.imageOverlay(locations[loc].image.meta.file, bounds, options);
+				}
 			}
 		}
 	}
@@ -350,9 +394,9 @@ function loadMarkers() {
 
 function updateLocations() {
 	for (let loc in locations){
-		if (locations[loc].marker)
+		if (locations[loc].marker != undefined)
 			updateMarker(locations[loc].marker, loc)
-		if (locations[loc].image)
+		if (locations[loc].image != undefined)
 			updateImage(locations[loc].image, loc)
 	}
 }
@@ -452,18 +496,8 @@ for (let i = 0; i < CLUSTER_COLUMNS; i++) {
 const LOCATIONS_JSON_URL = "locations.json";
 
 
-
-// var testlayer = L.tileLayer.fallback('jorma{z}.png', {
-// 	maxZoom: TARGET_ZOOM,
-// 	maxNativeZoom: TARGET_ZOOM,
-// 	tileSize: 256});
-// map.addLayer(testlayer);
-
-document.querySelector(".toggle-sidebar-label").addEventListener("click", function () {
-	if (localStorage.getItem("sidebar-hidden") === "true")
-		localStorage.setItem("sidebar-hidden", "false");
-	else
-		localStorage.setItem("sidebar-hidden", "true");
+document.getElementById("toggle-sidebar").addEventListener("change", function () {
+	localStorage.setItem("sidebar-hidden", this.checked.toString());
 	updateSidebar();
 });
 document.querySelector(".toggle-sidebar-label").addEventListener("keydown", (e) => {
@@ -490,11 +524,18 @@ var imageLayer = L.layerGroup([]);
 imageLayer.addTo(map);
 
 var prevZoom = map.getZoom();
-async function main() {
+let floor_level = localStorage.getItem("floor-level");
+if (floor_level) {
+	document.getElementById("floorSlider").value = parseInt(floor_level);
+	document.getElementById("floorOutput").value = parseInt(floor_level);
+}
+updateSidebar();
+let relative = "Dod'Estrin";
+async function map_main() {
 	const response = await fetch(LOCATIONS_JSON_URL);
 	locations = await response.json();
-	loadImages();
 	loadMarkers();
+	loadImages();
 	updateLocations();
 	updateGrid();
 	if (document.getElementById("debugGrid").checked)
@@ -504,8 +545,9 @@ async function main() {
 	map.on('moveend', onMoveEnd);
 	map.on('click', function(e) {
 		console.log("Lat, Lon : " + e.latlng.lat + ", " + e.latlng.lng)
+		console.log("Offset from", relative, "lat:", e.latlng.lat - markers[relative]._latlng.lat, "lng:", e.latlng.lng - markers[relative]._latlng.lng)
+		console.log("Angle from", relative, ":", 90 + Math.atan2(e.latlng.lat - markers[relative]._latlng.lat, e.latlng.lng - markers[relative]._latlng.lng) * 180 / Math.PI, "distance:", map.distance(e.latlng, markers[relative]._latlng))
 	});
-	updateSidebar();
 }
 
-main();
+map_main();
