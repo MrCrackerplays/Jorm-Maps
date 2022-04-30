@@ -82,38 +82,106 @@
 		}
 	},
 	"Meros & Raesa": {
-		"image": {
-			"meta": {
-				"location": {
-					"center": {
-						"origin": {
-							"location": "Dod'Estrin"
-						},
-						"offset": {
-							"lat": {
-								"meter": 63.4365
+		"images": {
+			"0": {
+				"meta": {
+					"location": {
+						"center": {
+							"origin": {
+								"location": "Dod'Estrin"
 							},
-							"lng": {
-								"meter": 7.334
+							"offset": {
+								"lat": {
+									"meter": 63.4365
+								},
+								"lng": {
+									"meter": 7.334
+								}
 							}
-						}
+						},
+						"width": {
+							"feet": 100
+						},
+						"height": {
+							"feet": 80
+						},
+						"rotation": 33
 					},
-					"width": {
-						"feet": 100
-					},
-					"height": {
-						"feet": 80
-					},
-					"rotation": 33
+					"file": "MerosRaesa/Floor1.png",
+					"layers": {
+						"min": 15,
+						"max": 22
+					}
 				},
-				"file": "MerosRaesaFloor1.png",
-				"layers": {
-					"min": 15,
-					"max": 22
-				}
+				"opacity": 1,
+				"pane": "tilePane"
 			},
-			"opacity": 1,
-			"pane": "tilePane"
+			"1": {
+				"meta": {
+					"location": {
+						"center": {
+							"origin": {
+								"location": "Dod'Estrin"
+							},
+							"offset": {
+								"lat": {
+									"meter": 63.4365
+								},
+								"lng": {
+									"meter": 7.334
+								}
+							}
+						},
+						"width": {
+							"feet": 100
+						},
+						"height": {
+							"feet": 80
+						},
+						"rotation": 33
+					},
+					"file": "MerosRaesa/Floor2.png",
+					"layers": {
+						"min": 15,
+						"max": 22
+					}
+				},
+				"opacity": 1,
+				"pane": "tilePane"
+			},
+			"2": {
+				"meta": {
+					"location": {
+						"center": {
+							"origin": {
+								"location": "Dod'Estrin"
+							},
+							"offset": {
+								"lat": {
+									"meter": 63.4365
+								},
+								"lng": {
+									"meter": 7.334
+								}
+							}
+						},
+						"width": {
+							"feet": 100
+						},
+						"height": {
+							"feet": 80
+						},
+						"rotation": 33
+					},
+					"file": "MerosRaesa/Floor3.png",
+					"layers": {
+						"min": 15,
+						"max": 22
+					}
+				},
+				"opacity": 1,
+				"pane": "tilePane"
+			}
 		},
 		"marker": {
 			"meta": {
@@ -193,6 +261,140 @@
 		}
 	},
 	"Valtros & Holdric & Kolt": {
+		"images": {
+			"0": {
+				"meta": {
+					"location": {
+						"center": {
+							"origin": {
+								"location": "Dod'Estrin"
+							},
+							"offset": {
+								"lat": {
+									"meter": 70.104
+								},
+								"lng": {
+									"meter": -72.390
+								}
+							}
+						},
+						"width": {
+							"meter": 37.476
+						},
+						"height": {
+							"meter": 37.476
+						},
+						"rotation": 75
+					},
+					"file": "HoldricKoltValtros/House_F1.png",
+					"layers": {
+						"min": 15,
+						"max": 22
+					}
+				},
+				"opacity": 1,
+				"pane": "tilePane"
+			},
+			"3": {
+				"meta": {
+					"location": {
+						"center": {
+							"origin": {
+								"location": "Dod'Estrin"
+							},
+							"offset": {
+								"lat": {
+									"meter": 70.104
+								},
+								"lng": {
+									"meter": -72.390
+								}
+							}
+						},
+						"width": {
+							"meter": 37.476
+						},
+						"height": {
+							"meter": 37.476
+						},
+						"rotation": 75
+					},
+					"file": "HoldricKoltValtros/House_Roof.png",
+					"layers": {
+						"min": 15,
+						"max": 22
+					}
+				},
+				"opacity": 1,
+				"pane": "tilePane"
+			},
+			"1": {
+				"meta": {
+					"location": {
+						"center": {
+							"origin": {
+								"location": "Dod'Estrin"
+							},
+							"offset": {
+								"lat": {
+									"meter": 70.104
+								},
+								"lng": {
+									"meter": -72.390
+								}
+							}
+						},
+						"width": {
+							"meter": 37.476
+						},
+						"height": {
+							"meter": 37.476
+						},
+						"rotation": 75
+					},
+					"file": "HoldricKoltValtros/House_F2.png",
+					"layers": {
+						"min": 15,
+						"max": 22
+					}
+				},
+				"opacity": 1,
+				"pane": "tilePane"
+			},
+			"-1": {
+				"meta": {
+					"location": {
+						"center": {
+							"origin": {
+								"location": "Dod'Estrin"
+							},
+							"offset": {
+								"lat": {
+									"meter": 70.104
+								},
+								"lng": {
+									"meter": -72.390
+								}
+							}
+						},
+						"width": {
+							"meter": 37.476
+						},
+						"height": {
+							"meter": 37.476
+						},
+						"rotation": 75
+					},
+					"file": "HoldricKoltValtros/House_Basement.png",
+					"layers": {
+						"min": 15,
+						"max": 22
+					}
+				},
+				"opacity": 1,
+				"pane": "tilePane"
+			}
+		},
 		"marker": {
 			"meta": {
 				"location": {
