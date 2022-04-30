@@ -602,7 +602,7 @@
 					"jump_zoom": 19
 				},
 				"layers": {
-					"min": 0,
+					"min": 10,
 					"max": 19
 				}
 			}
@@ -908,6 +908,136 @@
 					},
 					"origin": {
 						"location": "Dod'Estrin"
+					}
+				},
+				"click": {
+					"jump_zoom": 13
+				},
+				"layers": {
+					"min": 0,
+					"max": 13
+				}
+			}
+		}
+	},
+	"Northern Drey": {
+		"marker": {
+			"meta": {
+				"location": {
+					"distance": {
+						"duration": {
+							"days": 3
+						}
+					},
+					"direction": {
+						"compass": "W"
+					},
+					"origin": {
+						"location": "Dod'Estrin"
+					}
+				},
+				"click": {
+					"jump_zoom": 13
+				},
+				"layers": {
+					"min": 0,
+					"max": 13
+				}
+			}
+		}
+	},
+	"Southern Drey": {
+		"marker": {
+			"meta": {
+				"location": {
+					"distance": {
+						"duration": {
+							"days": 4.8
+						}
+					},
+					"direction": {
+						"compass": "SE"
+					},
+					"origin": {
+						"location": "Northern Drey"
+					}
+				},
+				"click": {
+					"jump_zoom": 13
+				},
+				"layers": {
+					"min": 0,
+					"max": 13
+				}
+			}
+		}
+	},
+	"Vampire Manor": {
+		"marker": {
+			"meta": {
+				"location": {
+					"distance": {
+						"duration": {
+							"days": 1
+						}
+					},
+					"direction": {
+						"compass": "SW"
+					},
+					"origin": {
+						"location": "Northern Drey"
+					}
+				},
+				"click": {
+					"jump_zoom": 13
+				},
+				"layers": {
+					"min": 0,
+					"max": 13
+				}
+			}
+		}
+	},
+	"Pannak's Tomb": {
+		"marker": {
+			"meta": {
+				"location": {
+					"distance": {
+						"duration": {
+							"hours": 1
+						}
+					},
+					"direction": {
+						"compass": "ENE"
+					},
+					"origin": {
+						"location": "Southern Drey"
+					}
+				},
+				"click": {
+					"jump_zoom": 13
+				},
+				"layers": {
+					"min": 0,
+					"max": 13
+				}
+			}
+		}
+	},
+	"Sixteesevens": {
+		"marker": {
+			"meta": {
+				"location": {
+					"distance": {
+						"duration": {
+							"days": 1.125
+						}
+					},
+					"direction": {
+						"compass": "W"
+					},
+					"origin": {
+						"location": "Southern Drey"
 					}
 				},
 				"click": {
