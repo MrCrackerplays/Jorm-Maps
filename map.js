@@ -125,21 +125,24 @@ function updateSidebar() {
 
 function updateFloor() {
 	let val = document.getElementById("floorSlider").value;
+	let old_floor = localStorage.getItem("floor-level");
+	if (old_floor != null)
+		old_floor = parseInt(old_floor);
 	localStorage.setItem("floor-level", val);
 	document.getElementById("floorOutput").value = val;
-	for (let loc in location) {
+	for (let loc in locations) {
 		if (locations[loc].images != undefined) {
 			let floor = getClosestFloor(locations[loc].images);
 			if (floor == undefined)
 				continue;
-			if (locations[loc].image != undefined && imageLayer.hasLayer(images[loc])) {
-				;
-			}
+			if (old_floor != null)
+				imageLayer.removeLayer(images[loc][old_floor]);
+			imageLayer.addLayer(images[loc][floor]);
 		}
 	}
 }
 
-function getClosestFloor(images) {
+function getClosestFloor(place_images) {
 	// if (images != undefined) { //TODO: FIX THIS TO REFERENCE THE RIGHT GROUP OF IMAGES, AND LET THE FLOOR CHANGING UPDATE THAT GROUP OF IMAGES
 	let slider = document.getElementById("floorSlider");
 	let max = parseInt(slider.getAttribute("max"));
@@ -147,11 +150,11 @@ function getClosestFloor(images) {
 	let current = parseInt(slider.value);
 	let found = undefined;
 	for (let i = current; i <= max; i++)
-		if (images[i] != undefined)
+		if (place_images[i] != undefined)
 			found = i;
 	if (found == undefined)
 		for (let i = current; i >= min; i--)
-			if (images[i] != undefined)
+			if (place_images[i] != undefined)
 				found = i;
 	return found;
 }
@@ -356,19 +359,20 @@ function loadImages() {
 				images[loc] = L.imageOverlay(locations[loc].image.meta.file, bounds, options);
 			}
 		} else if (locations[loc].images != undefined) {
-			for (let im in range(locations[loc].images)) {//TODO:FIX THIS MY DUDE
+			images[loc] = [];
+			for (let i = 0; i < locations[loc].images.length; i++) {//TODO:FIX THIS MY DUDE
 				let options = {};
-				for (let opt in locations[loc].image)
+				for (let opt in locations[loc].images[i])
 					if (opt != "meta")
-						options[opt] = locations[loc].image[opt];
-				let bounds = getBounds(locations[loc].image.meta.location, loc);
-				if (!isExternalLink(locations[loc].image.meta.file))
-					locations[loc].image.meta.file = "images/" + locations[loc].image.meta.file;
-				if (locations[loc].image.meta.location.rotation != undefined) {
-					options.rotation = locations[loc].image.meta.location.rotation;
-					images[loc] = L.rotateImageOverlay(locations[loc].image.meta.file, bounds, options);
+						options[opt] = locations[loc].images[i][opt];
+				let bounds = getBounds(locations[loc].images[i].meta.location, loc);
+				if (!isExternalLink(locations[loc].images[i].meta.file))
+					locations[loc].images[i].meta.file = "images/" + locations[loc].images[i].meta.file;
+				if (locations[loc].images[i].meta.location.rotation != undefined) {
+					options.rotation = locations[loc].images[i].meta.location.rotation;
+					images[loc][i] = L.rotateImageOverlay(locations[loc].images[i].meta.file, bounds, options);
 				} else {
-					images[loc] = L.imageOverlay(locations[loc].image.meta.file, bounds, options);
+					images[loc][i] = L.imageOverlay(locations[loc].images[i].meta.file, bounds, options);
 				}
 			}
 		}
