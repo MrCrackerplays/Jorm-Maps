@@ -112,7 +112,7 @@
 					"max": 22
 				}
 			},
-			"opacity": 0.8,
+			"opacity": 1,
 			"pane": "tilePane"
 		},
 		"marker": {
