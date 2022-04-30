@@ -102,36 +102,36 @@ html, body {
 }
 
 .slider {
-	-webkit-appearance: none;  /* Override default CSS styles */
-	appearance: none;
+	appearance: none; /* Override default CSS styles */
 	width: 80%; /* Full-width */
-	height: 20px; /* Specified height */
+	height: 10px; /* Specified height */
 	background: #d3d3d3; /* Grey background */
-	/*outline: none; /* Remove outline */
+	outline: none; /* Remove outline */
 	margin: 0% 10%;
 	opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-	-webkit-transition: .2s; /* 0.2 seconds transition on hover */
 	transition: opacity .2s;
 }
 
 /* Mouse-over effects */
 .slider:hover {
-  opacity: 1; /* Fully shown on mouse-over */
+	opacity: 1; /* Fully shown on mouse-over */
 }
 
 /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
 .slider::-webkit-slider-thumb {
-  -webkit-appearance: none; /* Override default look */
-  appearance: none;
-  /*width: 25px; /* Set a specific slider handle width */
-  /*height: 25px; /* Slider handle height */
-  background: #04AA6D; /* Green background */
-  cursor: pointer; /* Cursor on hover */
+	appearance: none; /* Override default CSS styles */
+	width: 20px; /* Set a specific slider handle width */
+	height: 20px; /* Slider handle height */
+	background: url('stairs-icon.png');/* staircase image background */
+	background-size: 20px 20px;
+	cursor: pointer; /* Cursor on hover */
 }
 
 .slider::-moz-range-thumb {
-  /*width: 25px; /* Set a specific slider handle width */
- /* height: 25px; /* Slider handle height */
-  background: #04AA6D; /* Green background */
-  cursor: pointer; /* Cursor on hover */
+	width: 20px; /* Set a specific slider handle width */
+	height: 20px; /* Slider handle height */
+	background: url('stairs-icon.png');/*, url('stairs-icon.png');/*#04AA6D; /* Green background */
+	background-size: 20px 20px;
+	cursor: pointer; /* Cursor on hover */
+	border: none;
 }
