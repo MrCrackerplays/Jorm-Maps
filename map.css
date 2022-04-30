@@ -103,13 +103,13 @@ html, body {
 
 .slider {
 	appearance: none; /* Override default CSS styles */
-	width: 80%; /* Full-width */
-	height: 10px; /* Specified height */
-	background: #d3d3d3; /* Grey background */
-	outline: none; /* Remove outline */
+	width: 80%;
 	margin: 0% 10%;
+	height: 10px;
+	background: #d3d3d3; /* Grey background */
 	opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
 	transition: opacity .2s;
+	border-radius: 10px 0px; /* same as height, and 0 for only rounding on bottom/top */
 }
 
 /* Mouse-over effects */

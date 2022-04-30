@@ -123,39 +123,39 @@ function updateSidebar() {
 		document.getElementById("toggle-sidebar").checked = false;
 }
 
+//this might break if the user changes the zoom level while the map is in the middle of updating the layers
+//but that's such a difficult edgecase to even test that it's a non-issue
 function updateFloor() {
 	let val = document.getElementById("floorSlider").value;
-	let old_floor = localStorage.getItem("floor-level");
-	if (old_floor != null)
-		old_floor = parseInt(old_floor);
+	let old_Val = parseInt(localStorage.getItem("floor-level"));
 	localStorage.setItem("floor-level", val);
 	document.getElementById("floorOutput").value = val;
 	for (let loc in locations) {
 		if (locations[loc].images != undefined) {
+			let old_floor = getClosestFloor(locations[loc].images, old_Val);
 			let floor = getClosestFloor(locations[loc].images);
 			if (floor == undefined)
 				continue;
-			if (old_floor != null)
+			if (old_floor != null && images[loc][old_floor] != undefined && imageLayer.hasLayer(images[loc][old_floor]))
 				imageLayer.removeLayer(images[loc][old_floor]);
 			imageLayer.addLayer(images[loc][floor]);
 		}
 	}
 }
 
-function getClosestFloor(place_images) {
-	// if (images != undefined) { //TODO: FIX THIS TO REFERENCE THE RIGHT GROUP OF IMAGES, AND LET THE FLOOR CHANGING UPDATE THAT GROUP OF IMAGES
+function getClosestFloor(place_images, current = NaN) {
 	let slider = document.getElementById("floorSlider");
 	let max = parseInt(slider.getAttribute("max"));
 	let min = parseInt(slider.getAttribute("min"));
-	let current = parseInt(slider.value);
+	if (isNaN(current))
+		current = parseInt(slider.value);
 	let found = undefined;
-	for (let i = current; i <= max; i++)
-		if (place_images[i] != undefined)
-			found = i;
-	if (found == undefined)
-		for (let i = current; i >= min; i--)
-			if (place_images[i] != undefined)
-				found = i;
+	for (let i = current; found == undefined && i <= max; i++)
+		if (place_images[i.toString()] != undefined)
+			found = i.toString();
+	for (let i = current; found == undefined && i >= min; i--)
+		if (place_images[i.toString()] != undefined)
+			found = i.toString();
 	return found;
 }
 
@@ -166,6 +166,7 @@ function updateMarker(marker, name) {
 	else
 		markerCluster.removeLayer(markers[name]);
 }
+
 function updateImage(image, name) {
 	let layer = Array.isArray(images[name]) ? images[name][getClosestFloor(locations[name].images)] : images[name];
 	if (map.getZoom() >= image.meta.layers.min && map.getZoom() <= image.meta.layers.max)
@@ -198,7 +199,7 @@ function getBounds(location, name) {
 			middle = [middle.lat, middle.lng];
 			topleft = [middle[0] - (height / 2), middle[1] - (width / 2)];
 			if (location.rotation != undefined)
-				topleft = rotatePoint(middle, 33 * (Math.PI / 180), topleft);
+				topleft = rotatePoint(middle, location.rotation * (Math.PI / 180), topleft);
 		} else {
 			topleft = location.topleft;
 		}
@@ -360,19 +361,19 @@ function loadImages() {
 			}
 		} else if (locations[loc].images != undefined) {
 			images[loc] = [];
-			for (let i = 0; i < locations[loc].images.length; i++) {//TODO:FIX THIS MY DUDE
+			for (let index in locations[loc].images) {
 				let options = {};
-				for (let opt in locations[loc].images[i])
+				for (let opt in locations[loc].images[index])
 					if (opt != "meta")
-						options[opt] = locations[loc].images[i][opt];
-				let bounds = getBounds(locations[loc].images[i].meta.location, loc);
-				if (!isExternalLink(locations[loc].images[i].meta.file))
-					locations[loc].images[i].meta.file = "images/" + locations[loc].images[i].meta.file;
-				if (locations[loc].images[i].meta.location.rotation != undefined) {
-					options.rotation = locations[loc].images[i].meta.location.rotation;
-					images[loc][i] = L.rotateImageOverlay(locations[loc].images[i].meta.file, bounds, options);
+						options[opt] = locations[loc].images[index][opt];
+				let bounds = getBounds(locations[loc].images[index].meta.location, loc);
+				if (!isExternalLink(locations[loc].images[index].meta.file))
+					locations[loc].images[index].meta.file = "images/" + locations[loc].images[index].meta.file;
+				if (locations[loc].images[index].meta.location.rotation != undefined) {
+					options.rotation = locations[loc].images[index].meta.location.rotation;
+					images[loc][index] = L.rotateImageOverlay(locations[loc].images[index].meta.file, bounds, options);
 				} else {
-					images[loc][i] = L.imageOverlay(locations[loc].images[i].meta.file, bounds, options);
+					images[loc][index] = L.imageOverlay(locations[loc].images[index].meta.file, bounds, options);
 				}
 			}
 		}
@@ -399,9 +400,14 @@ function loadMarkers() {
 function updateLocations() {
 	for (let loc in locations){
 		if (locations[loc].marker != undefined)
-			updateMarker(locations[loc].marker, loc)
+			updateMarker(locations[loc].marker, loc);
 		if (locations[loc].image != undefined)
-			updateImage(locations[loc].image, loc)
+			updateImage(locations[loc].image, loc);
+		else if (locations[loc].images != undefined) {
+			let floor = getClosestFloor(locations[loc].images);
+			if (floor != undefined)
+				updateImage(locations[loc].images[floor], loc);
+		}
 	}
 }
 
