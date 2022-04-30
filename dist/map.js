@@ -30,7 +30,7 @@ L.CRS.dod = L.extend({}, L.CRS.Simple, {
 	infinite: false
 });
 
-function style(feature) {
+function styleHex(feature) {
 	return {
 		fillColor: 'transparent',
 		weight: 1,
@@ -41,7 +41,7 @@ function style(feature) {
 	};
 }
 
-function highlightFeature(e) {
+function highlightHex(e) {
 	var layer = e.target;
 
 	layer.setStyle({
@@ -55,22 +55,22 @@ function highlightFeature(e) {
 	}
 }
 
-function resetHighlight(e) {
+function resetHexHighlight(e) {
 	hexGrid[0].resetStyle(e.target);
 }
 
-function click(e) {
+function clickHex(e) {
 	popup = L.popup()
 					.setLatLng(e.latlng)
 					.setContent("Hexagon ID: "+e.target.feature.properties.id+"<br/>"+e.latlng)
 					.openOn(map);
 }
 
-function onEachFeature(feature, layer) {
+function onEachHex(feature, layer) {
 	layer.on({
-		mouseover: highlightFeature,
-		mouseout: resetHighlight,
-		click: click
+		mouseover: highlightHex,
+		mouseout: resetHexHighlight,
+		click: clickHex
 	});
 }
 
@@ -87,12 +87,12 @@ function onMove() {
 	clearTimeout(move_call);
 	map.removeLayer(grid_holder);
 	move_call = setTimeout(function () {
-		updateGrid();
+		updateHexGrid();
 		if (map.getZoom() >= 2 && map.getZoom() < 8)
 			map.addLayer(grid_holder);
 	}, 650);
 }
-function updateGrid() {
+function updateHexGrid() {
 	if (map.getZoom() >= 2 && map.getZoom() < 8) {
 		for (let i = 0; i < CLUSTER_COLUMNS * CLUSTER_ROWS; i++) {
 			if (map.getBounds().intersects(hexGrid[i].getBounds())) {
@@ -103,7 +103,7 @@ function updateGrid() {
 	}
 }
 
-function toggleDebug() {
+function toggleDebugGrid() {
 	if (document.getElementById("debugGrid").checked)
 		map.addLayer(debugCoordsGrid);
 	else
@@ -168,7 +168,7 @@ function updateMarker(marker, name) {
 }
 
 function updateImage(image, name) {
-	let layer = Array.isArray(images[name]) ? images[name][getClosestFloor(locations[name].images)] : images[name];
+	let layer = locations[name].image == undefined && locations[name].images != undefined ? images[name][getClosestFloor(locations[name].images)] : images[name];
 	if (map.getZoom() >= image.meta.layers.min && map.getZoom() <= image.meta.layers.max)
 		imageLayer.addLayer(layer);
 	else
@@ -186,7 +186,7 @@ function rotatePoint(pivot, angle_radians, point) {
 	return rotated;
 }
 
-function getBounds(location, name) {
+function getImageBounds(location, name) {
 	if (location.bounds != undefined)
 		return [L.latLng(location.bounds[0][0], location.bounds[0][1]),
 		L.latLng(location.bounds[1][0], location.bounds[1][1])];
@@ -350,7 +350,7 @@ function loadImages() {
 			for (let opt in locations[loc].image)
 				if (opt != "meta")
 					options[opt] = locations[loc].image[opt];
-			let bounds = getBounds(locations[loc].image.meta.location, loc);
+			let bounds = getImageBounds(locations[loc].image.meta.location, loc);
 			if (!isExternalLink(locations[loc].image.meta.file))
 				locations[loc].image.meta.file = "images/" + locations[loc].image.meta.file;
 			if (locations[loc].image.meta.location.rotation != undefined) {
@@ -366,7 +366,7 @@ function loadImages() {
 				for (let opt in locations[loc].images[index])
 					if (opt != "meta")
 						options[opt] = locations[loc].images[index][opt];
-				let bounds = getBounds(locations[loc].images[index].meta.location, loc);
+				let bounds = getImageBounds(locations[loc].images[index].meta.location, loc);
 				if (!isExternalLink(locations[loc].images[index].meta.file))
 					locations[loc].images[index].meta.file = "images/" + locations[loc].images[index].meta.file;
 				if (locations[loc].images[index].meta.location.rotation != undefined) {
@@ -398,7 +398,7 @@ function loadMarkers() {
 }
 
 function updateLocations() {
-	for (let loc in locations){
+	for (let loc in locations) {
 		if (locations[loc].marker != undefined)
 			updateMarker(locations[loc].marker, loc);
 		if (locations[loc].image != undefined)
@@ -497,8 +497,8 @@ for (let i = 0; i < CLUSTER_COLUMNS; i++) {
 		hexGrid[j + i * CLUSTER_ROWS] = L.geoJson(H.hexagonalGrid([ORIGIN_HEX_CENTER[0] + (i * COLUMNS * 1.5 * HEX_SIDE_LEN),
 							ORIGIN_HEX_CENTER[1] + (j * ROWS * ROOT_3 * HEX_SIDE_LEN)],
 						local_columns, local_rows, HEX_SIDE_LEN, COLUMNS * i, ROWS * j), {
-							style: style,
-							onEachFeature: onEachFeature
+							style: styleHex,
+							onEachFeature: onEachHex
 		});
 	}
 }
@@ -547,7 +547,7 @@ async function map_main() {
 	loadMarkers();
 	loadImages();
 	updateLocations();
-	updateGrid();
+	updateHexGrid();
 	if (document.getElementById("debugGrid").checked)
 		map.addLayer(debugCoordsGrid);
 	map.addLayer(grid_holder);
