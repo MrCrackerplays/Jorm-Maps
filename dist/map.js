@@ -59,26 +59,55 @@ function resetHexHighlight(e) {
 	hexGrid[0].resetStyle(e.target);
 }
 
+function getIndexOfClosestWithin(arr, point, distance) {
+	let index = undefined;
+	let idist = undefined
+	for (let i = 0; i < arr.length; i++) {
+		let curdist = map.distance(point, arr[i]);
+		if (curdist <= distance) {
+			if (index == undefined || curdist <= idist) {
+				index = i;
+				idist = curdist;
+			}
+		}
+	}
+	return index;
+}
+
+let path = []
+let marclick;
 function clickHex(e) {
-	popup = L.popup()
-					.setLatLng(e.latlng)
-					.setContent("Hexagon ID: "+e.target.feature.properties.id+"<br/>"+e.latlng)
-					.openOn(map);
+	path.push(e.latlng);
+	// if (marclick != undefined)
+
+	// popup = L.popup()
+	// 				.setLatLng(e.latlng)
+	// 				.setContent("Hexagon ID: "+e.target.feature.properties.id+"<br/>"+e.latlng)
+	// 				.openOn(map);
+}
+
+function rightclickHex(e) {
+	let index = getIndexOfClosestWithin(path, e.latlng, 20 / 256 * METER_PER_FOOT * 5 * Math.pow(2, TARGET_ZOOM - map.getZoom()));
+	if (index != undefined) {
+		path.splice(index, 1);
+	}
+	console.log("rightclickHex", e);
 }
 
 function onEachHex(feature, layer) {
 	layer.on({
 		mouseover: highlightHex,
 		mouseout: resetHexHighlight,
-		click: clickHex
+		click: clickHex,
+		contextmenu: rightclickHex
 	});
 }
 
 function onMoveEnd() {
-	if (map.getZoom() != prevZoom) {
-		updateLocations();
-		prevZoom = map.getZoom();
-	}
+	// if (map.getZoom() != prevZoom) {
+	updateLocations();
+	// 	prevZoom = map.getZoom();
+	// }
 }
 
 let move_call = undefined;
@@ -167,9 +196,9 @@ function updateMarker(marker, name) {
 		markerCluster.removeLayer(markers[name]);
 }
 
-function updateImage(image, name) {
+function updateImage(image, name, bounds) {
 	let layer = locations[name].image == undefined && locations[name].images != undefined ? images[name][getClosestFloor(locations[name].images)] : images[name];
-	if (map.getZoom() >= image.meta.layers.min && map.getZoom() <= image.meta.layers.max)
+	if (bounds.intersects(layer.getBounds()) && map.getZoom() >= image.meta.layers.min && map.getZoom() <= image.meta.layers.max)
 		imageLayer.addLayer(layer);
 	else
 		imageLayer.removeLayer(layer);
@@ -398,15 +427,16 @@ function loadMarkers() {
 }
 
 function updateLocations() {
+	const bounds = map.getBounds().pad(0.2);
 	for (let loc in locations) {
 		if (locations[loc].marker != undefined)
 			updateMarker(locations[loc].marker, loc);
 		if (locations[loc].image != undefined)
-			updateImage(locations[loc].image, loc);
+			updateImage(locations[loc].image, loc, bounds);
 		else if (locations[loc].images != undefined) {
 			let floor = getClosestFloor(locations[loc].images);
 			if (floor != undefined)
-				updateImage(locations[loc].images[floor], loc);
+				updateImage(locations[loc].images[floor], loc, bounds);
 		}
 	}
 }
