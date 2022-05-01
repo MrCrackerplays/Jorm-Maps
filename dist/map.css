@@ -113,6 +113,7 @@ body {
 }
 
 .slider {
+	-webkit-appearance: none;
 	appearance: none;
 	/* Override default CSS styles */
 	width: 80%;
@@ -135,6 +136,7 @@ body {
 
 /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
 .slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
 	appearance: none;
 	/* Override default CSS styles */
 	width: 20px;
