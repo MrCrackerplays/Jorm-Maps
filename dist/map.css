@@ -7,6 +7,7 @@
 	--text: white;
 	--highlight: grey;
 	--transition-duration: 0.5s;
+	--slider: #db3434;
 }
 
 @media (prefers-color-scheme: light) {
@@ -14,6 +15,7 @@
 		--background: white;
 		--text: black;
 		--highlight: darkgrey;
+		--slider: #3498db;
 	}
 }
 
@@ -101,17 +103,6 @@ body {
 	transform: rotate(-90deg);
 }
 
-#map {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: var(--sidebar-offset);
-	right: 0;
-	z-index: -1;
-	outline: none;
-	transition-delay: var(--transition-duration);
-}
-
 .slider {
 	-webkit-appearance: none;
 	appearance: none;
@@ -156,9 +147,58 @@ body {
 	height: 20px;
 	/* Slider handle height */
 	background: url('stairs-icon.png');
-	/*, url('stairs-icon.png');/*#04AA6D; /* Green background */
+	/* staircase image background */
 	background-size: 20px 20px;
 	cursor: pointer;
 	/* Cursor on hover */
 	border: none;
+}
+
+#map {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: var(--sidebar-offset);
+	right: 0;
+	z-index: -1;
+	outline: none;
+	transition-delay: var(--transition-duration);
+}
+
+#loader {
+	border: 10px solid var(--background);
+	border-top: 10px solid var(--slider);
+	border-bottom: 10px solid var(--slider);
+	border-radius: 50%;
+	width: 120px;
+	height: 120px;
+	animation: spin 2s linear infinite;
+	animation-play-state: running;
+	z-index: 1000;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	position: absolute;
+	background-image: url("icon.png");
+	background-size: cover;
+}
+
+#loader.paused{
+	animation-play-state: paused;
+	display: none;
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+footer {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
 }

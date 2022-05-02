@@ -22,6 +22,7 @@
 	<script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
 	<script src="./dist/hexagonalgrid.js"></script>
 
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 
@@ -29,15 +30,22 @@
   <input type="checkbox" id="toggle-sidebar">
   <label class="toggle-sidebar-label" for="toggle-sidebar" tabindex="0"></label>
 	<aside id="sidebar">
-		<input type="checkbox" id="debugGrid" onclick="toggleDebugGrid();" />
-		<label for="debugGrid">Debug Grid</label><br/>
-		<div style="text-align: center;">
+		<section id="toggleOptions">
+			<input type="checkbox" id="debugGrid" onclick="toggleDebugGrid();" />
+			<label for="debugGrid">Debug Grid</label><br/>
+		</section>
+		<section id="sliderOptions" style="text-align: center;">
 			<label for="floorSlider">Floor Level</label>
 			<output id="floorOutput">0</output>
-		</div>
-		<input type="range" min="-10" max="10" value="0" class="slider" id="floorSlider" oninput="updateFloor();">
+			<input type="range" min="-10" max="10" value="0" class="slider" id="floorSlider" oninput="updateFloor();">
+		</section>
+		<footer>
+			<p>Jorm Maps <a href="https://github.com/MrCrackerplays/Jorm-Maps" class="fa fa-github" style="color:var(--text)"></a> 2022</p>
+		</footer>
 	</aside>
-	<main id='map'></main>
+	<main id='map'>
+		<div id="loader"></div>
+	</main>
 	<script src="./dist/map.js"></script>
 </body>
 
