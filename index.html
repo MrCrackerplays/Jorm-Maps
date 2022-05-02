@@ -27,20 +27,21 @@
 </head>
 
 <body>
-  <input type="checkbox" id="toggle-sidebar">
-  <label class="toggle-sidebar-label" for="toggle-sidebar" tabindex="0"></label>
+	<input type="checkbox" id="toggle-sidebar">
+	<label title="Toggle Sidebar" class="toggle-sidebar-label" for="toggle-sidebar" tabindex="0"></label>
 	<aside id="sidebar">
-		<section id="toggleOptions">
+		<section id="debugSection">
 			<input type="checkbox" id="debugGrid" onclick="toggleDebugGrid();" />
-			<label for="debugGrid">Debug Grid</label><br/>
+			<label for="debugGrid">Debug Grid</label><br />
 		</section>
-		<section id="sliderOptions" style="text-align: center;">
+		<section id="floorSection" style="text-align: center;">
 			<label for="floorSlider">Floor Level</label>
 			<output id="floorOutput">0</output>
 			<input type="range" min="-10" max="10" value="0" class="slider" id="floorSlider" oninput="updateFloor();">
 		</section>
 		<footer>
-			<p>Jorm Maps <a href="https://github.com/MrCrackerplays/Jorm-Maps" class="fa fa-github" style="color:var(--text)"></a> 2022</p>
+			<p>Jorm Maps <a title="View source on Github" href="https://github.com/MrCrackerplays/Jorm-Maps"
+					class="fa fa-github"></a> 2022</p>
 		</footer>
 	</aside>
 	<main id='map'>
