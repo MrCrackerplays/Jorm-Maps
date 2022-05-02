@@ -586,7 +586,13 @@ if (floor_level) {
 
 let current_plane = localStorage.getItem("plane");
 if (current_plane) {
-	;
+	let radios = document.getElementsByName("plane");
+	for (let i = 0; i < radios.length; i++) {
+		if (radios[i].value == current_plane) {
+			radios[i].checked = true;
+			break;
+		}
+	}
 }
 updateSidebar();
 
