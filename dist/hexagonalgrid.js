@@ -127,8 +127,8 @@ var H = {
 	},
 
 	pixel_to_flat_hex: function(point) {
-		let q = ( 2.0/3 * point.x) / size;
-		let r = (-1.0/3 * point.x + sqrt(3)/3 * point.y) / size;
+		let q = ( 2.0/3 * point.x) / HEX_SIDE_LEN;
+		let r = (-1.0/3 * point.x + Math.sqrt(3)/3 * point.y) / HEX_SIDE_LEN;
 		return this.axial_round({"q": q, "r": r});
 	},
 

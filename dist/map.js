@@ -78,6 +78,7 @@ let path = []
 let marclick;
 function clickHex(e) {
 	path.push(e.latlng);
+	console.log(e.target.feature.properties.id);
 	// if (marclick != undefined)
 
 	// popup = L.popup()
@@ -584,6 +585,7 @@ async function map_main() {
 	map.on('move', onMove);
 	map.on('moveend', onMoveEnd);
 	map.on('click', function(e) {
+		console.log("hex coords", H.axial_to_doubleheight(H.pixel_to_flat_hex({"x":e.latlng.lng,"y":e.latlng.lat})));
 		console.log("Lat, Lon : " + e.latlng.lat + ", " + e.latlng.lng)
 		console.log("Offset from", relative, "lat:", e.latlng.lat - markers[relative]._latlng.lat, "lng:", e.latlng.lng - markers[relative]._latlng.lng)
 		console.log("Angle from", relative, ":", 90 + Math.atan2(e.latlng.lat - markers[relative]._latlng.lat, e.latlng.lng - markers[relative]._latlng.lng) * 180 / Math.PI, "distance:", map.distance(e.latlng, markers[relative]._latlng))
