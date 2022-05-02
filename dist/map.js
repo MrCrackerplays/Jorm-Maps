@@ -153,14 +153,14 @@ function updateSidebar() {
 		document.getElementById("toggle-sidebar").checked = false;
 }
 
-let current_plane;
 function updatePlane() {
 	let radios = document.getElementsByName("plane");
 	let val = undefined;
-	for (let i = 0; val == undefined && i < radios.length; i++)
+	let i;
+	for (i = 0; val == undefined && i < radios.length; i++)
 		if (radios[i].checked)
 			val = radios[i].value;
-	let old_Val = localStorage.getItem("plane");
+	let old_val = localStorage.getItem("plane");
 	if (val != undefined) {
 		localStorage.setItem("plane", val);
 	}
@@ -170,12 +170,12 @@ function updatePlane() {
 //but that's such a difficult edgecase to even test that it's a non-issue
 function updateFloor() {
 	let val = document.getElementById("floorSlider").value;
-	let old_Val = parseInt(localStorage.getItem("floor-level"));
+	let old_val = parseInt(localStorage.getItem("floor-level"));
 	localStorage.setItem("floor-level", val);
 	document.getElementById("floorOutput").value = val;
 	for (let loc in locations) {
 		if (locations[loc].images != undefined) {
-			let old_floor = getClosestFloor(locations[loc].images, old_Val);
+			let old_floor = getClosestFloor(locations[loc].images, old_val);
 			let floor = getClosestFloor(locations[loc].images);
 			if (floor == undefined)
 				continue;
@@ -583,7 +583,13 @@ if (floor_level) {
 	document.getElementById("floorSlider").value = parseInt(floor_level);
 	document.getElementById("floorOutput").value = parseInt(floor_level);
 }
+
+let current_plane = localStorage.getItem("plane");
+if (current_plane) {
+	;
+}
 updateSidebar();
+
 let relative = "Dod'Estrin";
 async function map_main() {
 	const response = await fetch(LOCATIONS_JSON_URL);
