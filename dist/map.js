@@ -153,6 +153,19 @@ function updateSidebar() {
 		document.getElementById("toggle-sidebar").checked = false;
 }
 
+let current_plane;
+function updatePlane() {
+	let radios = document.getElementsByName("plane");
+	let val = undefined;
+	for (let i = 0; val == undefined && i < radios.length; i++)
+		if (radios[i].checked)
+			val = radios[i].value;
+	let old_Val = localStorage.getItem("plane");
+	if (val != undefined) {
+		localStorage.setItem("plane", val);
+	}
+}
+
 //this might break if the user changes the zoom level while the map is in the middle of updating the layers
 //but that's such a difficult edgecase to even test that it's a non-issue
 function updateFloor() {
