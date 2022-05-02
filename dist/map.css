@@ -39,6 +39,11 @@ body {
 	color: var(--text);
 }
 
+h2 {
+	margin: 5px;
+	text-align: center;
+}
+
 #sidebar {
 	width: calc(max(var(--sidebar-width), var(--sidebar-offset)) - 25px);
 	padding: 15px 10px 0 15px;
