@@ -9,8 +9,8 @@ const FOOT_PER_TARGET = 5; //how many feet long we want our target to be
 //this means that at zoom level 22 our target of 5 feet will be 256 pixels long, which would be 1 tile assuming tiles are 256x256px
 const SCALE_MODIFIER = TARGET_PIXEL_LENGTH * FOOT_PIXEL_MODIFIER / FOOT_PER_TARGET;
 L.CRS.dod = L.extend({}, L.CRS.Simple, {
-	projection: L.extend( L.Projection.LonLat, {
-		bounds: L.bounds([0, 0], [METER_PER_FOOT * 5 * TWO_POW , METER_PER_FOOT * 5 * TWO_POW])
+	projection: L.extend(L.Projection.LonLat, {
+		bounds: L.bounds([0, 0], [METER_PER_FOOT * 5 * TWO_POW, METER_PER_FOOT * 5 * TWO_POW])
 	}),
 	transformation: new L.Transformation(SCALE_MODIFIER, 0, SCALE_MODIFIER, 0),
 	scale: function (zoom) {
@@ -337,7 +337,7 @@ function calculateCoordinates(distance, direction, origin, name) {
 	let angle = calculateAngle(direction);
 	let start = getStartCoordinates(origin, name);
 	if (length != undefined && angle != undefined && start != undefined)
-		return L.latLng(start.lat + Math.sin(angle*Math.PI/180) * length, start.lng + Math.cos(angle*Math.PI/180) * length);
+		return L.latLng(start.lat + Math.sin(angle * Math.PI / 180) * length, start.lng + Math.cos(angle * Math.PI / 180) * length);
 	console.error("Not able to get " + (length ? "" : "length ") + (angle ? "" : "angle ") + (start ? "" : "start ") + "based on location data for", name);
 	return L.latLng(0, 0);
 }
@@ -417,9 +417,9 @@ function loadMarkers() {
 			for (let opt in locations[loc].marker)
 				if (opt != "meta")
 					options[opt] = locations[loc].marker[opt];
-				markers[loc] = L.marker(getCoordinates(locations[loc].marker.meta.location, loc), options);
+			markers[loc] = L.marker(getCoordinates(locations[loc].marker.meta.location, loc), options);
 			if (locations[loc].marker.meta.click.jump_zoom)
-				markers[loc].on('click', function(e) {
+				markers[loc].on('click', function (e) {
 					map.flyTo(getCoordinates(locations[loc].marker.meta.location, loc), locations[loc].marker.meta.click.jump_zoom);
 				});
 			markers[loc].bindTooltip(loc, {});
@@ -485,18 +485,18 @@ L.gridLayer.debugCoords = function (opts) {
 	return new L.GridLayer.DebugCoords(opts);
 };
 
-L.rotateImageOverlay = function(url, bounds, options) {
+L.rotateImageOverlay = function (url, bounds, options) {
 	return new L.RotateImageOverlay(url, bounds, options);
 };
 // A quick extension to allow image layer rotation.
 L.RotateImageOverlay = L.ImageOverlay.extend({
-	options: {rotation: 0},
-	_animateZoom: function(e){
+	options: { rotation: 0 },
+	_animateZoom: function (e) {
 		L.ImageOverlay.prototype._animateZoom.call(this, e);
 		var img = this._image;
 		img.style[L.DomUtil.TRANSFORM] += ' rotate(' + this.options.rotation + 'deg)';
 	},
-	_reset: function(){
+	_reset: function () {
 		L.ImageOverlay.prototype._reset.call(this);
 		var img = this._image;
 		img.style[L.DomUtil.TRANSFORM] += ' rotate(' + this.options.rotation + 'deg)';
@@ -504,7 +504,7 @@ L.RotateImageOverlay = L.ImageOverlay.extend({
 });
 
 
-var debugCoordsGrid = L.gridLayer.debugCoords({tileSize: 256, zIndex:100});
+var debugCoordsGrid = L.gridLayer.debugCoords({ tileSize: 256, zIndex: 100 });
 
 
 
@@ -526,10 +526,10 @@ for (let i = 0; i < CLUSTER_COLUMNS; i++) {
 	for (let j = 0; j < CLUSTER_ROWS; j++) {
 		const local_rows = j == CLUSTER_SIZE - 1 ? ROWS + (TOTAL_ROWS % CLUSTER_ROWS) : ROWS;
 		hexGrid[j + i * CLUSTER_ROWS] = L.geoJson(H.hexagonalGrid([ORIGIN_HEX_CENTER[0] + (i * COLUMNS * 1.5 * HEX_SIDE_LEN),
-							ORIGIN_HEX_CENTER[1] + (j * ROWS * ROOT_3 * HEX_SIDE_LEN)],
-						local_columns, local_rows, HEX_SIDE_LEN, COLUMNS * i, ROWS * j), {
-							style: styleHex,
-							onEachFeature: onEachHex
+		ORIGIN_HEX_CENTER[1] + (j * ROWS * ROOT_3 * HEX_SIDE_LEN)],
+			local_columns, local_rows, HEX_SIDE_LEN, COLUMNS * i, ROWS * j), {
+			style: styleHex,
+			onEachFeature: onEachHex
 		});
 	}
 }
@@ -546,7 +546,7 @@ document.querySelector(".toggle-sidebar-label").addEventListener("keydown", (e) 
 		e.target.click();
 });
 
-document.getElementById("map").addEventListener('transitionend', function(e) {
+document.getElementById("map").addEventListener('transitionend', function (e) {
 	map.invalidateSize();
 });
 
@@ -559,7 +559,7 @@ var locations;
 var markers = {};
 var images = {};
 
-var markerCluster = L.markerClusterGroup({});
+var markerCluster = L.markerClusterGroup({maxClusterRadius: 40});
 markerCluster.addTo(map);
 var imageLayer = L.layerGroup([]);
 imageLayer.addTo(map);
@@ -584,8 +584,8 @@ async function map_main() {
 	map.addLayer(grid_holder);
 	map.on('move', onMove);
 	map.on('moveend', onMoveEnd);
-	map.on('click', function(e) {
-		console.log("hex coords", H.axial_to_doubleheight(H.pixel_to_flat_hex({"x":e.latlng.lng,"y":e.latlng.lat})));
+	map.on('click', function (e) {
+		console.log("hex coords", H.axial_to_doubleheight(H.pixel_to_flat_hex({ "x": e.latlng.lng, "y": e.latlng.lat })));
 		console.log("Lat, Lon : " + e.latlng.lat + ", " + e.latlng.lng)
 		console.log("Offset from", relative, "lat:", e.latlng.lat - markers[relative]._latlng.lat, "lng:", e.latlng.lng - markers[relative]._latlng.lng)
 		console.log("Angle from", relative, ":", 90 + Math.atan2(e.latlng.lat - markers[relative]._latlng.lat, e.latlng.lng - markers[relative]._latlng.lng) * 180 / Math.PI, "distance:", map.distance(e.latlng, markers[relative]._latlng))
