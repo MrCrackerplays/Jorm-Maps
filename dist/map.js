@@ -588,6 +588,7 @@ async function map_main() {
 		console.log("Offset from", relative, "lat:", e.latlng.lat - markers[relative]._latlng.lat, "lng:", e.latlng.lng - markers[relative]._latlng.lng)
 		console.log("Angle from", relative, ":", 90 + Math.atan2(e.latlng.lat - markers[relative]._latlng.lat, e.latlng.lng - markers[relative]._latlng.lng) * 180 / Math.PI, "distance:", map.distance(e.latlng, markers[relative]._latlng))
 	});
+	document.getElementById("loader").classList.add("paused");
 }
 
 map_main();
