@@ -109,6 +109,10 @@ h2 {
 	transform: rotate(-90deg);
 }
 
+#floorSection {
+	text-align: center;
+}
+
 .slider {
 	-webkit-appearance: none;
 	appearance: none;
