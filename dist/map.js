@@ -429,11 +429,11 @@ function loadImages(plane) {
 			for (let opt in locations[loc].image)
 				if (opt != "meta")
 					options[opt] = locations[loc].image[opt];
-			let bounds = getImageBounds(locations[loc].image.meta.location, loc, plane);
+			let bounds = getImageBounds(locations[loc].image.meta.position, loc, plane);
 			if (!isExternalLink(locations[loc].image.meta.file))
 				locations[loc].image.meta.file = "images/" + locations[loc].image.meta.file;
-			if (locations[loc].image.meta.location.rotation != undefined) {
-				options.rotation = locations[loc].image.meta.location.rotation;
+			if (locations[loc].image.meta.position.rotation != undefined) {
+				options.rotation = locations[loc].image.meta.position.rotation;
 				planeLayers[plane].images[loc] = L.rotateImageOverlay(locations[loc].image.meta.file, bounds, options);
 			} else {
 				planeLayers[plane].images[loc] = L.imageOverlay(locations[loc].image.meta.file, bounds, options);
@@ -445,11 +445,11 @@ function loadImages(plane) {
 				for (let opt in locations[loc].images[index])
 					if (opt != "meta")
 						options[opt] = locations[loc].images[index][opt];
-				let bounds = getImageBounds(locations[loc].images[index].meta.location, loc, plane);
+				let bounds = getImageBounds(locations[loc].images[index].meta.position, loc, plane);
 				if (!isExternalLink(locations[loc].images[index].meta.file))
 					locations[loc].images[index].meta.file = "images/" + locations[loc].images[index].meta.file;
-				if (locations[loc].images[index].meta.location.rotation != undefined) {
-					options.rotation = locations[loc].images[index].meta.location.rotation;
+				if (locations[loc].images[index].meta.position.rotation != undefined) {
+					options.rotation = locations[loc].images[index].meta.position.rotation;
 					planeLayers[plane].images[loc][index] = L.rotateImageOverlay(locations[loc].images[index].meta.file, bounds, options);
 				} else {
 					planeLayers[plane].images[loc][index] = L.imageOverlay(locations[loc].images[index].meta.file, bounds, options);
