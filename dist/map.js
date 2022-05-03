@@ -1,3 +1,9 @@
+//disable inputs while loading
+document.getElementById("floorSlider").disabled = true;
+document.getElementById("radioJorm").disabled = true;
+document.getElementById("radioShadowfell").disabled = true;
+document.getElementById("debugGrid").disabled = true;
+
 const METER_PER_MILE = 1609.344;
 const METER_PER_FOOT = 0.3048;
 const METER = 1;
@@ -163,12 +169,26 @@ function updatePlane() {
 			val = radios[i].value;
 	let old_val = localStorage.getItem("plane");
 	if (old_val) {
+		map.removeLayer(planeLayers[old_val].imageLayer);
+		planeLayers[old_val].markerCluster.off();
+		//this is to silence a warn message that always happens when removing a markerCluster from map for some reason
+		//and I can't find the cause of it but the message is driving me insane, so I'm silencing it
+		let original = console.warn;
+		console.warn = function (msg) {
+			if (msg != "listener not found")
+				original(msg);
+		}
+		map.removeLayer(planeLayers[old_val].markerCluster);
+		console.warn = original;
 		//remove old layers
 	}
 	if (val != undefined) {
 		localStorage.setItem("plane", val);
 		current_plane = val;
 		locations = planeLayers[current_plane].locations;
+		map.addLayer(planeLayers[current_plane].imageLayer);
+		map.addLayer(planeLayers[current_plane].markerCluster);
+		updateLocations();
 		//add new layers
 	}
 }
@@ -186,9 +206,9 @@ function updateFloor() {
 			let floor = getClosestFloor(locations[loc].images);
 			if (floor == undefined)
 				continue;
-			if (old_floor != null && images[loc][old_floor] != undefined && imageLayer.hasLayer(images[loc][old_floor]))
-				imageLayer.removeLayer(images[loc][old_floor]);
-			imageLayer.addLayer(images[loc][floor]);
+			if (old_floor != null && planeLayers[current_plane].images[loc][old_floor] != undefined && planeLayers[current_plane].imageLayer.hasLayer(planeLayers[current_plane].images[loc][old_floor]))
+				planeLayers[current_plane].imageLayer.removeLayer(planeLayers[current_plane].images[loc][old_floor]);
+			planeLayers[current_plane].imageLayer.addLayer(planeLayers[current_plane].images[loc][floor]);
 		}
 	}
 }
@@ -212,17 +232,17 @@ function getClosestFloor(place_images, current = NaN) {
 
 function updateMarker(marker, name) {
 	if (map.getZoom() >= marker.meta.layers.min && map.getZoom() <= marker.meta.layers.max)
-		markerCluster.addLayer(markers[name]);
+		planeLayers[current_plane].markerCluster.addLayer(planeLayers[current_plane].markers[name]);
 	else
-		markerCluster.removeLayer(markers[name]);
+		planeLayers[current_plane].markerCluster.removeLayer(planeLayers[current_plane].markers[name]);
 }
 
 function updateImage(image, name, bounds) {
-	let layer = locations[name].image == undefined && locations[name].images != undefined ? images[name][getClosestFloor(locations[name].images)] : images[name];
+	let layer = locations[name].image == undefined && locations[name].images != undefined ? planeLayers[current_plane].images[name][getClosestFloor(locations[name].images)] : planeLayers[current_plane].images[name];
 	if (bounds.intersects(layer.getBounds()) && map.getZoom() >= image.meta.layers.min && map.getZoom() <= image.meta.layers.max)
-		imageLayer.addLayer(layer);
+		planeLayers[current_plane].imageLayer.addLayer(layer);
 	else
-		imageLayer.removeLayer(layer);
+		planeLayers[current_plane].imageLayer.removeLayer(layer);
 }
 
 function rotatePoint(pivot, angle_radians, point) {
@@ -236,7 +256,7 @@ function rotatePoint(pivot, angle_radians, point) {
 	return rotated;
 }
 
-function getImageBounds(location, name) {
+function getImageBounds(location, name, plane) {
 	if (location.bounds != undefined)
 		return [L.latLng(location.bounds[0][0], location.bounds[0][1]),
 		L.latLng(location.bounds[1][0], location.bounds[1][1])];
@@ -245,7 +265,7 @@ function getImageBounds(location, name) {
 		let height = calculateLength(location.height);
 		let topleft;
 		if (location.center != undefined) {
-			let middle = getCoordinates(location.center, name, false);
+			let middle = getCoordinates(location.center, name, { "for_marker": "false", "plane": plane });
 			middle = [middle.lat, middle.lng];
 			topleft = [middle[0] - (height / 2), middle[1] - (width / 2)];
 			if (location.rotation != undefined)
@@ -344,35 +364,41 @@ function calculateAngle(direction) {
 	return undefined;
 }
 
-function getStartCoordinates(origin, name) {
+function getStartCoordinates(origin, name, plane) {
 	if (origin.latlng != undefined)
 		return L.latLng(origin.latlng);
+	if (origin.plane != undefined)
+		plane = origin.plane;
 	if (origin.location != undefined && origin.location != name)
-		return getCoordinates(locations[origin.location].marker.meta.location, origin.location);
+		return getCoordinates(planeLayers[plane].locations[origin.location].marker.meta.location, origin.location, { "plane": plane });
 	return undefined;
 }
 
-function calculateCoordinates(distance, direction, origin, name) {
+function calculateCoordinates(distance, direction, origin, name, plane) {
 	let length = calculateLength(distance);
 	let angle = calculateAngle(direction);
-	let start = getStartCoordinates(origin, name);
+	let start = getStartCoordinates(origin, name, plane);
 	if (length != undefined && angle != undefined && start != undefined)
 		return L.latLng(start.lat + Math.sin(angle * Math.PI / 180) * length, start.lng + Math.cos(angle * Math.PI / 180) * length);
 	console.error("Not able to get " + (length ? "" : "length ") + (angle ? "" : "angle ") + (start ? "" : "start ") + "based on location data for", name);
 	return L.latLng(0, 0);
 }
 
-function offsetCoordinates(origin, offset, name) {
-	let start = getStartCoordinates(origin, name);
+function offsetCoordinates(origin, offset, name, plane) {
+	let start = getStartCoordinates(origin, name, plane);
 	start = L.latLng(start.lat + calculateLength(offset.lat), start.lng + calculateLength(offset.lng));
 	return start;
 }
 
 let coordinates = {};
 let resolving = [];
-function getCoordinates(location, name, for_marker = true) {
-	if (for_marker && coordinates[name])
-		return coordinates[name];
+function getCoordinates(location, name, optional = { "for_marker": "true", "plane": current_plane }) {
+	if (optional.for_marker == undefined)
+		optional.for_marker = "true";
+	if (optional.plane == undefined)
+		optional.plane = current_plane;
+	if (JSON.parse(optional.for_marker.toLowerCase()) && coordinates[optional.plane] && coordinates[optional.plane][name])
+		return coordinates[optional.plane][name];
 	let result = L.latLng(0, 0);
 	if (resolving.includes(name)) {
 		console.error("Circular reference for", name);
@@ -382,67 +408,70 @@ function getCoordinates(location, name, for_marker = true) {
 	if (location.latlng != undefined)
 		result = L.latLng(location.latlng);
 	else if (location.origin != undefined && location.offset != undefined)
-		result = offsetCoordinates(location.origin, location.offset, name);
+		result = offsetCoordinates(location.origin, location.offset, name, optional.plane);
 	else if (location.distance != undefined && location.direction != undefined && location.origin != undefined)
-		result = calculateCoordinates(location.distance, location.direction, location.origin, name);
+		result = calculateCoordinates(location.distance, location.direction, location.origin, name, optional.plane);
 	else
 		console.error("Not able to get coordinates based on location data for", name);
-	if (for_marker)
-		coordinates[name] = result;
+	if (JSON.parse(optional.for_marker.toLowerCase())) {
+		if (coordinates[optional.plane] == undefined)
+			coordinates[optional.plane] = {};
+		coordinates[optional.plane][name] = result;
+	}
 	resolving.splice(resolving.indexOf(name), 1);
 	return result;
 }
 
-function loadImages() {
+function loadImages(plane) {
 	for (let loc in locations) {
 		if (locations[loc].image != undefined) {
 			let options = {};
 			for (let opt in locations[loc].image)
 				if (opt != "meta")
 					options[opt] = locations[loc].image[opt];
-			let bounds = getImageBounds(locations[loc].image.meta.location, loc);
+			let bounds = getImageBounds(locations[loc].image.meta.location, loc, plane);
 			if (!isExternalLink(locations[loc].image.meta.file))
 				locations[loc].image.meta.file = "images/" + locations[loc].image.meta.file;
 			if (locations[loc].image.meta.location.rotation != undefined) {
 				options.rotation = locations[loc].image.meta.location.rotation;
-				images[loc] = L.rotateImageOverlay(locations[loc].image.meta.file, bounds, options);
+				planeLayers[plane].images[loc] = L.rotateImageOverlay(locations[loc].image.meta.file, bounds, options);
 			} else {
-				images[loc] = L.imageOverlay(locations[loc].image.meta.file, bounds, options);
+				planeLayers[plane].images[loc] = L.imageOverlay(locations[loc].image.meta.file, bounds, options);
 			}
 		} else if (locations[loc].images != undefined) {
-			images[loc] = [];
+			planeLayers[plane].images[loc] = [];
 			for (let index in locations[loc].images) {
 				let options = {};
 				for (let opt in locations[loc].images[index])
 					if (opt != "meta")
 						options[opt] = locations[loc].images[index][opt];
-				let bounds = getImageBounds(locations[loc].images[index].meta.location, loc);
+				let bounds = getImageBounds(locations[loc].images[index].meta.location, loc, plane);
 				if (!isExternalLink(locations[loc].images[index].meta.file))
 					locations[loc].images[index].meta.file = "images/" + locations[loc].images[index].meta.file;
 				if (locations[loc].images[index].meta.location.rotation != undefined) {
 					options.rotation = locations[loc].images[index].meta.location.rotation;
-					images[loc][index] = L.rotateImageOverlay(locations[loc].images[index].meta.file, bounds, options);
+					planeLayers[plane].images[loc][index] = L.rotateImageOverlay(locations[loc].images[index].meta.file, bounds, options);
 				} else {
-					images[loc][index] = L.imageOverlay(locations[loc].images[index].meta.file, bounds, options);
+					planeLayers[plane].images[loc][index] = L.imageOverlay(locations[loc].images[index].meta.file, bounds, options);
 				}
 			}
 		}
 	}
 }
 
-function loadMarkers() {
+function loadMarkers(plane) {
 	for (let loc in locations) {
 		if (locations[loc].marker) {
 			let options = {};
 			for (let opt in locations[loc].marker)
 				if (opt != "meta")
 					options[opt] = locations[loc].marker[opt];
-			markers[loc] = L.marker(getCoordinates(locations[loc].marker.meta.location, loc), options);
+			planeLayers[plane].markers[loc] = L.marker(getCoordinates(locations[loc].marker.meta.location, loc, { "plane": plane }), options);
 			if (locations[loc].marker.meta.click.jump_zoom)
-				markers[loc].on('click', function (e) {
-					map.flyTo(getCoordinates(locations[loc].marker.meta.location, loc), locations[loc].marker.meta.click.jump_zoom);
+				planeLayers[plane].markers[loc].on('click', function (e) {
+					map.flyTo(getCoordinates(locations[loc].marker.meta.location, loc, { "plane": plane }), locations[loc].marker.meta.click.jump_zoom);
 				});
-			markers[loc].bindTooltip(loc, {});
+			planeLayers[plane].markers[loc].bindTooltip(loc, {});
 		}
 	}
 }
@@ -548,9 +577,9 @@ for (let i = 0; i < CLUSTER_COLUMNS; i++) {
 		hexGrid[j + i * CLUSTER_ROWS] = L.geoJson(H.hexagonalGrid([ORIGIN_HEX_CENTER[0] + (i * COLUMNS * 1.5 * HEX_SIDE_LEN),
 		ORIGIN_HEX_CENTER[1] + (j * ROWS * ROOT_3 * HEX_SIDE_LEN)],
 			local_columns, local_rows, HEX_SIDE_LEN, COLUMNS * i, ROWS * j), {
-			style: styleHex,
-			onEachFeature: onEachHex
-		});
+				style: styleHex,
+				onEachFeature: onEachHex
+			});
 	}
 }
 
@@ -576,13 +605,6 @@ document.getElementById("map").addEventListener("keydown", (e) => {
 }, true);
 
 var locations = {};
-var markers = {};
-var images = {};
-
-var markerCluster = L.markerClusterGroup({maxClusterRadius: 40});
-markerCluster.addTo(map);
-var imageLayer = L.layerGroup([]);
-imageLayer.addTo(map);
 
 var prevZoom = map.getZoom();
 let floor_level = localStorage.getItem("floor-level");
@@ -612,30 +634,45 @@ if (current_plane) {
 }
 updateSidebar();
 
-let relative = "Dod'Estrin";
+let relative = { "location": "Dod'Estrin", "plane": "Jorm" };
+let json_response;
 async function map_main() {
 	const response = await fetch(LOCATIONS_JSON_URL);
-	const json_response = await response.json();
+	json_response = await response.json();
 	for (let plane in json_response) {
+		planeLayers[plane] = {};
+		planeLayers[plane].images = {};
+		planeLayers[plane].markers = {};
 		planeLayers[plane].locations = json_response[plane];
+		planeLayers[plane].markerCluster = L.markerClusterGroup({ maxClusterRadius: 40 });
+		planeLayers[plane].imageLayer = L.layerGroup([]);
+		locations = planeLayers[plane].locations;
+		loadMarkers(plane);
+		loadImages(plane);
 	}
 	locations = planeLayers[current_plane].locations;
-	loadMarkers();
-	loadImages();
+	planeLayers[current_plane].markerCluster.addTo(map);
+	planeLayers[current_plane].imageLayer.addTo(map);
 	updateLocations();
 	updateHexGrid();
 	if (document.getElementById("debugGrid").checked)
 		map.addLayer(debugCoordsGrid);
 	map.addLayer(grid_holder);
-	map.on('move', onMove);
-	map.on('moveend', onMoveEnd);
+	map.on('move', function (e) { console.log("move-event"); onMove(e); });
+	map.on('moveend', function (e) { console.log("move-end-event"); onMoveEnd(e); });
 	map.on('click', function (e) {
 		console.log("hex coords", H.axial_to_doubleheight(H.pixel_to_flat_hex({ "x": e.latlng.lng, "y": e.latlng.lat })));
 		console.log("Lat, Lon : " + e.latlng.lat + ", " + e.latlng.lng)
-		console.log("Offset from", relative, "lat:", e.latlng.lat - markers[relative]._latlng.lat, "lng:", e.latlng.lng - markers[relative]._latlng.lng)
-		console.log("Angle from", relative, ":", 90 + Math.atan2(e.latlng.lat - markers[relative]._latlng.lat, e.latlng.lng - markers[relative]._latlng.lng) * 180 / Math.PI, "distance:", map.distance(e.latlng, markers[relative]._latlng))
+		console.log("Offset from", relative.location, "lat:", e.latlng.lat - planeLayers[relative.plane].markers[relative.location]._latlng.lat, "lng:", e.latlng.lng - planeLayers[relative.plane].markers[relative.location]._latlng.lng)
+		console.log("Angle from", relative.location, ":", 90 + Math.atan2(e.latlng.lat - planeLayers[relative.plane].markers[relative.location]._latlng.lat, e.latlng.lng - planeLayers[relative.plane].markers[relative.location]._latlng.lng) * 180 / Math.PI, "distance:", map.distance(e.latlng, planeLayers[relative.plane].markers[relative.location]._latlng))
 	});
 	document.getElementById("loader").classList.add("paused");
+	//enable inputs again
+	document.getElementById("floorSlider").disabled = false;
+	document.getElementById("radioJorm").disabled = false;
+	document.getElementById("radioShadowfell").disabled = false;
+	document.getElementById("debugGrid").disabled = false;
+
 }
 
 map_main();
