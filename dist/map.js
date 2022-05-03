@@ -153,6 +153,7 @@ function updateSidebar() {
 		document.getElementById("toggle-sidebar").checked = false;
 }
 
+let planeLayers = {};
 function updatePlane() {
 	let radios = document.getElementsByName("plane");
 	let val = undefined;
@@ -161,8 +162,14 @@ function updatePlane() {
 		if (radios[i].checked)
 			val = radios[i].value;
 	let old_val = localStorage.getItem("plane");
+	if (old_val) {
+		//remove old layers
+	}
 	if (val != undefined) {
 		localStorage.setItem("plane", val);
+		current_plane = val;
+		locations = planeLayers[current_plane].locations;
+		//add new layers
 	}
 }
 
@@ -568,7 +575,7 @@ document.getElementById("map").addEventListener("keydown", (e) => {
 		e.target.click();
 }, true);
 
-var locations;
+var locations = {};
 var markers = {};
 var images = {};
 
@@ -593,13 +600,26 @@ if (current_plane) {
 			break;
 		}
 	}
+} else {
+	let radios = document.getElementsByName("plane");
+	for (let i = 0; i < radios.length; i++) {
+		if (radios[i].checked) {
+			current_plane = radios[i].value;
+			localStorage.setItem("plane", current_plane);
+			break;
+		}
+	}
 }
 updateSidebar();
 
 let relative = "Dod'Estrin";
 async function map_main() {
 	const response = await fetch(LOCATIONS_JSON_URL);
-	locations = await response.json();
+	const json_response = await response.json();
+	for (let plane in json_response) {
+		planeLayers[plane].locations = json_response[plane];
+	}
+	locations = planeLayers[current_plane].locations;
 	loadMarkers();
 	loadImages();
 	updateLocations();
