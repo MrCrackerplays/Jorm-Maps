@@ -3,7 +3,7 @@
 		"SpireView": {
 			"image": {
 				"meta": {
-					"location": {
+					"position": {
 						"bounds": [[2779385.856, 2715847.996], [3611172.864, 3676271.300]]
 					},
 					"file": "SpireView.png",
