@@ -50,7 +50,7 @@ An Images object is made of key-value pairs for [Image objects](#image) where th
 ```
 
 ### Image
-An Image has a meta object containing meta data about where the image is located and optionally options that are passed to the leaflet constructor for the image.
+An Image has a required `meta` object containing meta data about where the image is located and optionally options that are passed to the leaflet constructor for the image.
 ```JSON
 "image": {
 	"meta": {...},
@@ -70,7 +70,7 @@ Image metadata has 3 required objects: [`position`](#image-position), [`layers`]
 ```
 
 ### Marker
-A Marker has a meta object containing meta data about where the marker is located and optionally options that are passed to the leaflet constructor for the marker.
+A Marker has a required `meta` object containing meta data about where the marker is located and optionally options that are passed to the leaflet constructor for the marker.
 ```JSON
 "marker": {
 	"meta": {...},
@@ -78,3 +78,34 @@ A Marker has a meta object containing meta data about where the marker is locate
 	...
 }
 ```
+
+#### Marker Meta
+TODO: FINISH THIS PART
+Marker metadata has 3 required objects: [`position`](#image-position), [`layers`](#layers), `file`. Where `file` is a string which is the link to the image to be shown, if the image is local then it'll be found relative to the images folder.
+```JSON
+"meta": {
+	"position": {...},
+	"file": "DodEstrin.jpg",
+	"layers": {...}
+}
+```
+
+### Layers
+Layers has 2 required numbers `min`, `max` which define the range from what layer until what layer (inclusive) the marker/image is visible.
+```JSON
+"layers": {
+	"min": 13,
+	"max": 19
+}
+```
+
+### Image Position
+An image position has an optional `rotation` and a required bounds representation which can be either `bounds`, which defines the top-left latlng and bottom-right latlng of the boundaries, or a combination of a `width` [length](#length), a `height` [length](#length), and either a `center` [location](#location) or `topleft` latlng (if both are defined the `center` will take precedent).
+```JSON
+"layers": {
+	"min": 13,
+	"max": 19
+}
+```
+
+TODO: FINISH THE REST OF THE SECTIONS
