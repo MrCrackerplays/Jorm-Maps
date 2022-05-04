@@ -128,7 +128,7 @@ Layers has 2 required numbers `min`, `max` which define the range from what laye
 ```
 
 ### Location
-A Location is an object that resolves to a [latlng](#latlng) which can be using one of 3 ways: 1. `latlng` a latlng, 2. [`origin`](#origin) and [`offset`](#offset), 3. [`origin`](#origin), `distance` [length](#length), and [`direction`](#direction). They have precedence in that order and are all required for their respective ways.
+A Location is an object that resolves to a latlng which can be using one of 3 ways: 1. [`latlng`](#latlng), 2. [`origin`](#origin) and [`offset`](#offset), 3. [`origin`](#origin), `distance` [length](#length), and [`direction`](#direction). They have precedence in that order and are all required for their respective ways.
 ```JSON
 //1
 "location": {
