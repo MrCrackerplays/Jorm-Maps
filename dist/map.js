@@ -467,7 +467,7 @@ function loadMarkers(plane) {
 				if (opt != "meta")
 					options[opt] = locations[loc].marker[opt];
 			planeLayers[plane].markers[loc] = L.marker(getCoordinates(locations[loc].marker.meta.location, loc, { "plane": plane }), options);
-			if (locations[loc].marker.meta.click.jump_zoom)
+			if (locations[loc].marker.meta.click != undefined && locations[loc].marker.meta.click.jump_zoom != undefined)
 				planeLayers[plane].markers[loc].on('click', function (e) {
 					map.flyTo(getCoordinates(locations[loc].marker.meta.location, loc, { "plane": plane }), locations[loc].marker.meta.click.jump_zoom);
 				});
