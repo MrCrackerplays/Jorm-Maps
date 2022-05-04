@@ -256,22 +256,22 @@ function rotatePoint(pivot, angle_radians, point) {
 	return rotated;
 }
 
-function getImageBounds(location, name, plane) {
-	if (location.bounds != undefined)
-		return [L.latLng(location.bounds[0][0], location.bounds[0][1]),
-		L.latLng(location.bounds[1][0], location.bounds[1][1])];
-	if (location.width != undefined && location.height != undefined && (location.topleft != undefined || location.center != undefined)) {
-		let width = calculateLength(location.width);
-		let height = calculateLength(location.height);
+function getImageBounds(position, name, plane) {
+	if (position.bounds != undefined)
+		return [L.latLng(position.bounds[0][0], position.bounds[0][1]),
+		L.latLng(position.bounds[1][0], position.bounds[1][1])];
+	if (position.width != undefined && position.height != undefined && (position.topleft != undefined || position.center != undefined)) {
+		let width = calculateLength(position.width);
+		let height = calculateLength(position.height);
 		let topleft;
-		if (location.center != undefined) {
-			let middle = getCoordinates(location.center, name, { "for_marker": "false", "plane": plane });
+		if (position.center != undefined) {
+			let middle = getCoordinates(position.center, name, { "for_marker": "false", "plane": plane });
 			middle = [middle.lat, middle.lng];
 			topleft = [middle[0] - (height / 2), middle[1] - (width / 2)];
-			if (location.rotation != undefined)
-				topleft = rotatePoint(middle, location.rotation * (Math.PI / 180), topleft);
+			if (position.rotation != undefined)
+				topleft = rotatePoint(middle, position.rotation * (Math.PI / 180), topleft);
 		} else {
-			topleft = location.topleft;
+			topleft = position.topleft;
 		}
 		return [L.latLng(topleft),
 		L.latLng(topleft[0] + height, topleft[1] + width)];
