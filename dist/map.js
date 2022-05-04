@@ -259,7 +259,7 @@ function rotatePoint(pivot, angle_radians, point) {
 function getImageBounds(position, name, plane) {
 	if (position.bounds != undefined)
 		return [L.latLng(position.bounds[0][0], position.bounds[0][1]),
-		L.latLng(position.bounds[1][0], position.bounds[1][1])];
+	L.latLng(position.bounds[1][0], position.bounds[1][1])];
 	if (position.width != undefined && position.height != undefined && (position.topleft != undefined || position.center != undefined)) {
 		let width = calculateLength(position.width);
 		let height = calculateLength(position.height);
