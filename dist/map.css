@@ -34,7 +34,7 @@
 html,
 body {
 	margin: 0;
-	background: var(--background);
+	background: var(--highlight);
 	font-family: sans-serif;
 	color: var(--text);
 }
@@ -59,6 +59,8 @@ h2 {
 	/* for Internet Explorer, Edge */
 	scrollbar-width: none;
 	/* for Firefox */
+	display: flex;
+	flex-direction: column;
 }
 
 #sidebar::-webkit-scrollbar {
@@ -206,13 +208,10 @@ h2 {
 }
 
 footer {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	right: 0;
 	text-align: center;
+	margin-top: auto;
 }
 
-.fa-github {
+a {
 	color: var(--text);
 }
