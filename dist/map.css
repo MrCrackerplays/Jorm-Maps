@@ -212,6 +212,6 @@ footer {
 	margin-top: auto;
 }
 
-.fa-github {
+a {
 	color: var(--text);
 }
