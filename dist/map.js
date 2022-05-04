@@ -180,7 +180,6 @@ function updatePlane() {
 		}
 		map.removeLayer(planeLayers[old_val].markerCluster);
 		console.warn = original;
-		//remove old layers
 	}
 	if (val != undefined) {
 		localStorage.setItem("plane", val);
@@ -189,7 +188,12 @@ function updatePlane() {
 		map.addLayer(planeLayers[current_plane].imageLayer);
 		map.addLayer(planeLayers[current_plane].markerCluster);
 		updateLocations();
-		//add new layers
+		let floor_level = localStorage.getItem("floor-level");
+		for (let loc in locations)
+			if (planeLayers[current_plane].locations[loc].image == undefined && planeLayers[current_plane].locations[loc].images != undefined)
+				for (let layer in planeLayers[current_plane].locations[loc].images)
+					if (layer != getClosestFloor(locations[loc].images))
+						planeLayers[current_plane].imageLayer.removeLayer(planeLayers[current_plane].images[loc][layer]);
 	}
 }
 
