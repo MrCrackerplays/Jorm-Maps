@@ -82,6 +82,32 @@
 				}
 			}
 		},
+		"Town Library": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "Dod'Estrin"
+						},
+						"offset": {
+							"lat": {
+								"meter": -66.485
+							},
+							"lng": {
+								"meter": -54.483
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 19
+					},
+					"layers": {
+						"min": 14,
+						"max": 19
+					}
+				}
+			}
+		},
 		"Meros & Raesa": {
 			"images": {
 				"0": {
@@ -196,6 +222,32 @@
 							},
 							"lng": {
 								"meter": 7.334
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 19
+					},
+					"layers": {
+						"min": 14,
+						"max": 19
+					}
+				}
+			}
+		},
+		"Oskar": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "Dod'Estrin"
+						},
+						"offset": {
+							"lat": {
+								"meter": -51.054
+							},
+							"lng": {
+								"meter": 31.052
 							}
 						}
 					},
