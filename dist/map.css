@@ -215,3 +215,10 @@ footer {
 a {
 	color: var(--text);
 }
+
+section {
+	padding: 5px;
+	margin: 1px;
+	border: var(--highlight) solid 1px;
+	border-radius: 5px;
+  }
