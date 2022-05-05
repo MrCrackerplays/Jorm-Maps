@@ -3,6 +3,9 @@ A project to display the DnD westmarches world of Jorm using the [LeafletJS](htt
 
 Though made specifically for the world of Jorm, it can easily be reused for any other world by editing the locations.json file. Likewise to add/edit existing locations just edit the locations.json file. (Fork and pull request or ask to become a contributor to directly push changes)
 
+# Running locally
+When trying to open the index.html after cloning you'll notice that it won't load correctly, this is due to the fact that you can't use a `fetch()`, which is used to load locations.json, on local files (Cross-Origin Request Blocked). So in order to test the page and anything on it you'll have to run an http server and open that in your browser instead, for example with python you can run `py -m http.server` in your working directory and it'll be available on http://localhost:8000 by default.
+
 # Locations.json
 The [JSON](https://www.json.org/json-en.html) file which is used to load all marker and image data.
 
