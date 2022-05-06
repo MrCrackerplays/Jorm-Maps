@@ -375,7 +375,7 @@ function getStartCoordinates(origin, name, plane) {
 		return L.latLng(origin.latlng);
 	if (origin.plane != undefined)
 		plane = origin.plane;
-	if (origin.location != undefined && origin.location != name)
+	if (origin.location != undefined)
 		return getCoordinates(planeLayers[plane].locations[origin.location].marker.meta.location, origin.location, { "plane": plane });
 	return undefined;
 }
