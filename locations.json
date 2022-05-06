@@ -1026,6 +1026,168 @@
 			}
 		},
 		"Vampire Manor": {
+			"images": {
+				"-2": {
+					"meta": {
+						"position": {
+							"center": {
+								"origin": {
+									"location": "Vampire Manor"
+								},
+								"offset": {
+									"lat": {
+										"meter": 0
+									},
+									"lng": {
+										"meter": 0
+									}
+								}
+							},
+							"width": {
+								"tiles": 39
+							},
+							"height": {
+								"tiles": 24
+							}
+						},
+						"file": "vampire manor/drnmanor-puzzle-basement.jpg",
+						"layers": {
+							"min": 15,
+							"max": 22
+						}
+					},
+					"opacity": 1,
+					"pane": "tilePane"
+				},
+				"-1": {
+					"meta": {
+						"position": {
+							"center": {
+								"origin": {
+									"location": "Vampire Manor"
+								},
+								"offset": {
+									"lat": {
+										"meter": 0
+									},
+									"lng": {
+										"meter": 0
+									}
+								}
+							},
+							"width": {
+								"tiles": 39
+							},
+							"height": {
+								"tiles": 24
+							}
+						},
+						"file": "vampire manor/drnmanor-coffin.jpg",
+						"layers": {
+							"min": 15,
+							"max": 22
+						}
+					},
+					"opacity": 1,
+					"pane": "tilePane"
+				},
+				"0": {
+					"meta": {
+						"position": {
+							"center": {
+								"origin": {
+									"location": "Vampire Manor"
+								},
+								"offset": {
+									"lat": {
+										"meter": 0
+									},
+									"lng": {
+										"meter": 0
+									}
+								}
+							},
+							"width": {
+								"tiles": 39
+							},
+							"height": {
+								"tiles": 24
+							}
+						},
+						"file": "vampire manor/drnmanor1f.jpg",
+						"layers": {
+							"min": 15,
+							"max": 22
+						}
+					},
+					"opacity": 1,
+					"pane": "tilePane"
+				},
+				"1": {
+					"meta": {
+						"position": {
+							"center": {
+								"origin": {
+									"location": "Vampire Manor"
+								},
+								"offset": {
+									"lat": {
+										"meter": 0
+									},
+									"lng": {
+										"meter": 0
+									}
+								}
+							},
+							"width": {
+								"tiles": 39
+							},
+							"height": {
+								"tiles": 24
+							}
+						},
+						"file": "vampire manor/drnmanor2f.jpg",
+						"layers": {
+							"min": 15,
+							"max": 22
+						}
+					},
+					"opacity": 1,
+					"pane": "tilePane"
+				},
+				"2": {
+					"meta": {
+						"position": {
+							"center": {
+								"origin": {
+									"location": "Vampire Manor"
+								},
+								"offset": {
+									"lat": {
+										"meter": 0
+									},
+									"lng": {
+										"meter": 0
+									}
+								}
+							},
+							"width": {
+								"tiles": 39
+							},
+							"height": {
+								"tiles": 24
+							}
+						},
+						"file": "vampire manor/drnmanor3f.jpg",
+						"layers": {
+							"min": 15,
+							"max": 22
+						}
+					},
+					"opacity": 1,
+					"pane": "tilePane"
+				}
+			},
 			"marker": {
 				"meta": {
 					"location": {
@@ -1042,11 +1204,11 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 13
+						"jump_zoom": 17
 					},
 					"layers": {
 						"min": 0,
-						"max": 13
+						"max": 17
 					}
 				}
 			}
