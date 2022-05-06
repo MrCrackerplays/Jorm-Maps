@@ -39,9 +39,13 @@ body {
 	color: var(--text);
 }
 
-h2 {
+h2, h3 {
 	margin: 5px;
 	text-align: center;
+}
+
+a {
+	color: var(--text);
 }
 
 #sidebar {
@@ -111,6 +115,13 @@ h2 {
 	transform: rotate(-90deg);
 }
 
+section {
+	padding: 5px;
+	margin: 1px;
+	border: var(--highlight) solid 1px;
+	border-radius: 5px;
+}
+
 #floorSection {
 	text-align: center;
 }
@@ -166,6 +177,25 @@ h2 {
 	border: none;
 }
 
+#debugSection {
+	text-align: center;
+	line-height: calc(1em + 5px);
+}
+
+#debugSection input {
+	margin: 1px;
+}
+
+#debugSection code {
+	padding: 2px;
+	background-color: var(--highlight);
+}
+
+footer {
+	text-align: center;
+	margin-top: auto;
+}
+
 #map {
 	position: absolute;
 	top: 0;
@@ -206,19 +236,3 @@ h2 {
 	0% { transform: rotate(0deg); }
 	100% { transform: rotate(360deg); }
 }
-
-footer {
-	text-align: center;
-	margin-top: auto;
-}
-
-a {
-	color: var(--text);
-}
-
-section {
-	padding: 5px;
-	margin: 1px;
-	border: var(--highlight) solid 1px;
-	border-radius: 5px;
-  }
