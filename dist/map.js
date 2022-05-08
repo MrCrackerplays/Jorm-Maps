@@ -497,6 +497,37 @@ function updateLocations() {
 	}
 }
 
+function calculateRelativePosition(latlng) {
+	let relativeLocation = document.getElementById("relativeLocation").value;
+	let relativePlane = document.getElementById("relativePlane").value;
+	let offsetLat = NaN;
+	let offsetLng = NaN;
+	let dist = NaN;
+	let angle = NaN;
+	if (planeLayers[relativePlane] != undefined) {
+		if (planeLayers[relativePlane].markers[relativeLocation] != undefined) {
+			offsetLat = latlng.lat - planeLayers[relative.plane].markers[relative.location]._latlng.lat;
+			offsetLng = latlng.lng - planeLayers[relative.plane].markers[relative.location]._latlng.lng;
+			angle = (360 + 90 + Math.atan2(offsetLat, offsetLng) * 180 / Math.PI) % 360;
+			dist = map.distance(latlng, planeLayers[relative.plane].markers[relative.location]._latlng);
+			offsetLat = Math.round((offsetLat + Number.EPSILON) * 1000) / 1000;
+			offsetLng = Math.round((offsetLng + Number.EPSILON) * 1000) / 1000;
+			dist = Math.round((dist + Number.EPSILON) * 1000) / 1000;
+			angle = Math.round((angle + Number.EPSILON) * 1000000) / 1000000;
+			//more digits for angle due to precision being important for large distances
+		} else
+			offsetLat = "Location Not Found";
+	} else
+		offsetLat = "Plane Not Found";
+	document.getElementById("clickLatitude").value = latlng.lat;
+	document.getElementById("clickLongitude").value = latlng.lng;
+	document.getElementById("relativeLatitude").value = offsetLat;
+	document.getElementById("relativeLongitude").value = offsetLng;
+	document.getElementById("relativeAngle").value = angle;
+	document.getElementById("relativeDistance").value = dist;
+	// console.log("hex coords", H.axial_to_doubleheight(H.pixel_to_flat_hex({ "x": latlng.lng, "y": latlng.lat })));
+}
+
 
 
 
@@ -639,37 +670,6 @@ if (current_plane) {
 	}
 }
 updateSidebar();
-
-function calculateRelativePosition(latlng) {
-	let relativeLocation = document.getElementById("relativeLocation").value;
-	let relativePlane = document.getElementById("relativePlane").value;
-	let offsetLat = NaN;
-	let offsetLng = NaN;
-	let dist = NaN;
-	let angle = NaN;
-	if (planeLayers[relativePlane] != undefined) {
-		if (planeLayers[relativePlane].markers[relativeLocation] != undefined) {
-			offsetLat = latlng.lat - planeLayers[relative.plane].markers[relative.location]._latlng.lat;
-			offsetLng = latlng.lng - planeLayers[relative.plane].markers[relative.location]._latlng.lng;
-			angle = (360 + 90 + Math.atan2(offsetLat, offsetLng) * 180 / Math.PI) % 360;
-			dist = map.distance(latlng, planeLayers[relative.plane].markers[relative.location]._latlng);
-			offsetLat = Math.round((offsetLat + Number.EPSILON) * 1000) / 1000;
-			offsetLng = Math.round((offsetLng + Number.EPSILON) * 1000) / 1000;
-			dist = Math.round((dist + Number.EPSILON) * 1000) / 1000;
-			angle = Math.round((angle + Number.EPSILON) * 1000000) / 1000000;
-			//more digits for angle due to precision being important for large distances
-		} else
-			offsetLat = "Location Not Found";
-	} else
-		offsetLat = "Plane Not Found";
-	document.getElementById("clickLatitude").value = latlng.lat;
-	document.getElementById("clickLongitude").value = latlng.lng;
-	document.getElementById("relativeLatitude").value = offsetLat;
-	document.getElementById("relativeLongitude").value = offsetLng;
-	document.getElementById("relativeAngle").value = angle;
-	document.getElementById("relativeDistance").value = dist;
-	// console.log("hex coords", H.axial_to_doubleheight(H.pixel_to_flat_hex({ "x": latlng.lng, "y": latlng.lat })));
-}
 
 let relative = { "location": "Dod'Estrin", "plane": "Jorm" };
 let json_response;
