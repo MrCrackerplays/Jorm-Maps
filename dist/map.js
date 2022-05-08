@@ -1,10 +1,9 @@
 //disable inputs while loading
-document.getElementById("floorSlider").disabled = true;
-document.getElementById("radioJorm").disabled = true;
-document.getElementById("radioShadowfell").disabled = true;
-document.getElementById("debugGrid").disabled = true;
-document.getElementById("relativeLocation").disabled = true;
-document.getElementById("relativePlane").disabled = true;
+let inputElements = [];
+inputElements.push(document.getElementById("floorSlider"), document.getElementById("debugGrid"), document.getElementById("relativeLocation"), document.getElementById("relativePlane"));
+for (let element in inputElements) {
+	inputElements[element].disabled = true;
+}
 
 const METER_PER_MILE = 1609.344;
 const METER_PER_FOOT = 0.3048;
@@ -528,6 +527,27 @@ function calculateRelativePosition(latlng) {
 	// console.log("hex coords", H.axial_to_doubleheight(H.pixel_to_flat_hex({ "x": latlng.lng, "y": latlng.lat })));
 }
 
+let planeCount = 0;
+function addPlaneInput(plane) {
+	let planeInput = document.createElement("input");
+	planeInput.type = "radio";
+	planeInput.name = "plane";
+	planeInput.value = plane;
+	planeInput.id = "radio" + plane.replace(/\W/g, "-");
+	planeInput.disabled = true;
+	planeInput.setAttribute("oninput", "updatePlane();");
+	let planeLabel = document.createElement("label");
+	planeLabel.htmlFor = "radio" + plane.replace(/\W/g, "-");
+	planeLabel.innerHTML = plane;
+	let planeSection = document.getElementById("planeSection");
+	if (planeCount != 0)
+		planeSection.appendChild(document.createElement("br"));
+	planeCount++;
+	planeSection.appendChild(planeInput);
+	planeSection.appendChild(planeLabel);
+	inputElements.push(planeInput);
+}
+
 
 
 
@@ -650,33 +670,16 @@ if (floor_level) {
 	document.getElementById("floorOutput").value = parseInt(floor_level);
 }
 
-let current_plane = localStorage.getItem("plane");
-if (current_plane) {
-	let radios = document.getElementsByName("plane");
-	for (let i = 0; i < radios.length; i++) {
-		if (radios[i].value == current_plane) {
-			radios[i].checked = true;
-			break;
-		}
-	}
-} else {
-	let radios = document.getElementsByName("plane");
-	for (let i = 0; i < radios.length; i++) {
-		if (radios[i].checked) {
-			current_plane = radios[i].value;
-			localStorage.setItem("plane", current_plane);
-			break;
-		}
-	}
-}
 updateSidebar();
 
+let current_plane = localStorage.getItem("plane");
 let relative = { "location": "Dod'Estrin", "plane": "Jorm" };
 let json_response;
 async function map_main() {
 	const response = await fetch(LOCATIONS_JSON_URL);
 	json_response = await response.json();
 	for (let plane in json_response) {
+		addPlaneInput(plane);
 		planeLayers[plane] = {};
 		planeLayers[plane].images = {};
 		planeLayers[plane].markers = {};
@@ -686,6 +689,30 @@ async function map_main() {
 		locations = planeLayers[plane].locations;
 		loadMarkers(plane);
 		loadImages(plane);
+	}
+	if (current_plane != undefined) {
+		let radios = document.getElementsByName("plane");
+		let found = false;
+		for (let i = 0; found == false && i < radios.length; i++) {
+			if (radios[i].value == current_plane) {
+				radios[i].checked = true;
+				found = true;
+			}
+		}
+		if (found == false)
+			current_plane = undefined;
+	}
+	if (current_plane == undefined) {
+		let radios = document.getElementsByName("plane");
+		if (radios.length > 0) {
+			radios[0].checked = true;
+			current_plane = radios[0].value;
+			localStorage.setItem("plane", current_plane);
+		} else {
+			localStorage.removeItem("plane");
+			console.error("No planes found! Unable to continue.");
+			return;
+		}
 	}
 	locations = planeLayers[current_plane].locations;
 	planeLayers[current_plane].markerCluster.addTo(map);
@@ -702,13 +729,9 @@ async function map_main() {
 	});
 	document.getElementById("loader").classList.add("paused");
 	//enable inputs again
-	document.getElementById("floorSlider").disabled = false;
-	document.getElementById("radioJorm").disabled = false;
-	document.getElementById("radioShadowfell").disabled = false;
-	document.getElementById("debugGrid").disabled = false;
-	document.getElementById("relativeLocation").disabled = false;
-	document.getElementById("relativePlane").disabled = false;
-
+	for (let element in inputElements) {
+		inputElements[element].disabled = false;
+	}
 }
 
 map_main();
