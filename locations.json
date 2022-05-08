@@ -577,7 +577,7 @@
 				}
 			}
 		},
-		"Wizard Tower": {
+		"The Wizard Tower": {
 			"image": {
 				"meta": {
 					"position": {
@@ -713,6 +713,63 @@
 				}
 			}
 		},
+		"The Scarlet Sash": {
+			"image": {
+				"meta": {
+					"position": {
+						"center": {
+							"origin": {
+								"location": "The Scarlet Sash"
+							},
+							"offset": {
+								"lat": {
+									"meter": 0
+								},
+								"lng": {
+									"meter": 0
+								}
+							}
+						},
+						"width": {
+							"tiles": 48
+						},
+						"height": {
+							"tiles": 28.5
+						}
+					},
+					"file": "scarlet sash/Book_of_Ravens_house.jpg",
+					"layers": {
+						"min": 15,
+						"max": 22
+					}
+				},
+				"pane": "tilePane"
+			},
+			"marker": {
+				"meta": {
+					"location": {
+						"distance": {
+							"duration": {
+								"days": 3
+							}
+						},
+						"direction": {
+							"degrees": 57
+						},
+						"origin": {
+							"location": "The Wizard Tower"
+						}
+					},
+					"click": {
+						"jump_zoom": 19
+					},
+					"layers": {
+						"min": 0,
+						"max": 19
+					}
+				}
+			}
+		},
 		"Dorics Village": {
 			"marker": {
 				"meta": {
@@ -818,6 +875,70 @@
 			}
 		},
 		"The Lone Spire": {
+			"images": {
+				"7": {
+					"meta": {
+						"position": {
+							"center": {
+								"origin": {
+									"location": "The Lone Spire"
+								},
+								"offset": {
+									"lat": {
+										"meter": 0
+									},
+									"lng": {
+										"meter": 0
+									}
+								}
+							},
+							"width": {
+								"tiles": 23
+							},
+							"height": {
+								"tiles": 16
+							}
+						},
+						"file": "lone spire/Whiteout.jpg",
+						"layers": {
+							"min": 15,
+							"max": 22
+						}
+					},
+					"pane": "tilePane"
+				},
+				"8": {
+					"meta": {
+						"position": {
+							"center": {
+								"origin": {
+									"location": "The Lone Spire"
+								},
+								"offset": {
+									"lat": {
+										"meter": 0
+									},
+									"lng": {
+										"meter": 0
+									}
+								}
+							},
+							"width": {
+								"tiles": 30
+							},
+							"height": {
+								"tiles": 28
+							}
+						},
+						"file": "lone spire/Lava_Throne.jpg",
+						"layers": {
+							"min": 15,
+							"max": 22
+						}
+					},
+					"pane": "tilePane"
+				}
+			},
 			"marker": {
 				"meta": {
 					"location": {
@@ -834,11 +955,11 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 13
+						"jump_zoom": 18
 					},
 					"layers": {
 						"min": 0,
-						"max": 13
+						"max": 18
 					}
 				}
 			}
