@@ -661,6 +661,58 @@
 				}
 			}
 		},
+		"Sawmill": {
+			"marker": {
+				"meta": {
+					"location": {
+						"distance": {
+							"duration": {
+								"days": 1
+							}
+						},
+						"direction": {
+							"degrees": -75.522
+						},
+						"origin": {
+							"location": "Dod'Estrin"
+						}
+					},
+					"click": {
+						"jump_zoom": 19
+					},
+					"layers": {
+						"min": 10,
+						"max": 19
+					}
+				}
+			}
+		},
+		"Underdark Pit": {
+			"marker": {
+				"meta": {
+					"location": {
+						"distance": {
+							"duration": {
+								"days": 3.23923
+							}
+						},
+						"direction": {
+							"degrees": 199.114
+						},
+						"origin": {
+							"location": "Dod'Estrin"
+						}
+					},
+					"click": {
+						"jump_zoom": 19
+					},
+					"layers": {
+						"min": 0,
+						"max": 19
+					}
+				}
+			}
+		},
 		"Starboard Hall": {
 			"marker": {
 				"meta": {
@@ -1511,6 +1563,35 @@
 					},
 					"layers": {
 						"min": 10,
+						"max": 19
+					}
+				}
+			}
+		}
+	},
+	"Underdark": {
+		"Underdark Pit Exit": {
+			"marker": {
+				"meta": {
+					"location": {
+						"distance": {
+							"duration": {
+								"days": 3.23923
+							}
+						},
+						"direction": {
+							"degrees": 199.114
+						},
+						"origin": {
+							"plane": "Jorm",
+							"location": "Dod'Estrin"
+						}
+					},
+					"click": {
+						"jump_zoom": 19
+					},
+					"layers": {
+						"min": 0,
 						"max": 19
 					}
 				}
