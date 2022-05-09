@@ -1105,6 +1105,65 @@
 				}
 			}
 		},
+		"Suspected Reptiloid Island": {
+			"image": {
+				"meta": {
+					"position": {
+						"center": {
+							"origin": {
+								"location": "Suspected Reptiloid Island"
+							},
+							"offset": {
+								"lat": {
+									"mile": -5.5096418733
+								},
+								"lng": {
+									"meter": -4.958677686
+								}
+							}
+						},
+						"width": {
+							"mile": 59.5041322315
+						},
+						"height": {
+							"mile": 66.2177328844
+						}
+					},
+					"file": "Reptiloid Island.png",
+					"layers": {
+						"min": 0,
+						"max": 19
+					}
+				},
+				"opacity": 1,
+				"pane": "tilePane",
+				"zIndex": -4
+			},
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "Karamja"
+						},
+						"offset": {
+							"lat": {
+								"mile": 269.69
+							},
+							"lng": {
+								"mile": 80
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 13
+					},
+					"layers": {
+						"min": 0,
+						"max": 19
+					}
+				}
+			}
+		},
 		"The Lone Spire": {
 			"images": {
 				"7": {
