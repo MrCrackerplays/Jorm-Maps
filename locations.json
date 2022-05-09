@@ -926,6 +926,32 @@
 				}
 			}
 		},
+		"Praerie of the South Lighthouse": {
+			"marker": {
+				"meta": {
+					"location": {
+						"distance": {
+							"duration": {
+								"days": 10.5296
+							}
+						},
+						"direction": {
+							"degrees": 43.0134
+						},
+						"origin": {
+							"location": "The Lone Spire"
+						}
+					},
+					"click": {
+						"jump_zoom": 13
+					},
+					"layers": {
+						"min": 0,
+						"max": 19
+					}
+				}
+			}
+		},
 		"The Lone Spire": {
 			"images": {
 				"7": {

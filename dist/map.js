@@ -505,10 +505,10 @@ function calculateRelativePosition(latlng) {
 	let angle = NaN;
 	if (planeLayers[relativePlane] != undefined) {
 		if (planeLayers[relativePlane].markers[relativeLocation] != undefined) {
-			offsetLat = latlng.lat - planeLayers[relative.plane].markers[relative.location]._latlng.lat;
-			offsetLng = latlng.lng - planeLayers[relative.plane].markers[relative.location]._latlng.lng;
+			offsetLat = latlng.lat - planeLayers[relativePlane].markers[relativeLocation]._latlng.lat;
+			offsetLng = latlng.lng - planeLayers[relativePlane].markers[relativeLocation]._latlng.lng;
 			angle = (360 + 90 + Math.atan2(offsetLat, offsetLng) * 180 / Math.PI) % 360;
-			dist = map.distance(latlng, planeLayers[relative.plane].markers[relative.location]._latlng);
+			dist = map.distance(latlng, planeLayers[relativePlane].markers[relativeLocation]._latlng);
 			offsetLat = Math.round((offsetLat + Number.EPSILON) * 1000) / 1000;
 			offsetLng = Math.round((offsetLng + Number.EPSILON) * 1000) / 1000;
 			dist = Math.round((dist + Number.EPSILON) * 1000) / 1000;
@@ -673,7 +673,6 @@ if (floor_level) {
 updateSidebar();
 
 let current_plane = localStorage.getItem("plane");
-let relative = { "location": "Dod'Estrin", "plane": "Jorm" };
 let json_response;
 async function map_main() {
 	const response = await fetch(LOCATIONS_JSON_URL);
