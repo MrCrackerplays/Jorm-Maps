@@ -926,7 +926,7 @@
 				}
 			}
 		},
-		"Praerie of the South Lighthouse": {
+		"Lighthouse of the Praerie of the South": {
 			"marker": {
 				"meta": {
 					"location": {
@@ -936,10 +936,163 @@
 							}
 						},
 						"direction": {
-							"degrees": 43.0134
+							"degrees": 44.3942
 						},
 						"origin": {
 							"location": "The Lone Spire"
+						}
+					},
+					"click": {
+						"jump_zoom": 13
+					},
+					"layers": {
+						"min": 0,
+						"max": 19
+					}
+				}
+			}
+		},
+		"Karamja": {
+			"image": {
+				"meta": {
+					"position": {
+						"center": {
+							"origin": {
+								"location": "Karamja"
+							},
+							"offset": {
+								"lat": {
+									"mile": -4.2
+								},
+								"lng": {
+									"meter": 0
+								}
+							}
+						},
+						"width": {
+							"mile": 50
+						},
+						"height": {
+							"mile": 58.42696
+						}
+					},
+					"file": "Karamja.png",
+					"layers": {
+						"min": 0,
+						"max": 19
+					}
+				},
+				"opacity": 1,
+				"pane": "tilePane",
+				"zIndex": -4
+			},
+			"marker": {
+				"meta": {
+					"location": {
+						"distance": {
+							"mile": 25
+						},
+						"direction": {
+							"degrees": 0
+						},
+						"origin": {
+							"location": "Lighthouse of the Praerie of the South"
+						}
+					},
+					"click": {
+						"jump_zoom": 6
+					},
+					"layers": {
+						"min": 0,
+						"max": 19
+					}
+				}
+			}
+		},
+		"Cape West": {
+			"marker": {
+				"meta": {
+					"location": {
+						"distance": {
+							"meter": 32261.929
+						},
+						"direction": {
+							"degrees": 268.4
+						},
+						"origin": {
+							"location": "Karamja"
+						}
+					},
+					"click": {
+						"jump_zoom": 13
+					},
+					"layers": {
+						"min": 0,
+						"max": 19
+					}
+				}
+			}
+		},
+		"Karamja-City": {
+			"marker": {
+				"meta": {
+					"location": {
+						"distance": {
+							"meter": 21939.532
+						},
+						"direction": {
+							"degrees": 21.75
+						},
+						"origin": {
+							"location": "Karamja"
+						}
+					},
+					"click": {
+						"jump_zoom": 13
+					},
+					"layers": {
+						"min": 0,
+						"max": 19
+					}
+				}
+			}
+		},
+		"Elven Forest": {
+			"marker": {
+				"meta": {
+					"location": {
+						"distance": {
+							"meter": 24242.069
+						},
+						"direction": {
+							"degrees": 325.537
+						},
+						"origin": {
+							"location": "Karamja"
+						}
+					},
+					"click": {
+						"jump_zoom": 13
+					},
+					"layers": {
+						"min": 0,
+						"max": 19
+					}
+				}
+			}
+		},
+		"Praerie of the South": {
+			"marker": {
+				"meta": {
+					"location": {
+						"distance": {
+							"meter": 15864.152
+						},
+						"direction": {
+							"degrees": 151.6
+						},
+						"origin": {
+							"location": "Karamja"
 						}
 					},
 					"click": {
