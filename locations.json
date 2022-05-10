@@ -1147,11 +1147,83 @@
 						},
 						"offset": {
 							"lat": {
-								"mile": 269.69
+								"mile": -269.69
 							},
 							"lng": {
 								"mile": 80
 							}
+						}
+					},
+					"click": {
+						"jump_zoom": 13
+					},
+					"layers": {
+						"min": 0,
+						"max": 19
+					}
+				}
+			}
+		},
+		"Dwarven Fortress": {
+			"marker": {
+				"meta": {
+					"location": {
+						"distance": {
+							"meter": 28684.387
+						},
+						"direction": {
+							"degrees": 11.643769
+						},
+						"origin": {
+							"location": "Suspected Reptiloid Island"
+						}
+					},
+					"click": {
+						"jump_zoom": 13
+					},
+					"layers": {
+						"min": 0,
+						"max": 19
+					}
+				}
+			}
+		},
+		"Harbortown of the Scaled Ones": {
+			"marker": {
+				"meta": {
+					"location": {
+						"distance": {
+							"meter": 26505.14
+						},
+						"direction": {
+							"degrees": 205.653031
+						},
+						"origin": {
+							"location": "Suspected Reptiloid Island"
+						}
+					},
+					"click": {
+						"jump_zoom": 13
+					},
+					"layers": {
+						"min": 0,
+						"max": 19
+					}
+				}
+			}
+		},
+		"Suspected location of Fruitless Valley": {
+			"marker": {
+				"meta": {
+					"location": {
+						"distance": {
+							"meter": 184085.302
+						},
+						"direction": {
+							"compass": "W"
+						},
+						"origin": {
+							"location": "Suspected Reptiloid Island"
 						}
 					},
 					"click": {
