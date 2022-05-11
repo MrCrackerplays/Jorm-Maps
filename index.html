@@ -25,6 +25,7 @@
 		integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
 		crossorigin=""></script>
 	<script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+	<script src="./dist/leaflet.plotter.min.js"></script>
 	<script src="./dist/hexagonalgrid.js"></script>
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -41,9 +42,14 @@
 			<output id="floorOutput">0</output>
 			<input type="range" min="-10" max="10" value="0" class="slider" id="floorSlider" oninput="updateFloor();">
 		</section>
-		<section>
+		<section id="distanceSection">
 			<h2>Distances</h2>
-			<p>Coming Soon&trade;</p>
+			<input type="checkbox" id="toggleMeasuring" onclick="checkMeasuring();" >
+			<label for="toggleMeasuring">Enable measuring mode.</label><br />
+			Direct distance <code><output id="meterDistance">0</output></code> meter<br />
+			Direct distance <code><output id="hoursDistance">0</output></code> hours<br />
+			Direct distance <code><output id="daysDistance">0</output></code> days<br />
+			Hex distance <code><output id="hexDistance">0</output></code>
 		</section>
 		<section id="planeSection">
 			<h2>Plane Shifting</h2>
@@ -53,14 +59,15 @@
 			<input type="checkbox" id="debugGrid" onclick="toggleDebugGrid();" />
 			<label for="debugGrid">Debug Grid</label><hr />
 			<h3>Click Relative Position</h3>
-			<label for="clickLatitude">Latitude</label> <code><output id="clickLatitude">0</output></code><br />
-			<label for="clickLongitude">Longitude</label> <code><output id="clickLongitude">0</output></code><br />
-			<label for="relativeLocation">Relative Location</label><input type="search" id="relativeLocation" value="Dod'Estrin" placeholder="e.g. Dod'Estrin" /><br />
-			<label for="relativePlane">Relative Plane</label><input type="search" id="relativePlane" value="Jorm" placeholder="e.g. Jorm" /><br />
-			Offset <label for="relativeLatitude">Latitude</label> <code><output id="relativeLatitude">0</output></code><br />
-			Offset <label for="relativeLongitude">Longitude</label> <code><output id="relativeLongitude">0</output></code><br />
-			Distance <code><output id="relativeDistance">0</output></code> <label for="relativeDistance">meter</label><br />
-			Angle <code><output id="relativeAngle">0</output></code> <label for="relativeAngle">degrees</label>
+			Latitude <code><output id="clickLatitude">0</output></code><br />
+			Longitude <code><output id="clickLongitude">0</output></code><br />
+			Hex Coordinates <code><output id="clickHexCoordinates">0,0</output></code><br />
+			Relative Location<input type="search" id="relativeLocation" value="Dod'Estrin" placeholder="e.g. Dod'Estrin" /><br />
+			Relative Plane<input type="search" id="relativePlane" value="Jorm" placeholder="e.g. Jorm" /><br />
+			Offset Latitude <code><output id="relativeLatitude">0</output></code><br />
+			Offset Longitude <code><output id="relativeLongitude">0</output></code><br />
+			Distance <code><output id="relativeDistance">0</output></code> meter<br />
+			Angle <code><output id="relativeAngle">0</output></code> degrees
 		</section>
 		<footer>
 			<p>View related documents <a

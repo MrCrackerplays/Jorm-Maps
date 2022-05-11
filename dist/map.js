@@ -1,6 +1,6 @@
 //disable inputs while loading
 let inputElements = [];
-inputElements.push(document.getElementById("floorSlider"), document.getElementById("debugGrid"), document.getElementById("relativeLocation"), document.getElementById("relativePlane"));
+inputElements.push(document.getElementById("floorSlider"), document.getElementById("debugGrid"), document.getElementById("toggleMeasuring"), document.getElementById("relativeLocation"), document.getElementById("relativePlane"));
 for (let element in inputElements) {
 	inputElements[element].disabled = true;
 }
@@ -66,48 +66,10 @@ function resetHexHighlight(e) {
 	hexGrid[0].resetStyle(e.target);
 }
 
-function getIndexOfClosestWithin(arr, point, distance) {
-	let index = undefined;
-	let idist = undefined
-	for (let i = 0; i < arr.length; i++) {
-		let curdist = map.distance(point, arr[i]);
-		if (curdist <= distance) {
-			if (index == undefined || curdist <= idist) {
-				index = i;
-				idist = curdist;
-			}
-		}
-	}
-	return index;
-}
-
-let path = []
-let marclick;
-function clickHex(e) {
-	path.push(e.latlng);
-	console.log(e.target.feature.properties.id);
-	// if (marclick != undefined)
-
-	// popup = L.popup()
-	// 				.setLatLng(e.latlng)
-	// 				.setContent("Hexagon ID: "+e.target.feature.properties.id+"<br/>"+e.latlng)
-	// 				.openOn(map);
-}
-
-function rightclickHex(e) {
-	let index = getIndexOfClosestWithin(path, e.latlng, 20 / 256 * METER_PER_FOOT * 5 * Math.pow(2, TARGET_ZOOM - map.getZoom()));
-	if (index != undefined) {
-		path.splice(index, 1);
-	}
-	console.log("rightclickHex", e);
-}
-
 function onEachHex(feature, layer) {
 	layer.on({
 		mouseover: highlightHex,
-		mouseout: resetHexHighlight,
-		click: clickHex,
-		contextmenu: rightclickHex
+		mouseout: resetHexHighlight
 	});
 }
 
@@ -520,11 +482,40 @@ function calculateRelativePosition(latlng) {
 		offsetLat = "Plane Not Found";
 	document.getElementById("clickLatitude").value = latlng.lat;
 	document.getElementById("clickLongitude").value = latlng.lng;
+	let hexcoords = H.axial_to_doubleheight(H.pixel_to_flat_hex({"x": latlng.lng, "y": latlng.lat}));
+	document.getElementById("clickHexCoordinates").value = hexcoords.col + "," + hexcoords.row;
 	document.getElementById("relativeLatitude").value = offsetLat;
 	document.getElementById("relativeLongitude").value = offsetLng;
 	document.getElementById("relativeAngle").value = angle;
 	document.getElementById("relativeDistance").value = dist;
 	// console.log("hex coords", H.axial_to_doubleheight(H.pixel_to_flat_hex({ "x": latlng.lng, "y": latlng.lat })));
+}
+
+let check = false
+function checkMeasuring() {
+	check = document.getElementById("toggleMeasuring").checked;
+	if (check)
+		map.addLayer(measurer);
+	else
+		map.removeLayer(measurer);
+}
+
+//inserted in the leaflet plotter code to get it called when markers are added/moved/removed
+function updateDistances(test) {
+	let dist = 0;
+	let hexdist = 0;
+	for (let i = 0; i < test.length; i++) {
+		if (i > 0) {
+			let curpos = H.axial_to_doubleheight(H.pixel_to_flat_hex({"x": test[i]._latlng.lng, "y": test[i]._latlng.lat}));
+			let prevpos = H.axial_to_doubleheight(H.pixel_to_flat_hex({"x": test[i - 1]._latlng.lng, "y": test[i - 1]._latlng.lat}));
+			dist += map.distance(test[i]._latlng, test[i - 1]._latlng);
+			hexdist += H.doubleheight_distance(curpos, prevpos);
+		}
+	}
+	document.getElementById("meterDistance").value = Math.round((dist + Number.EPSILON) * 1000) / 1000;
+	document.getElementById("hoursDistance").value = Math.round(((dist / (METER_PER_MILE * getDistancePerHour())) + Number.EPSILON) * 1000) / 1000;
+	document.getElementById("daysDistance").value = Math.round(((dist / (METER_PER_MILE * getDistancePerDay())) + Number.EPSILON) * 1000) / 1000;
+	document.getElementById("hexDistance").value = hexdist;
 }
 
 let planeCount = 0;
@@ -612,6 +603,7 @@ L.RotateImageOverlay = L.ImageOverlay.extend({
 
 var debugCoordsGrid = L.gridLayer.debugCoords({ tileSize: 256, zIndex: 100 });
 
+var measurer = L.Polyline.Plotter().addTo(map);
 
 
 const ROOT_3 = Math.sqrt(3);
@@ -727,6 +719,7 @@ async function map_main() {
 		calculateRelativePosition(e.latlng);
 	});
 	document.getElementById("loader").classList.add("paused");
+	checkMeasuring();
 	//enable inputs again
 	for (let element in inputElements) {
 		inputElements[element].disabled = false;

@@ -177,7 +177,7 @@ section {
 	border: none;
 }
 
-#debugSection {
+#debugSection, #distanceSection {
 	text-align: center;
 	line-height: calc(1em + 5px);
 }
@@ -186,7 +186,7 @@ section {
 	margin: 1px;
 }
 
-#debugSection code {
+#debugSection code, #distanceSection code {
 	padding: 2px;
 	background-color: var(--highlight);
 }
