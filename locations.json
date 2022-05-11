@@ -4,7 +4,27 @@
 			"image": {
 				"meta": {
 					"position": {
-						"bounds": [[2779385.856, 2715847.996], [3611172.864, 3676271.300]]
+						"bounds": [[2779385.856, 2715847.996], [3611172.864, 3676271.300]],
+						"comment": "hey there, the center and width/height here are unused but are here for reference what they would be if the bounds were to be removed",
+						"center": {
+							"origin": {
+								"location": "The Lone Spire"
+							},
+							"offset": {
+								"lat": {
+									"meter": 2255.935
+								},
+								"lng": {
+									"meter": -21413.532
+								}
+							}
+						},
+						"width": {
+							"meter": 831787.008
+						},
+						"height": {
+							"meter": 960423.304
+						}
 					},
 					"file": "SpireView.png",
 					"layers": {
