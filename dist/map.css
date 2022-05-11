@@ -177,7 +177,7 @@ section {
 	border: none;
 }
 
-#debugSection, #distanceSection {
+#debugSection, #distanceSection, #searchSection {
 	text-align: center;
 	line-height: calc(1em + 5px);
 }

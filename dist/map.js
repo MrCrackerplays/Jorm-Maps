@@ -1,6 +1,6 @@
 //disable inputs while loading
 let inputElements = [];
-inputElements.push(document.getElementById("floorSlider"), document.getElementById("debugGrid"), document.getElementById("toggleMeasuring"), document.getElementById("relativeLocation"), document.getElementById("relativePlane"));
+inputElements.push(document.getElementById("floorSlider"), document.getElementById("debugGrid"), document.getElementById("toggleMeasuring"), document.getElementById("relativeLocation"), document.getElementById("relativePlane"), document.getElementById("searchLocation"), document.getElementById("searchPlane"), document.getElementById("searchButton"));
 for (let element in inputElements) {
 	inputElements[element].disabled = true;
 }
@@ -539,6 +539,17 @@ function addPlaneInput(plane) {
 	inputElements.push(planeInput);
 }
 
+function search() {
+	let location = document.getElementById("searchLocation").value;
+	let plane = document.getElementById("searchPlane").value;
+	messagbox = document.getElementById("searchMessage");
+	if (planeLayers[plane] == undefined || planeLayers[plane].markers[location] == undefined)
+		messagbox.innerHTML = "Unable to find " + (planeLayers[plane] == undefined ? "plane" : "location") + ".";
+	else {
+		map.panTo(planeLayers[plane].markers[location]._latlng);
+		messagbox.innerHTML = "";
+	}
+}
 
 
 
@@ -652,6 +663,15 @@ document.getElementById("map").addEventListener("keydown", (e) => {
 	if (e.code === "Space" || e.code === "Enter")
 		e.target.click();
 }, true);
+
+document.getElementById("searchLocation").addEventListener("keydown", (e) => {
+	if (e.code === "Enter")
+		search();
+});
+document.getElementById("searchPlane").addEventListener("keydown", (e) => {
+	if (e.code === "Enter")
+		search();
+});
 
 var locations = {};
 
