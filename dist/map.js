@@ -488,7 +488,6 @@ function calculateRelativePosition(latlng) {
 	document.getElementById("relativeLongitude").value = offsetLng;
 	document.getElementById("relativeAngle").value = angle;
 	document.getElementById("relativeDistance").value = dist;
-	// console.log("hex coords", H.axial_to_doubleheight(H.pixel_to_flat_hex({ "x": latlng.lng, "y": latlng.lat })));
 }
 
 let check = false
