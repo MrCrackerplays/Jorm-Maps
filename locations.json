@@ -281,6 +281,32 @@
 				}
 			}
 		},
+		"Monkey": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "Dod'Estrin"
+						},
+						"offset": {
+							"lat": {
+								"meter": -60.96
+							},
+							"lng": {
+								"meter": 15.62
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 19
+					},
+					"layers": {
+						"min": 14,
+						"max": 19
+					}
+				}
+			}
+		},
 		"The Temple": {
 			"marker": {
 				"meta": {
