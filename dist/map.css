@@ -94,11 +94,11 @@ a {
 }
 
 .toggle-sidebar-label {
-	width: max(1em, 1vw);
-	height: max(1em, 1vw);
+	width: 1em;
+	height: 1em;
 	background-color: var(--background);
 	background-image: url('expand.svg');
-	background-size: max(1em, 1vw) max(1em, 1vw);
+	background-size: 1em 1em;
 	position: absolute;
 	z-index: 2;
 	left: var(--sidebar-offset);
