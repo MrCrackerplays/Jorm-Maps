@@ -785,6 +785,58 @@
 				}
 			}
 		},
+		"Magic Mud Baths": {
+			"marker": {
+				"meta": {
+					"location": {
+						"distance": {
+							"duration": {
+								"days": 7.62022
+							}
+						},
+						"direction": {
+							"degrees": 287.357
+						},
+						"origin": {
+							"location": "Starboard Hall"
+						}
+					},
+					"click": {
+						"jump_zoom": 19
+					},
+					"layers": {
+						"min": 5,
+						"max": 19
+					}
+				}
+			}
+		},
+		"Dragons Hell": {
+			"marker": {
+				"meta": {
+					"location": {
+						"distance": {
+							"duration": {
+								"days": 0.5
+							}
+						},
+						"direction": {
+							"degrees": 0
+						},
+						"origin": {
+							"location": "Magic Mud Baths"
+						}
+					},
+					"click": {
+						"jump_zoom": 19
+					},
+					"layers": {
+						"min": 0,
+						"max": 19
+					}
+				}
+			}
+		},
 		"The Mine": {
 			"marker": {
 				"meta": {
