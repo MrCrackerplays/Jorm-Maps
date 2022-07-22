@@ -561,11 +561,13 @@ var map = L.map('map', {
 	inertiaMaxSpeed: 3000,
 	zoom: 17,
 	maxZoom: TARGET_ZOOM,
-	maxBoundsViscosity: 1.0
+	maxBoundsViscosity: 1.0,
+	zoomControl: false
 });
 map.setMaxBounds(L.latLngBounds(L.latLng(L.CRS.dod.projection.bounds.min.x - 500000, L.CRS.dod.projection.bounds.min.y - 500000),
 	L.latLng(L.CRS.dod.projection.bounds.max.x + 500000, L.CRS.dod.projection.bounds.max.y + 500000)));
 const scale = L.control.scale({ updateWhenIdle: true }).addTo(map);
+const zoomButtons = L.control.zoom({position: "bottomright"}).addTo(map);
 
 L.GridLayer.DebugCoords = L.GridLayer.extend({
 	createTile: function (coords, done) {
