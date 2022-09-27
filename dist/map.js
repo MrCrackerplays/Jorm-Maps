@@ -538,6 +538,23 @@ function addPlaneInput(plane) {
 	inputElements.push(planeInput);
 }
 
+function addDatalistOptions() {
+	let planeDatalist = document.getElementById("planesList");
+	let locationDatalist = document.getElementById("locationsList");
+	for (let plane in planeLayers) {
+		let planeOption = document.createElement("option");
+		planeOption.value = plane;
+		planeDatalist.appendChild(planeOption);
+		for (let loc in planeLayers[plane].locations) {
+			if (planeLayers[plane].locations[loc]["marker"] == undefined)
+				continue;
+			let locationOption = document.createElement("option");
+			locationOption.value = loc;
+			locationDatalist.appendChild(locationOption);
+		}
+	}
+}
+
 function search() {
 	let location = document.getElementById("searchLocation").value;
 	let plane = document.getElementById("searchPlane").value;
@@ -702,6 +719,7 @@ async function map_main() {
 		loadMarkers(plane);
 		loadImages(plane);
 	}
+	addDatalistOptions();
 	if (current_plane != undefined) {
 		let radios = document.getElementsByName("plane");
 		let found = false;
