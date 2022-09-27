@@ -53,8 +53,10 @@
 		</section>
 		<section id="searchSection">
 			<h2>Search</h2>
-			Location <input type="search" id="searchLocation" placeholder="e.g. Dod'Estrin"><br />
-			Plane <input type="search" id="searchPlane" placeholder="e.g. Jorm"><br />
+			Location <input type="search" id="searchLocation" placeholder="e.g. Dod'Estrin" list="locationsList"><br />
+			<datalist id="locationsList"></datalist>
+			Plane <input type="search" id="searchPlane" placeholder="e.g. Jorm" list="planesList"><br />
+			<datalist id="planesList"></datalist>
 			<button id="searchButton" onclick="search();">Jump to</button><br />
 			<output id="searchMessage"></output>
 		</section>
