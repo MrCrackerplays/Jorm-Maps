@@ -837,6 +837,84 @@
 				}
 			}
 		},
+		"Dragons Hell Lava Tunnel Exit": {
+			"marker": {
+				"meta": {
+					"location": {
+						"distance": {
+							"duration": {
+								"days": 5
+							}
+						},
+						"direction": {
+							"degrees": 0
+						},
+						"origin": {
+							"location": "Dragons Hell"
+						}
+					},
+					"click": {
+						"jump_zoom": 19
+					},
+					"layers": {
+						"min": 5,
+						"max": 19
+					}
+				}
+			}
+		},
+		"Dragon Road Signpost": {
+			"marker": {
+				"meta": {
+					"location": {
+						"distance": {
+							"duration": {
+								"days": 1.3125
+							}
+						},
+						"direction": {
+							"degrees": 0
+						},
+						"origin": {
+							"location": "Dragons Hell Lava Tunnel Exit"
+						}
+					},
+					"click": {
+						"jump_zoom": 19
+					},
+					"layers": {
+						"min": 5,
+						"max": 19
+					}
+				}
+			}
+		},
+		"The Keep of Splendors": {
+			"marker": {
+				"meta": {
+					"location": {
+						"distance": {
+							"duration": {
+								"days": 1.5
+							}
+						},
+						"direction": {
+							"compass": "W"
+						},
+						"origin": {
+							"location": "Dragon Road Signpost"
+						}
+					},
+					"click": {
+						"jump_zoom": 19
+					},
+					"layers": {
+						"min": 3,
+						"max": 19
+					}
+				}
+			}
+		},
 		"The Mine": {
 			"marker": {
 				"meta": {
