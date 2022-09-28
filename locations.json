@@ -672,7 +672,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 19
+						"jump_zoom": 9
 					},
 					"layers": {
 						"min": 0,
@@ -698,7 +698,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 19
+						"jump_zoom": 10
 					},
 					"layers": {
 						"min": 10,
@@ -724,10 +724,10 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 19
+						"jump_zoom": 8
 					},
 					"layers": {
-						"min": 10,
+						"min": 8,
 						"max": 19
 					}
 				}
@@ -750,7 +750,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 19
+						"jump_zoom": 8
 					},
 					"layers": {
 						"min": 0,
@@ -776,7 +776,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 19
+						"jump_zoom": 7
 					},
 					"layers": {
 						"min": 0,
@@ -802,7 +802,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 19
+						"jump_zoom": 8
 					},
 					"layers": {
 						"min": 5,
@@ -828,7 +828,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 19
+						"jump_zoom": 6
 					},
 					"layers": {
 						"min": 0,
@@ -854,7 +854,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 19
+						"jump_zoom": 7
 					},
 					"layers": {
 						"min": 5,
@@ -880,7 +880,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 19
+						"jump_zoom": 7
 					},
 					"layers": {
 						"min": 5,
@@ -906,7 +906,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 19
+						"jump_zoom": 7
 					},
 					"layers": {
 						"min": 3,
@@ -932,7 +932,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 19
+						"jump_zoom": 8
 					},
 					"layers": {
 						"min": 0,
@@ -989,7 +989,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 19
+						"jump_zoom": 8
 					},
 					"layers": {
 						"min": 0,
@@ -1015,7 +1015,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 13
+						"jump_zoom": 7
 					},
 					"layers": {
 						"min": 0,
@@ -1041,7 +1041,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 13
+						"jump_zoom": 5
 					},
 					"layers": {
 						"min": 0,
@@ -1067,7 +1067,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 13
+						"jump_zoom": 5
 					},
 					"layers": {
 						"min": 0,
@@ -1093,7 +1093,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 13
+						"jump_zoom": 7
 					},
 					"layers": {
 						"min": 0,
@@ -1119,10 +1119,10 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 13
+						"jump_zoom": 8
 					},
 					"layers": {
-						"min": 0,
+						"min": 6,
 						"max": 19
 					}
 				}
@@ -1200,10 +1200,10 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 13
+						"jump_zoom": 8
 					},
 					"layers": {
-						"min": 0,
+						"min": 6,
 						"max": 19
 					}
 				}
@@ -1224,10 +1224,10 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 13
+						"jump_zoom": 8
 					},
 					"layers": {
-						"min": 0,
+						"min": 6,
 						"max": 19
 					}
 				}
@@ -1248,10 +1248,10 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 13
+						"jump_zoom": 8
 					},
 					"layers": {
-						"min": 0,
+						"min": 6,
 						"max": 19
 					}
 				}
@@ -1272,10 +1272,10 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 13
+						"jump_zoom": 8
 					},
 					"layers": {
-						"min": 0,
+						"min": 6,
 						"max": 19
 					}
 				}
@@ -1331,7 +1331,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 13
+						"jump_zoom": 7
 					},
 					"layers": {
 						"min": 0,
@@ -1355,10 +1355,10 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 13
+						"jump_zoom": 8
 					},
 					"layers": {
-						"min": 0,
+						"min": 6,
 						"max": 19
 					}
 				}
@@ -1379,10 +1379,10 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 13
+						"jump_zoom": 8
 					},
 					"layers": {
-						"min": 0,
+						"min": 6,
 						"max": 19
 					}
 				}
@@ -1403,7 +1403,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 13
+						"jump_zoom": 6
 					},
 					"layers": {
 						"min": 0,
@@ -1493,7 +1493,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 18
+						"jump_zoom": 7
 					},
 					"layers": {
 						"min": 0,
@@ -1519,7 +1519,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 13
+						"jump_zoom": 8
 					},
 					"layers": {
 						"min": 0,
@@ -1545,7 +1545,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 13
+						"jump_zoom": 7
 					},
 					"layers": {
 						"min": 0,
@@ -1571,7 +1571,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 13
+						"jump_zoom": 7
 					},
 					"layers": {
 						"min": 0,
@@ -1597,7 +1597,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 13
+						"jump_zoom": 6
 					},
 					"layers": {
 						"min": 0,
@@ -1623,7 +1623,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 13
+						"jump_zoom": 7
 					},
 					"layers": {
 						"min": 0,
@@ -1649,7 +1649,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 13
+						"jump_zoom": 8
 					},
 					"layers": {
 						"min": 0,
@@ -1675,7 +1675,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 13
+						"jump_zoom": 8
 					},
 					"layers": {
 						"min": 0,
@@ -1889,7 +1889,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 13
+						"jump_zoom": 10
 					},
 					"layers": {
 						"min": 0,
@@ -1915,7 +1915,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 13
+						"jump_zoom": 8
 					},
 					"layers": {
 						"min": 0,
@@ -1941,7 +1941,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 13
+						"jump_zoom": 8
 					},
 					"layers": {
 						"min": 0,
@@ -1967,7 +1967,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 13
+						"jump_zoom": 8
 					},
 					"layers": {
 						"min": 0,
@@ -1993,7 +1993,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 13
+						"jump_zoom": 10
 					},
 					"layers": {
 						"min": 0,
@@ -2019,7 +2019,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 13
+						"jump_zoom": 10
 					},
 					"layers": {
 						"min": 0,
@@ -2045,7 +2045,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 13
+						"jump_zoom": 11
 					},
 					"layers": {
 						"min": 10,
@@ -2074,7 +2074,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 19
+						"jump_zoom": 8
 					},
 					"layers": {
 						"min": 0,
@@ -2103,7 +2103,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 17
+						"jump_zoom": 10
 					},
 					"layers": {
 						"min": 0,
