@@ -196,12 +196,14 @@ function getClosestFloor(place_images, current = NaN) {
 	return found;
 }
 
-
 function updateMarker(marker, name) {
-	if (map.getZoom() >= marker.meta.layers.min && map.getZoom() <= marker.meta.layers.max)
-		planeLayers[current_plane].markerCluster.addLayer(planeLayers[current_plane].markers[name]);
-	else
-		planeLayers[current_plane].markerCluster.removeLayer(planeLayers[current_plane].markers[name]);
+	setTimeout(() => {
+		if (map.getZoom() >= marker.meta.layers.min && map.getZoom() <= marker.meta.layers.max)
+			planeLayers[current_plane].markerCluster.addLayer(planeLayers[current_plane].markers[name]);
+		else
+			planeLayers[current_plane].markerCluster.removeLayer(planeLayers[current_plane].markers[name]);
+	}, 300);
+	//timeout because the event fires during the cluster animation, causing the the marker to become invisible in some situations
 }
 
 function updateImage(image, name, bounds) {
