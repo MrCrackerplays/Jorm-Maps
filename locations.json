@@ -128,7 +128,7 @@
 				}
 			}
 		},
-		"Meros & Raesa": {
+		"Meros & Raesa's house": {
 			"images": {
 				"0": {
 					"meta": {
@@ -255,7 +255,7 @@
 				}
 			}
 		},
-		"Oskar": {
+		"Oskar's house": {
 			"marker": {
 				"meta": {
 					"location": {
@@ -281,7 +281,7 @@
 				}
 			}
 		},
-		"Monkey": {
+		"Monkey's Treehouse": {
 			"marker": {
 				"meta": {
 					"location": {
@@ -359,7 +359,7 @@
 				}
 			}
 		},
-		"Valtros & Holdric & Kolt": {
+		"Valtros & Holdric & Kolt's house": {
 			"images": {
 				"0": {
 					"meta": {
@@ -571,7 +571,7 @@
 				}
 			}
 		},
-		"Kathryn": {
+		"Kathryn's house": {
 			"marker": {
 				"meta": {
 					"location": {
@@ -916,6 +916,39 @@
 			}
 		},
 		"The Mine": {
+			"images": {
+				"0": {
+					"meta": {
+						"position": {
+							"center": {
+								"origin": {
+									"location": "The Mine"
+								},
+								"offset": {
+									"lat": {
+										"meter": 0
+									},
+									"lng": {
+										"meter": 0
+									}
+								}
+							},
+							"width": {
+								"tiles": 64
+							},
+							"height": {
+								"tiles": 38.03125
+							}
+						},
+						"file": "the mines/Cave_System.jpg",
+						"layers": {
+							"min": 15,
+							"max": 22
+						}
+					},
+					"pane": "tilePane"
+				}
+			},
 			"marker": {
 				"meta": {
 					"location": {
@@ -932,7 +965,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 8
+						"jump_zoom": 17
 					},
 					"layers": {
 						"min": 0,
@@ -1076,7 +1109,71 @@
 				}
 			}
 		},
-		"Rotting Keep": {
+		"Ruined Keep": {
+			"images": {
+				"-1": {
+					"meta": {
+						"position": {
+							"center": {
+								"origin": {
+									"location": "Ruined Keep"
+								},
+								"offset": {
+									"lat": {
+										"tiles": 16
+									},
+									"lng": {
+										"tiles": 0
+									}
+								}
+							},
+							"width": {
+								"tiles": 32
+							},
+							"height": {
+								"tiles": 32
+							}
+						},
+						"file": "ruined keep/keep_inner.jpg",
+						"layers": {
+							"min": 15,
+							"max": 22
+						}
+					},
+					"pane": "tilePane"
+				},
+				"0": {
+					"meta": {
+						"position": {
+							"center": {
+								"origin": {
+									"location": "Ruined Keep"
+								},
+								"offset": {
+									"lat": {
+										"meter": 0
+									},
+									"lng": {
+										"meter": 0
+									}
+								}
+							},
+							"width": {
+								"tiles": 40
+							},
+							"height": {
+								"tiles": 40
+							}
+						},
+						"file": "ruined keep/Keep_Outside_Outer.jpg",
+						"layers": {
+							"min": 15,
+							"max": 22
+						}
+					},
+					"pane": "tilePane"
+				}
+			},
 			"marker": {
 				"meta": {
 					"location": {
@@ -1093,7 +1190,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 7
+						"jump_zoom": 18
 					},
 					"layers": {
 						"min": 0,
