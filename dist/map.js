@@ -723,6 +723,17 @@ async function map_main() {
 		loadImages(plane);
 	}
 	addDatalistOptions();
+	let searchparams = new URLSearchParams(window.location.search);
+	if (searchparams.has("plane") && searchparams.has("location")) {
+		let location = searchparams.get("location");
+		let plane = searchparams.get("plane");
+		if (planeLayers[plane] != undefined && planeLayers[plane].markers[location] != undefined) {
+			map.panTo(planeLayers[plane].markers[location]._latlng);
+			current_plane = plane;
+		} else {
+			console.error("Invalid search parameter ", (planeLayers[plane] == undefined ? "plane [" + plane + "]" : "location [" + location + "]"));
+		}
+	}
 	if (current_plane != undefined) {
 		let radios = document.getElementsByName("plane");
 		let found = false;
@@ -765,16 +776,6 @@ async function map_main() {
 	//enable inputs again
 	for (let element in inputElements) {
 		inputElements[element].disabled = false;
-	}
-	let searchparams = new URLSearchParams(window.location.search);
-	if (searchparams.has("plane") && searchparams.has("location")) {
-		let location = searchparams.get("location");
-		let plane = searchparams.get("plane");
-		if (planeLayers[plane] != undefined && planeLayers[plane].markers[location] != undefined) {
-			map.panTo(planeLayers[plane].markers[location]._latlng);
-		} else {
-			console.error("Invalid search parameter ", (planeLayers[plane] == undefined ? "plane [" + plane + "]" : "location [" + location + "]"));
-		}
 	}
 }
 
