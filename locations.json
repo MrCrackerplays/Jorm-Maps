@@ -926,10 +926,10 @@
 								},
 								"offset": {
 									"lat": {
-										"meter": 0
+										"meter": 0.3
 									},
 									"lng": {
-										"meter": 0
+										"meter": -0.24
 									}
 								}
 							},
@@ -984,10 +984,10 @@
 							},
 							"offset": {
 								"lat": {
-									"meter": 0
+									"meter": 0.37
 								},
 								"lng": {
-									"meter": 0
+									"meter": 0.68
 								}
 							}
 						},
@@ -1625,6 +1625,32 @@
 				}
 			}
 		},
+		"Large Strange Statue": {
+			"marker": {
+				"meta": {
+					"location": {
+						"distance": {
+							"duration": {
+								"days": 4.82
+							}
+						},
+						"direction": {
+							"degrees": 60.061
+						},
+						"origin": {
+							"location": "The Lone Spire"
+						}
+					},
+					"click": {
+						"jump_zoom": 8
+					},
+					"layers": {
+						"min": 0,
+						"max": 19
+					}
+				}
+			}
+		},
 		"The Maw": {
 			"marker": {
 				"meta": {
@@ -1792,10 +1818,10 @@
 								},
 								"offset": {
 									"lat": {
-										"meter": 0
+										"meter": 0.12
 									},
 									"lng": {
-										"meter": 0
+										"meter": -0.54
 									}
 								}
 							},
@@ -1824,10 +1850,10 @@
 								},
 								"offset": {
 									"lat": {
-										"meter": 0
+										"meter": 0.12
 									},
 									"lng": {
-										"meter": 0
+										"meter": -0.54
 									}
 								}
 							},
@@ -1856,10 +1882,10 @@
 								},
 								"offset": {
 									"lat": {
-										"meter": 0
+										"meter": 0.12
 									},
 									"lng": {
-										"meter": 0
+										"meter": -0.54
 									}
 								}
 							},
@@ -1888,10 +1914,10 @@
 								},
 								"offset": {
 									"lat": {
-										"meter": 0
+										"meter": 0.12
 									},
 									"lng": {
-										"meter": 0
+										"meter": -0.54
 									}
 								}
 							},
@@ -1920,10 +1946,10 @@
 								},
 								"offset": {
 									"lat": {
-										"meter": 0
+										"meter": 0.12
 									},
 									"lng": {
-										"meter": 0
+										"meter": -0.54
 									}
 								}
 							},
