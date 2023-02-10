@@ -51,7 +51,7 @@
 							"feet": 1478.45
 						}
 					},
-					"file": "DodEstrin.jpg",
+					"file": "https://cdn.discordapp.com/attachments/868183324944891934/1073704589754372216/DodEstron.jpg",
 					"layers": {
 						"min": 11,
 						"max": 22
@@ -281,7 +281,7 @@
 				}
 			}
 		},
-		"Monkey's Treehouse": {
+		"Montgomery's Treehouse": {
 			"marker": {
 				"meta": {
 					"location": {
