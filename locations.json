@@ -707,6 +707,32 @@
 				}
 			}
 		},
+		"Buried Keep": {
+			"marker": {
+				"meta": {
+					"location": {
+						"distance": {
+							"duration": {
+								"days": 2
+							}
+						},
+						"direction": {
+							"compass": "S"
+						},
+						"origin": {
+							"location": "Dod'Estrin"
+						}
+					},
+					"click": {
+						"jump_zoom": 8
+					},
+					"layers": {
+						"min": 0,
+						"max": 19
+					}
+				}
+			}
+		},
 		"Sawmill": {
 			"marker": {
 				"meta": {
