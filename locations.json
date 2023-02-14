@@ -708,6 +708,101 @@
 			}
 		},
 		"Buried Keep": {
+			"images": {
+				"-2": {
+					"meta": {
+						"position": {
+							"center": {
+								"origin": {
+									"location": "Buried Keep"
+								},
+								"offset": {
+									"lat": {
+										"meter": 0
+									},
+									"lng": {
+										"meter": 0
+									}
+								}
+							},
+							"width": {
+								"tiles": 29
+							},
+							"height": {
+								"tiles": 30
+							}
+						},
+						"file": "https://cdn.discordapp.com/attachments/857683710362255360/1075082550604746772/buried_keep-1.png",
+						"layers": {
+							"min": 15,
+							"max": 22
+						}
+					},
+					"pane": "tilePane"
+				},
+				"-1": {
+					"meta": {
+						"position": {
+							"center": {
+								"origin": {
+									"location": "Buried Keep"
+								},
+								"offset": {
+									"lat": {
+										"meter": 0
+									},
+									"lng": {
+										"meter": 0
+									}
+								}
+							},
+							"width": {
+								"tiles": 29
+							},
+							"height": {
+								"tiles": 30
+							}
+						},
+						"file": "https://cdn.discordapp.com/attachments/857683710362255360/1075082550042706030/buried_keep-2.png",
+						"layers": {
+							"min": 15,
+							"max": 22
+						}
+					},
+					"pane": "tilePane"
+				},
+				"0": {
+					"meta": {
+						"position": {
+							"center": {
+								"origin": {
+									"location": "Buried Keep"
+								},
+								"offset": {
+									"lat": {
+										"meter": 0
+									},
+									"lng": {
+										"meter": 0
+									}
+								}
+							},
+							"width": {
+								"tiles": 29
+							},
+							"height": {
+								"tiles": 30
+							}
+						},
+						"file": "https://cdn.discordapp.com/attachments/857683710362255360/1075082551149985912/buried_keep-0.png",
+						"layers": {
+							"min": 15,
+							"max": 22
+						}
+					},
+					"pane": "tilePane"
+				}
+			},
 			"marker": {
 				"meta": {
 					"location": {
@@ -724,7 +819,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 8
+						"jump_zoom": 18
 					},
 					"layers": {
 						"min": 0,
