@@ -63,6 +63,18 @@
 		<section id="planeSection">
 			<h2>Plane Shifting</h2>
 		</section>
+		<section id="hexSection">
+			<h2>Hex Overlay Setttings</h2>
+			<p class="subheading">Changes require reloading the page to update</p>
+			<input type="checkbox" id="toggle-hex-mode">
+			<label for="toggle-hex-mode">Use flat top hexagons.</label><br />
+			<label for="hexToHex">Distance between hexes in miles</label>
+			<input type="number" id="hexToHex"><br />
+			<label for="hexColor">Hex color</label>
+			<input type="color" id="hexColor" value="#5A5A5A"><button id="searchButton" onclick="localStorage.setItem('hex-color', '#5A5A5A');">reset</button><br />
+			<label for="hexHighlightColor">Hex highlight color</label>
+			<input type="color" id="hexHighlightColor" value="#666666"><button id="searchButton" onclick="localStorage.setItem('hex-highlight', '#666666');">reset</button><br />
+		</section>
 		<section id="debugSection">
 			<h2>Debugging</h2>
 			<input type="checkbox" id="debugGrid" onclick="toggleDebugGrid();" />

@@ -1,9 +1,11 @@
 //disable inputs while loading
 let inputElements = [];
-inputElements.push(document.getElementById("floorSlider"), document.getElementById("debugGrid"), document.getElementById("toggleMeasuring"), document.getElementById("relativeLocation"), document.getElementById("relativePlane"), document.getElementById("searchLocation"), document.getElementById("searchPlane"), document.getElementById("searchButton"));
+inputElements.push(document.getElementById("floorSlider"), document.getElementById("debugGrid"), document.getElementById("toggleMeasuring"), document.getElementById("relativeLocation"), document.getElementById("relativePlane"), document.getElementById("searchLocation"), document.getElementById("searchPlane"), document.getElementById("searchButton"), document.getElementById("toggle-hex-mode"), document.getElementById("hexToHex"));
 for (let element in inputElements) {
 	inputElements[element].disabled = true;
 }
+
+const FLAT_TOP = localStorage.getItem("flat-top") === "true"
 
 const METER_PER_MILE = 1609.344;
 const METER_PER_FOOT = 0.3048;
@@ -42,9 +44,9 @@ function styleHex(feature) {
 		fillColor: 'transparent',
 		weight: 1,
 		opacity: 1,
-		color: 'darkgrey',
 		dashArray: '0',
-		fillOpacity: 0.5
+		fillOpacity: 0.5,
+		color: HEX_COLOR
 	};
 }
 
@@ -53,8 +55,8 @@ function highlightHex(e) {
 
 	layer.setStyle({
 		weight: map.getZoom() == 2 ? 1 : 2,
-		color: '#666',
-		fillOpacity: 0.7
+		fillOpacity: 0.7,
+		color: HEX_HIGHLIGHT
 	});
 
 	if (!L.Browser.ie && !L.Browser.opera) {
@@ -85,14 +87,37 @@ let grid_holder = L.layerGroup();
 function onMove() {
 	clearTimeout(move_call);
 	map.removeLayer(grid_holder);
+	const minbound = 2 + countJumps(24, HEX_TO_HEX_MILES);
 	move_call = setTimeout(function () {
 		updateHexGrid();
-		if (map.getZoom() >= 2 && map.getZoom() < 8)
+		if (map.getZoom() >= minbound && map.getZoom() < minbound + 6)//FUUUU
 			map.addLayer(grid_holder);
 	}, 650);
 }
+
+function countJumps(num1, num2) {
+	if (num1 == num2)
+		return 0;
+	if (num1 > num2) {
+		let count = 0;
+		while (num1 > num2) {
+			num1 /= 2;
+			count++;
+		}
+		return count;
+	} else {
+		let count = 0;
+		while (num1 < num2) {
+			num1 *= 2;
+			count--;
+		}
+		return count;
+	}
+}
+
 function updateHexGrid() {
-	if (map.getZoom() >= 2 && map.getZoom() < 8) {
+	const minbound = 2 + countJumps(24, HEX_TO_HEX_MILES);
+	if (map.getZoom() >= minbound && map.getZoom() < (minbound + 6)) {
 		for (let i = 0; i < CLUSTER_COLUMNS * CLUSTER_ROWS; i++) {
 			if (map.getBounds().intersects(hexGrid[i].getBounds())) {
 				if (grid_holder.hasLayer(hexGrid[i]) == false) grid_holder.addLayer(hexGrid[i]);
@@ -120,6 +145,34 @@ function updateSidebar() {
 		document.getElementById("toggle-sidebar").checked = true;
 	else
 		document.getElementById("toggle-sidebar").checked = false;
+}
+
+function updateHexBox() {
+	if (localStorage.getItem("flat-top") === "true")
+		document.getElementById("toggle-hex-mode").checked = true;
+	else
+		document.getElementById("toggle-hex-mode").checked = false;
+}
+
+function updateHexToHex() {
+	let hexdis = localStorage.getItem("hex-miles");
+	if (hexdis)
+		document.getElementById("hexToHex").value = hexdis;
+	else
+		document.getElementById("hexToHex").value = HEX_TO_HEX_MILES;
+}
+
+function updateHexColors() {
+	let col = localStorage.getItem("hex-color");
+	if (col)
+		document.getElementById("hexColor").value = col;
+	else
+		document.getElementById("hexColor").value = HEX_COLOR;
+	let hig = localStorage.getItem("hex-highlight");
+	if (hig)
+		document.getElementById("hexHighlightColor").value = hig;
+	else
+		document.getElementById("hexHighlightColor").value = HEX_HIGHLIGHT;
 }
 
 let planeLayers = {};
@@ -484,7 +537,10 @@ function calculateRelativePosition(latlng) {
 		offsetLat = "Plane Not Found";
 	document.getElementById("clickLatitude").value = latlng.lat;
 	document.getElementById("clickLongitude").value = latlng.lng;
-	let hexcoords = H.axial_to_doubleheight(H.pixel_to_flat_hex({"x": latlng.lng, "y": latlng.lat}));
+	let hexcoords = (FLAT_TOP) ?
+		H.axial_to_doubleheight(H.pixel_to_flat_hex({"x": latlng.lng, "y": latlng.lat}))
+		:
+		H.axial_to_doublewidth(H.pixel_to_pointy_hex({"x": latlng.lng, "y": latlng.lat}));
 	document.getElementById("clickHexCoordinates").value = hexcoords.col + "," + hexcoords.row;
 	document.getElementById("relativeLatitude").value = offsetLat;
 	document.getElementById("relativeLongitude").value = offsetLng;
@@ -492,10 +548,10 @@ function calculateRelativePosition(latlng) {
 	document.getElementById("relativeDistance").value = dist;
 }
 
-let check = false
+let checkMeasuringState = false
 function checkMeasuring() {
-	check = document.getElementById("toggleMeasuring").checked;
-	if (check)
+	checkMeasuringState = document.getElementById("toggleMeasuring").checked;
+	if (checkMeasuringState)
 		map.addLayer(measurer);
 	else
 		map.removeLayer(measurer);
@@ -507,10 +563,19 @@ function updateDistances(test) {
 	let hexdist = 0;
 	for (let i = 0; i < test.length; i++) {
 		if (i > 0) {
-			let curpos = H.axial_to_doubleheight(H.pixel_to_flat_hex({"x": test[i]._latlng.lng, "y": test[i]._latlng.lat}));
-			let prevpos = H.axial_to_doubleheight(H.pixel_to_flat_hex({"x": test[i - 1]._latlng.lng, "y": test[i - 1]._latlng.lat}));
+			let curpos = (FLAT_TOP) ?
+				H.axial_to_doubleheight(H.pixel_to_flat_hex({"x": test[i]._latlng.lng, "y": test[i]._latlng.lat}))
+				:
+				H.axial_to_doublewidth(H.pixel_to_pointy_hex({"x": test[i]._latlng.lng, "y": test[i]._latlng.lat}));
+			let prevpos = (FLAT_TOP) ?
+				H.axial_to_doubleheight(H.pixel_to_flat_hex({"x": test[i - 1]._latlng.lng, "y": test[i - 1]._latlng.lat}))
+				:
+				H.axial_to_doublewidth(H.pixel_to_pointy_hex({"x": test[i - 1]._latlng.lng, "y": test[i - 1]._latlng.lat}));
 			dist += map.distance(test[i]._latlng, test[i - 1]._latlng);
-			hexdist += H.doubleheight_distance(curpos, prevpos);
+			if (FLAT_TOP)
+				hexdist += H.doubleheight_distance(curpos, prevpos);
+			else
+				hexdist += H.doublewidth_distance(curpos, prevpos);
 		}
 	}
 	document.getElementById("meterDistance").value = Math.round((dist + Number.EPSILON) * 1000) / 1000;
@@ -632,18 +697,35 @@ L.RotateImageOverlay = L.ImageOverlay.extend({
 	}
 });
 
+function makeEven(numb) {
+	if (numb % 2 == 1)
+		return numb + 1;
+	return numb;
+}
+
 
 var debugCoordsGrid = L.gridLayer.debugCoords({ tileSize: 256, zIndex: 100 });
 
 var measurer = L.Polyline.Plotter().addTo(map);
 
-
+const HEX_COLOR = localStorage.getItem("hex-color") || "#5A5A5A"
+const HEX_HIGHLIGHT = localStorage.getItem("hex-highlight") || '#666666'
+const HEX_TO_HEX_MILES = (localStorage.getItem("hex-miles") == undefined || isNaN(Number(localStorage.getItem("hex-miles")))) ?
+	24
+	:
+	Number(localStorage.getItem("hex-miles"));
 const ROOT_3 = Math.sqrt(3);
-const HEX_SIDE_LEN = METER_PER_MILE * 24 / ROOT_3;
+const HEX_SIDE_LEN = METER_PER_MILE * HEX_TO_HEX_MILES / ROOT_3;
 const WORLD_WIDTH = map.options.crs.projection.bounds.max.x - map.options.crs.projection.bounds.min.x;
 const WORLD_HEIGHT = map.options.crs.projection.bounds.max.y - map.options.crs.projection.bounds.min.y;
-const TOTAL_COLUMNS = Math.ceil(WORLD_WIDTH / (HEX_SIDE_LEN * 1.5));
-const TOTAL_ROWS = Math.ceil(WORLD_HEIGHT / (HEX_SIDE_LEN * ROOT_3));
+const TOTAL_COLUMNS = makeEven((FLAT_TOP) ?
+	Math.ceil(WORLD_WIDTH / (HEX_SIDE_LEN * 1.5))
+	:
+	Math.ceil(WORLD_WIDTH / (HEX_SIDE_LEN * ROOT_3)));
+const TOTAL_ROWS = makeEven((FLAT_TOP) ?
+	Math.ceil(WORLD_HEIGHT / (HEX_SIDE_LEN * ROOT_3))
+	:
+	Math.ceil(WORLD_HEIGHT / (HEX_SIDE_LEN * 1.5)));
 const CLUSTER_SIZE = 8;
 const CLUSTER_COLUMNS = TOTAL_COLUMNS < CLUSTER_SIZE * 2 ? 1 : CLUSTER_SIZE;
 const CLUSTER_ROWS = TOTAL_ROWS < CLUSTER_SIZE * 2 ? 1 : CLUSTER_SIZE;
@@ -655,9 +737,19 @@ for (let i = 0; i < CLUSTER_COLUMNS; i++) {
 	const local_columns = i == CLUSTER_SIZE - 1 ? COLUMNS + (TOTAL_COLUMNS % CLUSTER_COLUMNS) : COLUMNS;
 	for (let j = 0; j < CLUSTER_ROWS; j++) {
 		const local_rows = j == CLUSTER_SIZE - 1 ? ROWS + (TOTAL_ROWS % CLUSTER_ROWS) : ROWS;
-		hexGrid[j + i * CLUSTER_ROWS] = L.geoJson(H.hexagonalGrid([ORIGIN_HEX_CENTER[0] + (i * COLUMNS * 1.5 * HEX_SIDE_LEN),
-		ORIGIN_HEX_CENTER[1] + (j * ROWS * ROOT_3 * HEX_SIDE_LEN)],
-			local_columns, local_rows, HEX_SIDE_LEN, COLUMNS * i, ROWS * j), {
+		hexGrid[j + i * CLUSTER_ROWS] = L.geoJson(
+			(FLAT_TOP) ?
+				H.fhexagonalGrid(
+				[ORIGIN_HEX_CENTER[0] + (i * COLUMNS * 1.5 * HEX_SIDE_LEN),
+				ORIGIN_HEX_CENTER[1] + (j * ROWS * ROOT_3 * HEX_SIDE_LEN)],
+				local_columns, local_rows, HEX_SIDE_LEN, COLUMNS * i, ROWS * j)
+			:
+				H.phexagonalGrid(
+				[ORIGIN_HEX_CENTER[0] + (i * COLUMNS * ROOT_3 * HEX_SIDE_LEN),
+				ORIGIN_HEX_CENTER[1] + (j * ROWS * 1.5 * HEX_SIDE_LEN)],
+				local_columns, local_rows, HEX_SIDE_LEN, COLUMNS * i, ROWS * j)
+			,
+			{
 				style: styleHex,
 				onEachFeature: onEachHex
 			});
@@ -665,7 +757,6 @@ for (let i = 0; i < CLUSTER_COLUMNS; i++) {
 }
 
 const LOCATIONS_JSON_URL = "locations.json";
-
 
 document.getElementById("toggle-sidebar").addEventListener("change", function () {
 	localStorage.setItem("sidebar-hidden", this.checked.toString());
@@ -694,6 +785,26 @@ document.getElementById("searchPlane").addEventListener("keydown", (e) => {
 		search();
 });
 
+document.getElementById("toggle-hex-mode").addEventListener("change", function () {
+	localStorage.setItem("flat-top", this.checked.toString());
+	updateHexBox();
+});
+
+document.getElementById("hexToHex").addEventListener("change", function () {
+	localStorage.setItem("hex-miles", this.value.toString());
+	updateHexToHex();
+});
+
+document.getElementById("hexColor").addEventListener("change", function () {
+	localStorage.setItem("hex-color", this.value.toString());
+	updateHexColors();
+});
+
+document.getElementById("hexHighlightColor").addEventListener("change", function () {
+	localStorage.setItem("hex-highlight", this.value.toString());
+	updateHexColors();
+});
+
 var locations = {};
 
 var prevZoom = map.getZoom();
@@ -704,6 +815,9 @@ if (floor_level) {
 }
 
 updateSidebar();
+updateHexBox();
+updateHexToHex();
+updateHexColors();
 
 let current_plane = localStorage.getItem("plane");
 let json_response;
