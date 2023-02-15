@@ -652,7 +652,7 @@ function search() {
 
 var map = L.map('map', {
 	crs: L.CRS.dod,
-	center: [2815244.0985, 3137180.0985],
+	center: [2815343.779, 3152715.088],
 	preferCanvas: true,
 	inertiaMaxSpeed: 3000,
 	zoom: 17,
