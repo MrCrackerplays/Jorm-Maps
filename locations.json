@@ -1,32 +1,30 @@
 {
 	"Jorm": {
-		"SpireView": {
+		"Exploration": {
 			"image": {
 				"meta": {
 					"position": {
-						"bounds": [[2779385.856, 2715847.996], [3611172.864, 3676271.300]],
-						"comment": "hey there, the center and width/height here are unused but are here for reference what they would be if the bounds were to be removed",
 						"center": {
 							"origin": {
-								"location": "The Lone Spire"
+								"location": "Dod'Estrin"
 							},
 							"offset": {
 								"lat": {
-									"meter": 2255.935
+									"meter": 39386.256
 								},
 								"lng": {
-									"meter": -21413.532
+									"meter": -139870.133
 								}
 							}
 						},
 						"width": {
-							"meter": 831787.008
+							"mile": 2304
 						},
 						"height": {
-							"meter": 960423.304
+							"mile": 1296
 						}
 					},
-					"file": "SpireView.png",
+					"file": "https://cdn.discordapp.com/attachments/868183324944891934/1074842339161427988/JormMapPlayerEdition.png",
 					"layers": {
 						"min": 0,
 						"max": 19
@@ -42,7 +40,17 @@
 				"meta": {
 					"position": {
 						"center": {
-							"latlng": [2815279.104, 3137199.640]
+							"origin": {
+								"location": "Dod'Estrin"
+							},
+							"offset": {
+								"lat": {
+									"meter": 57.912
+								},
+								"lng": {
+									"meter": 30.781
+								}
+							}
 						},
 						"width": {
 							"feet": 1971.27
@@ -64,7 +72,7 @@
 			"marker": {
 				"meta": {
 					"location": {
-						"latlng": [2815221.192, 3137168.859]
+						"latlng": [2815337.016, 3152732.709]
 					},
 					"click": {
 						"jump_zoom": 17
@@ -886,11 +894,11 @@
 					"location": {
 						"distance": {
 							"duration": {
-								"days": 11.87
+								"days": 11.07
 							}
 						},
 						"direction": {
-							"degrees": 241.0847908149244
+							"degrees": 240.748371
 						},
 						"origin": {
 							"location": "Dod'Estrin"
@@ -912,11 +920,11 @@
 					"location": {
 						"distance": {
 							"duration": {
-								"days": 7.62022
+								"days": 7.751
 							}
 						},
 						"direction": {
-							"degrees": 287.357
+							"degrees": 285.629
 						},
 						"origin": {
 							"location": "Starboard Hall"
@@ -1075,11 +1083,11 @@
 					"location": {
 						"distance": {
 							"duration": {
-								"days": 3
+								"days": 2.636
 							}
 						},
 						"direction": {
-							"compass": "ENE"
+							"degrees": 74.976
 						},
 						"origin": {
 							"location": "Dod'Estrin"
@@ -1130,13 +1138,14 @@
 			"marker": {
 				"meta": {
 					"location": {
+						"comment": "no clue where exactly it is located, this is a rough guesstimation",
 						"distance": {
 							"duration": {
-								"days": 3
+								"days": 2.5
 							}
 						},
 						"direction": {
-							"degrees": 57
+							"compass": "NE"
 						},
 						"origin": {
 							"location": "The Wizard Tower"
@@ -1152,17 +1161,133 @@
 				}
 			}
 		},
+		"Lighthouse of Selune": {
+			"marker": {
+				"meta": {
+					"location": {
+						"distance": {
+							"duration": {
+								"days": 3.493
+							}
+						},
+						"direction": {
+							"degrees": 34.143
+						},
+						"origin": {
+							"location": "Dod'Estrin"
+						}
+					},
+					"click": {
+						"jump_zoom": 8
+					},
+					"layers": {
+						"min": 0,
+						"max": 19
+					}
+				}
+			}
+		},
+		"The Lone Spire": {
+			"images": {
+				"7": {
+					"meta": {
+						"position": {
+							"center": {
+								"origin": {
+									"location": "The Lone Spire"
+								},
+								"offset": {
+									"lat": {
+										"meter": 0
+									},
+									"lng": {
+										"meter": 0
+									}
+								}
+							},
+							"width": {
+								"tiles": 23
+							},
+							"height": {
+								"tiles": 16
+							}
+						},
+						"file": "lone spire/Whiteout.jpg",
+						"layers": {
+							"min": 15,
+							"max": 22
+						}
+					},
+					"pane": "tilePane"
+				},
+				"8": {
+					"meta": {
+						"position": {
+							"center": {
+								"origin": {
+									"location": "The Lone Spire"
+								},
+								"offset": {
+									"lat": {
+										"meter": 0
+									},
+									"lng": {
+										"meter": 0
+									}
+								}
+							},
+							"width": {
+								"tiles": 30
+							},
+							"height": {
+								"tiles": 28
+							}
+						},
+						"file": "lone spire/Lava_Throne.jpg",
+						"layers": {
+							"min": 15,
+							"max": 22
+						}
+					},
+					"pane": "tilePane"
+				}
+			},
+			"marker": {
+				"meta": {
+					"location": {
+						"distance": {
+							"duration": {
+								"days": 8.871
+							}
+						},
+						"direction": {
+							"degrees": 168.774
+						},
+						"origin": {
+							"location": "Dod'Estrin"
+						}
+					},
+					"click": {
+						"jump_zoom": 7
+					},
+					"layers": {
+						"min": 0,
+						"max": 18
+					}
+				}
+			}
+		},
 		"Dorics Village": {
 			"marker": {
 				"meta": {
 					"location": {
 						"distance": {
 							"duration": {
-								"days": 21.408663454303397
+								"days": 19.078
 							}
 						},
 						"direction": {
-							"degrees": 122.042
+							"degrees": 121.634
 						},
 						"origin": {
 							"location": "Starboard Hall"
@@ -1300,7 +1425,7 @@
 					"location": {
 						"distance": {
 							"duration": {
-								"days": 2.6
+								"days": 1.978
 							}
 						},
 						"direction": {
@@ -1326,11 +1451,11 @@
 					"location": {
 						"distance": {
 							"duration": {
-								"days": 10.5296
+								"days": 9.092
 							}
 						},
 						"direction": {
-							"degrees": 44.3942
+							"degrees": 43.007
 						},
 						"origin": {
 							"location": "The Lone Spire"
@@ -1364,10 +1489,10 @@
 							}
 						},
 						"width": {
-							"mile": 50
+							"mile": 65
 						},
 						"height": {
-							"mile": 58.42696
+							"mile": 70
 						}
 					},
 					"file": "Karamja.png",
@@ -1383,11 +1508,13 @@
 			"marker": {
 				"meta": {
 					"location": {
-						"distance": {
-							"mile": 25
-						},
-						"direction": {
-							"degrees": 0
+						"offset": {
+							"lat": {
+								"mile": -28.5
+							},
+							"lng": {
+								"mile": 2.5
+							}
 						},
 						"origin": {
 							"location": "Lighthouse of the Praerie of the South"
@@ -1408,10 +1535,10 @@
 				"meta": {
 					"location": {
 						"distance": {
-							"meter": 32261.929
+							"meter": 42195.228
 						},
 						"direction": {
-							"degrees": 268.4
+							"degrees": 266.839
 						},
 						"origin": {
 							"location": "Karamja"
@@ -1432,10 +1559,10 @@
 				"meta": {
 					"location": {
 						"distance": {
-							"meter": 21939.532
+							"meter": 25322.758
 						},
 						"direction": {
-							"degrees": 21.75
+							"degrees": 24.225907
 						},
 						"origin": {
 							"location": "Karamja"
@@ -1456,10 +1583,10 @@
 				"meta": {
 					"location": {
 						"distance": {
-							"meter": 24242.069
+							"meter": 29111.024
 						},
 						"direction": {
-							"degrees": 325.537
+							"degrees": 321.879517
 						},
 						"origin": {
 							"location": "Karamja"
@@ -1480,10 +1607,10 @@
 				"meta": {
 					"location": {
 						"distance": {
-							"meter": 15864.152
+							"meter": 20242.421
 						},
 						"direction": {
-							"degrees": 151.6
+							"degrees": 152.49051
 						},
 						"origin": {
 							"location": "Karamja"
@@ -1630,96 +1757,6 @@
 				}
 			}
 		},
-		"The Lone Spire": {
-			"images": {
-				"7": {
-					"meta": {
-						"position": {
-							"center": {
-								"origin": {
-									"location": "The Lone Spire"
-								},
-								"offset": {
-									"lat": {
-										"meter": 0
-									},
-									"lng": {
-										"meter": 0
-									}
-								}
-							},
-							"width": {
-								"tiles": 23
-							},
-							"height": {
-								"tiles": 16
-							}
-						},
-						"file": "lone spire/Whiteout.jpg",
-						"layers": {
-							"min": 15,
-							"max": 22
-						}
-					},
-					"pane": "tilePane"
-				},
-				"8": {
-					"meta": {
-						"position": {
-							"center": {
-								"origin": {
-									"location": "The Lone Spire"
-								},
-								"offset": {
-									"lat": {
-										"meter": 0
-									},
-									"lng": {
-										"meter": 0
-									}
-								}
-							},
-							"width": {
-								"tiles": 30
-							},
-							"height": {
-								"tiles": 28
-							}
-						},
-						"file": "lone spire/Lava_Throne.jpg",
-						"layers": {
-							"min": 15,
-							"max": 22
-						}
-					},
-					"pane": "tilePane"
-				}
-			},
-			"marker": {
-				"meta": {
-					"location": {
-						"distance": {
-							"duration": {
-								"days": 10
-							}
-						},
-						"direction": {
-							"degrees": 168
-						},
-						"origin": {
-							"location": "Dod'Estrin"
-						}
-					},
-					"click": {
-						"jump_zoom": 7
-					},
-					"layers": {
-						"min": 0,
-						"max": 18
-					}
-				}
-			}
-		},
 		"Abandoned Settlement": {
 			"marker": {
 				"meta": {
@@ -1752,11 +1789,11 @@
 					"location": {
 						"distance": {
 							"duration": {
-								"days": 4.82
+								"days": 4.029
 							}
 						},
 						"direction": {
-							"degrees": 60.061
+							"degrees": 57.763
 						},
 						"origin": {
 							"location": "The Lone Spire"
@@ -1778,11 +1815,11 @@
 					"location": {
 						"distance": {
 							"duration": {
-								"days": 6.2
+								"days": 5.892
 							}
 						},
 						"direction": {
-							"degrees": 103.357
+							"degrees": 111.074
 						},
 						"origin": {
 							"location": "The Lone Spire"
@@ -1804,11 +1841,11 @@
 					"location": {
 						"distance": {
 							"duration": {
-								"days": 3.43
+								"days": 3.465
 							}
 						},
 						"direction": {
-							"degrees": 250.045
+							"degrees": 244.000
 						},
 						"origin": {
 							"location": "The Lone Spire"
@@ -1860,7 +1897,7 @@
 							}
 						},
 						"direction": {
-							"compass": "WSW"
+							"compass": "SW"
 						},
 						"origin": {
 							"location": "Dod'Estrin"
@@ -2174,11 +2211,11 @@
 					"location": {
 						"distance": {
 							"duration": {
-								"days": 30
+								"days": 25.072
 							}
 						},
 						"direction": {
-							"degrees": 122.5
+							"degrees": 124.65
 						},
 						"origin": {
 							"location": "Starboard Hall"
@@ -2200,7 +2237,7 @@
 					"location": {
 						"distance": {
 							"duration": {
-								"hours": 1
+								"hours": 12.1
 							}
 						},
 						"direction": {
@@ -2305,16 +2342,14 @@
 				"meta": {
 					"location": {
 						"distance": {
-							"duration": {
-								"days": 3.23923
-							}
+							"meter": 0
 						},
 						"direction": {
-							"degrees": 199.114
+							"degrees": 0
 						},
 						"origin": {
 							"plane": "Jorm",
-							"location": "Dod'Estrin"
+							"location": "Underdark Pit"
 						}
 					},
 					"click": {
