@@ -1,6 +1,10 @@
 //disable inputs while loading
 let inputElements = [];
-inputElements.push(document.getElementById("floorSlider"), document.getElementById("debugGrid"), document.getElementById("toggleMeasuring"), document.getElementById("relativeLocation"), document.getElementById("relativePlane"), document.getElementById("searchLocation"), document.getElementById("searchPlane"), document.getElementById("searchButton"), document.getElementById("toggle-hex-mode"), document.getElementById("hexToHex"));
+inputElements.push(document.getElementById("floorSlider"), document.getElementById("debugGrid"),
+	document.getElementById("movementSpeed"), document.getElementById("travelDuration"),
+	document.getElementById("toggleMeasuring"), document.getElementById("relativeLocation"),
+	document.getElementById("relativePlane"), document.getElementById("searchLocation"),
+	document.getElementById("searchPlane"), document.getElementById("searchButton"));
 for (let element in inputElements) {
 	inputElements[element].disabled = true;
 }
@@ -302,16 +306,16 @@ function getImageBounds(position, name, plane) {
 	return [L.latLng(0, 0), L.latLng(0, 0)];
 }
 
-function getDistancePerHour() {
+function getDistancePerHour(speed) {
 	const FOOT_PER_MINUTE_TO_MILE_PER_HOUR = 0.01; // 400ft->4mile 300ft->3mile 200ft->2mile according to PHB travel pace
-	const FOOT_PER_MINUTE = 300;//should be changeable by user
+	const FOOT_PER_MINUTE = speed * 10;
 	const MILE_PER_HOUR = FOOT_PER_MINUTE * FOOT_PER_MINUTE_TO_MILE_PER_HOUR;
 	return MILE_PER_HOUR;
 }
 
-function getDistancePerDay() {
-	const TRAVEL_HOURS_PER_DAY = 8;//should be changeable by user
-	const MILE_PER_HOUR = getDistancePerHour();
+function getDistancePerDay(duration, speed) {
+	const TRAVEL_HOURS_PER_DAY = duration;
+	const MILE_PER_HOUR = getDistancePerHour(speed);
 	const TRAVEL_MILES_PER_DAY = MILE_PER_HOUR * TRAVEL_HOURS_PER_DAY;
 	return TRAVEL_MILES_PER_DAY;
 }
@@ -329,12 +333,12 @@ function calculateLength(distance) {
 		return distance.mile * METER_PER_MILE;
 	if (distance.duration != undefined) {
 		if (distance.duration.days != undefined)
-			return METER_PER_MILE * getDistancePerDay() * distance.duration.days;
+			return METER_PER_MILE * getDistancePerDay(8, 30) * distance.duration.days;
 		if (distance.duration.hours != undefined)
-			return METER_PER_MILE * getDistancePerHour() * distance.duration.hours;
+			return METER_PER_MILE * getDistancePerHour(30) * distance.duration.hours;
 		if (distance.duration.hour_timestamp != undefined) {
 			const timeArray = distance.duration.hour_timestamp.split(":");
-			return METER_PER_MILE * getDistancePerHour() * (parseInt(timeArray[0]) + parseInt(timeArray[1]) / 60);
+			return METER_PER_MILE * getDistancePerHour(30) * (parseInt(timeArray[0]) + parseInt(timeArray[1]) / 60);
 		}
 	}
 	return undefined;
@@ -579,8 +583,15 @@ function updateDistances(test) {
 		}
 	}
 	document.getElementById("meterDistance").value = Math.round((dist + Number.EPSILON) * 1000) / 1000;
-	document.getElementById("hoursDistance").value = Math.round(((dist / (METER_PER_MILE * getDistancePerHour())) + Number.EPSILON) * 1000) / 1000;
-	document.getElementById("daysDistance").value = Math.round(((dist / (METER_PER_MILE * getDistancePerDay())) + Number.EPSILON) * 1000) / 1000;
+	let hours = Number(document.getElementById("travelDuration").value);
+	if (hours <= 0)
+	hours = 8;
+	let speed = Number(document.getElementById("movementSpeed").value);
+	if (speed <= 0)
+		speed = 30;
+	document.getElementById("roundsDistance").value = Math.round(((dist / (METER_PER_FOOT * speed)) + Number.EPSILON) * 1000) / 1000;
+	document.getElementById("hoursDistance").value = Math.round(((dist / (METER_PER_MILE * getDistancePerHour(speed))) + Number.EPSILON) * 1000) / 1000;
+	document.getElementById("daysDistance").value = Math.round(((dist / (METER_PER_MILE * getDistancePerDay(hours, speed))) + Number.EPSILON) * 1000) / 1000;
 	document.getElementById("hexDistance").value = hexdist;
 }
 
@@ -708,9 +719,11 @@ var debugCoordsGrid = L.gridLayer.debugCoords({ tileSize: 256, zIndex: 100 });
 
 var measurer = L.Polyline.Plotter().addTo(map);
 
-const HEX_COLOR = localStorage.getItem("hex-color") || "#5A5A5A"
+const HEX_COLOR = localStorage.getItem("hex-color") || "#A9A9A9"
 const HEX_HIGHLIGHT = localStorage.getItem("hex-highlight") || '#666666'
-const HEX_TO_HEX_MILES = (localStorage.getItem("hex-miles") == undefined || isNaN(Number(localStorage.getItem("hex-miles")))) ?
+if (localStorage.getItem("hex-miles") !== null && Number(localStorage.getItem("hex-miles")) < 12)
+	localStorage.removeItem("hex-miles");
+const HEX_TO_HEX_MILES = (localStorage.getItem("hex-miles") === null || isNaN(Number(localStorage.getItem("hex-miles")))) ?
 	24
 	:
 	Number(localStorage.getItem("hex-miles"));
@@ -729,8 +742,8 @@ const TOTAL_ROWS = makeEven((FLAT_TOP) ?
 const CLUSTER_SIZE = 8;
 const CLUSTER_COLUMNS = TOTAL_COLUMNS < CLUSTER_SIZE * 2 ? 1 : CLUSTER_SIZE;
 const CLUSTER_ROWS = TOTAL_ROWS < CLUSTER_SIZE * 2 ? 1 : CLUSTER_SIZE;
-const COLUMNS = Math.floor(TOTAL_COLUMNS / CLUSTER_COLUMNS);
-const ROWS = Math.floor(TOTAL_ROWS / CLUSTER_ROWS);
+const COLUMNS = Math.floor(TOTAL_COLUMNS / CLUSTER_COLUMNS) + (Math.floor(TOTAL_COLUMNS / CLUSTER_COLUMNS) % 2 == 1 ? 1 : 0);
+const ROWS = Math.floor(TOTAL_ROWS / CLUSTER_ROWS) + (Math.floor(TOTAL_ROWS / CLUSTER_ROWS) % 2 == 1 ? 1 : 0);
 const ORIGIN_HEX_CENTER = [map.options.crs.projection.bounds.min.x, map.options.crs.projection.bounds.min.y];
 var hexGrid = [];
 for (let i = 0; i < CLUSTER_COLUMNS; i++) {
@@ -797,12 +810,20 @@ document.getElementById("hexToHex").addEventListener("change", function () {
 
 document.getElementById("hexColor").addEventListener("change", function () {
 	localStorage.setItem("hex-color", this.value.toString());
-	updateHexColors();
 });
 
 document.getElementById("hexHighlightColor").addEventListener("change", function () {
 	localStorage.setItem("hex-highlight", this.value.toString());
-	updateHexColors();
+});
+
+document.getElementById("travelDuration").addEventListener("change", function () {
+	if (map.hasLayer(measurer))
+		updateDistances(measurer._lineMarkers);
+});
+
+document.getElementById("movementSpeed").addEventListener("change", function () {
+	if (map.hasLayer(measurer))
+		updateDistances(measurer._lineMarkers);
 });
 
 var locations = {};
