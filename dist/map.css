@@ -181,9 +181,13 @@ section {
 	border: none;
 }
 
-#debugSection, #distanceSection, #searchSection {
+#debugSection, #distanceSection, #searchSection, #hexSettingsSection {
 	text-align: center;
 	line-height: calc(1em + 5px);
+}
+
+.rightAlign {
+	text-align: right;
 }
 
 #debugSection input {

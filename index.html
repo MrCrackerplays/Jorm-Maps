@@ -47,33 +47,43 @@
 			<input type="checkbox" id="toggleMeasuring" onclick="checkMeasuring();" >
 			<label for="toggleMeasuring">Enable measuring mode.</label><br />
 			Direct distance <code><output id="meterDistance">0</output></code> meter<br />
+			Direct distance <code><output id="roundsDistance">0</output></code> rounds<br />
 			Direct distance <code><output id="hoursDistance">0</output></code> hours<br />
 			Direct distance <code><output id="daysDistance">0</output></code> days<br />
-			Hex distance <code><output id="hexDistance">0</output></code>
+			Hex distance <code><output id="hexDistance">0</output></code><hr />
+			<label for="movementSpeed">Movement speed in feet per round</label>
+			<input type="number" id="movementSpeed" value="30" min="1"><br />
+			<label for="travelDuration">Hours of travel on a day</label>
+			<input type="number" id="travelDuration" value="8" min="1"><br />
 		</section>
 		<section id="searchSection">
 			<h2>Search</h2>
-			Location <input type="search" id="searchLocation" placeholder="e.g. Dod'Estrin" list="locationsList"><br />
-			<datalist id="locationsList"></datalist>
-			Plane <input type="search" id="searchPlane" placeholder="e.g. Jorm" list="planesList"><br />
-			<datalist id="planesList"></datalist>
+			<div class="rightAlign">
+				Location <input type="search" id="searchLocation" placeholder="e.g. Dod'Estrin" list="locationsList"><br />
+				<datalist id="locationsList"></datalist>
+				Plane <input type="search" id="searchPlane" placeholder="e.g. Jorm" list="planesList"><br />
+				<datalist id="planesList"></datalist>
+			</div>
 			<button id="searchButton" onclick="search();">Jump to</button><br />
 			<output id="searchMessage"></output>
 		</section>
 		<section id="planeSection">
 			<h2>Plane Shifting</h2>
 		</section>
-		<section id="hexSection">
+		<section id="hexSettingsSection">
 			<h2>Hex Overlay Setttings</h2>
 			<p class="subheading">Changes require reloading the page to update</p>
+			<!-- These inputs don't get disabled while loading data as changing them only updates data after reloads -->
 			<input type="checkbox" id="toggle-hex-mode">
 			<label for="toggle-hex-mode">Use flat top hexagons.</label><br />
 			<label for="hexToHex">Distance between hexes in miles</label>
-			<input type="number" id="hexToHex"><br />
-			<label for="hexColor">Hex color</label>
-			<input type="color" id="hexColor" value="#5A5A5A"><button id="searchButton" onclick="localStorage.setItem('hex-color', '#5A5A5A');">reset</button><br />
-			<label for="hexHighlightColor">Hex highlight color</label>
-			<input type="color" id="hexHighlightColor" value="#666666"><button id="searchButton" onclick="localStorage.setItem('hex-highlight', '#666666');">reset</button><br />
+			<div class="rightAlign">
+				<input type="number" id="hexToHex"><button onclick="localStorage.removeItem('hex-miles');">reset</button><br />
+				<label for="hexColor">Hex color</label>
+				<input type="color" id="hexColor" value="#A9A9A9"><button onclick="localStorage.removeItem('hex-color');">reset</button><br />
+				<label for="hexHighlightColor">Hex highlight color</label>
+				<input type="color" id="hexHighlightColor" value="#666666"><button onclick="localStorage.removeItem('hex-highlight');">reset</button><br />
+			</div>
 		</section>
 		<section id="debugSection">
 			<h2>Debugging</h2>
@@ -94,7 +104,7 @@
 			<p>View related documents <a
 					href="https://drive.google.com/drive/folders/1QCZw6joo2cXG5Fj4QzFTYYN3TotRxHJQ?usp=sharing">here</a>
 			</p>
-			<p><sub>Version 1.0.3</sub><br />Jorm Maps <a title="View source on Github" href="https://github.com/MrCrackerplays/Jorm-Maps"
+			<p><sub>Version 1.1.0</sub><br />Jorm Maps <a title="View source on Github" href="https://github.com/MrCrackerplays/Jorm-Maps"
 					class="fa fa-github"></a> 2022</p>
 		</footer>
 	</aside>
