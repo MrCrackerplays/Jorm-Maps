@@ -842,11 +842,11 @@
 					"location": {
 						"distance": {
 							"duration": {
-								"days": 1
+								"days": 1.192
 							}
 						},
 						"direction": {
-							"degrees": -75.522
+							"degrees": 56.197095
 						},
 						"origin": {
 							"location": "Dod'Estrin"
@@ -856,7 +856,33 @@
 						"jump_zoom": 8
 					},
 					"layers": {
-						"min": 8,
+						"min": 6,
+						"max": 19
+					}
+				}
+			}
+		},
+		"Kathryn's tower": {
+			"marker": {
+				"meta": {
+					"location": {
+						"distance": {
+							"duration": {
+								"days": 3.054
+							}
+						},
+						"direction": {
+							"degrees": 101.466182
+						},
+						"origin": {
+							"location": "Dod'Estrin"
+						}
+					},
+					"click": {
+						"jump_zoom": 8
+					},
+					"layers": {
+						"min": 0,
 						"max": 19
 					}
 				}
