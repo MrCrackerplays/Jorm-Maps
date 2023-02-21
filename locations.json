@@ -24,7 +24,7 @@
 							"mile": 1296
 						}
 					},
-					"file": "https://cdn.discordapp.com/attachments/868183324944891934/1074842339161427988/JormMapPlayerEdition.png",
+					"file": "https://cdn.discordapp.com/attachments/868183324944891934/1075601731951542272/JormMapPlayerEdition.png",
 					"layers": {
 						"min": 0,
 						"max": 19
@@ -960,7 +960,7 @@
 						"jump_zoom": 8
 					},
 					"layers": {
-						"min": 5,
+						"min": 6,
 						"max": 19
 					}
 				}
@@ -1789,11 +1789,11 @@
 					"location": {
 						"distance": {
 							"duration": {
-								"days": 4.12
+								"days": 3.893
 							}
 						},
 						"direction": {
-							"degrees": -53.236
+							"degrees": 297.847
 						},
 						"origin": {
 							"location": "The Lone Spire"
@@ -1841,11 +1841,11 @@
 					"location": {
 						"distance": {
 							"duration": {
-								"days": 5.892
+								"days": 5.557
 							}
 						},
 						"direction": {
-							"degrees": 111.074
+							"degrees": 104.657
 						},
 						"origin": {
 							"location": "The Lone Spire"
@@ -1867,11 +1867,11 @@
 					"location": {
 						"distance": {
 							"duration": {
-								"days": 3.465
+								"days": 3.357
 							}
 						},
 						"direction": {
-							"degrees": 244.000
+							"degrees": 250.644
 						},
 						"origin": {
 							"location": "The Lone Spire"
@@ -1893,11 +1893,11 @@
 					"location": {
 						"distance": {
 							"duration": {
-								"days": 11.758
+								"days": 10.677
 							}
 						},
 						"direction": {
-							"degrees": 235.114
+							"degrees": 237.582
 						},
 						"origin": {
 							"location": "The Lone Spire"
