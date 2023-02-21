@@ -862,7 +862,33 @@
 				}
 			}
 		},
-		"Kathryn's tower": {
+		"The Monastery": {
+			"marker": {
+				"meta": {
+					"location": {
+						"distance": {
+							"duration": {
+								"hour_timestamp": "1:00"
+							}
+						},
+						"direction": {
+							"compass": "E"
+						},
+						"origin": {
+							"location": "Dod'Estrin"
+						}
+					},
+					"click": {
+						"jump_zoom": 9
+					},
+					"layers": {
+						"min": 0,
+						"max": 19
+					}
+				}
+			}
+		},
+		"Kathryn's Tower": {
 			"marker": {
 				"meta": {
 					"location": {
