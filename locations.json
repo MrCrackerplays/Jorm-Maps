@@ -1180,6 +1180,37 @@
 						}
 					},
 					"pane": "tilePane"
+				},
+				"-1": {
+					"meta": {
+						"position": {
+							"center": {
+								"origin": {
+									"location": "The Mine"
+								},
+								"offset": {
+									"lat": {
+										"meter": -28.799
+									},
+									"lng": {
+										"meter": 90.3460005
+									}
+								}
+							},
+							"width": {
+								"tiles": 64
+							},
+							"height": {
+								"tiles": 38.03125
+							}
+						},
+						"file": "https://cdn.discordapp.com/attachments/832873323175215105/1079871005549400144/Cave_System1.jpg",
+						"layers": {
+							"min": 15,
+							"max": 22
+						}
+					},
+					"pane": "tilePane"
 				}
 			},
 			"marker": {
