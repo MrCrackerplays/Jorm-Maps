@@ -1096,6 +1096,32 @@
 				}
 			}
 		},
+		"Halls of Dromar": {
+			"marker": {
+				"meta": {
+					"location": {
+						"distance": {
+							"duration": {
+								"days": 2
+							}
+						},
+						"direction": {
+							"compass": "N"
+						},
+						"origin": {
+							"location": "Dod'Estrin"
+						}
+					},
+					"click": {
+						"jump_zoom": 7
+					},
+					"layers": {
+						"min": 3,
+						"max": 19
+					}
+				}
+			}
+		},
 		"The Mine": {
 			"images": {
 				"0": {
