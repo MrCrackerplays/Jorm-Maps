@@ -24,7 +24,7 @@
 							"mile": 1296
 						}
 					},
-					"file": "https://cdn.discordapp.com/attachments/868183324944891934/1075601731951542272/JormMapPlayerEdition.png",
+					"file": "https://cdn.discordapp.com/attachments/868183324944891934/1080853807493300254/map_update.png",
 					"layers": {
 						"min": 0,
 						"max": 19
@@ -1117,6 +1117,58 @@
 					},
 					"layers": {
 						"min": 3,
+						"max": 19
+					}
+				}
+			}
+		},
+		"Glassed Sand": {
+			"marker": {
+				"meta": {
+					"location": {
+						"distance": {
+							"duration": {
+								"days": 13.028
+							}
+						},
+						"direction": {
+							"degrees": 270.429579
+						},
+						"origin": {
+							"location": "Starboard Hall"
+						}
+					},
+					"click": {
+						"jump_zoom": 6
+					},
+					"layers": {
+						"min": 0,
+						"max": 19
+					}
+				}
+			}
+		},
+		"Insane Lizardfolk Circle": {
+			"marker": {
+				"meta": {
+					"location": {
+						"distance": {
+							"duration": {
+								"days": 20.153
+							}
+						},
+						"direction": {
+							"degrees": 265.793976
+						},
+						"origin": {
+							"location": "Starboard Hall"
+						}
+					},
+					"click": {
+						"jump_zoom": 6
+					},
+					"layers": {
+						"min": 0,
 						"max": 19
 					}
 				}
