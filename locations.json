@@ -862,6 +862,32 @@
 				}
 			}
 		},
+		"Sixteeseven's Highway Entrance": {
+			"marker": {
+				"meta": {
+					"location": {
+						"distance": {
+							"duration": {
+								"hour_timestamp": "0:45"
+							}
+						},
+						"direction": {
+							"degrees": 85
+						},
+						"origin": {
+							"location": "Dod'Estrin"
+						}
+					},
+					"click": {
+						"jump_zoom": 10
+					},
+					"layers": {
+						"min": 0,
+						"max": 19
+					}
+				}
+			}
+		},
 		"The Monastery": {
 			"marker": {
 				"meta": {
@@ -879,7 +905,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 9
+						"jump_zoom": 10
 					},
 					"layers": {
 						"min": 0,
