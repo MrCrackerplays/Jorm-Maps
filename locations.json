@@ -690,6 +690,37 @@
 			}
 		},
 		"Water Tower": {
+			"image": {
+				"meta": {
+					"position": {
+						"center": {
+							"origin": {
+								"location": "Water Tower"
+							},
+							"offset": {
+								"lat": {
+									"meter": 0.76
+								},
+								"lng": {
+									"meter": 0.378
+								}
+							}
+						},
+						"width": {
+							"tiles": 35
+						},
+						"height": {
+							"tiles": 25
+						}
+					},
+					"file": "https://assets.forge-vtt.com/6052102c39f6b832fea3e7c8/Water%20Tower.png",
+					"layers": {
+						"min": 15,
+						"max": 22
+					}
+				},
+				"pane": "tilePane"
+			},
 			"marker": {
 				"meta": {
 					"location": {
@@ -706,7 +737,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 10
+						"jump_zoom": 19
 					},
 					"layers": {
 						"min": 10,
