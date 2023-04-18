@@ -632,37 +632,70 @@
 			}
 		},
 		"The Wizard Tower": {
-			"image": {
-				"meta": {
-					"position": {
-						"center": {
-							"distance": {
-								"duration": {
-									"hour_timestamp": "2:00"
+			"images": {
+				"-1": {
+					"meta": {
+						"position": {
+							"center": {
+								"origin": {
+									"location": "The Wizard Tower"
+								},
+								"offset": {
+									"lat": {
+										"meter": 0
+									},
+									"lng": {
+										"meter": 0
+									}
 								}
 							},
-							"direction": {
-								"compass": "N"
+							"width": {
+								"tiles": 51
 							},
-							"origin": {
-								"location": "Dod'Estrin"
+							"height": {
+								"tiles": 50
 							}
 						},
-						"width": {
-							"tiles": 51
-						},
-						"height": {
-							"tiles": 50
+						"file": "https://i.imgur.com/Zqp507E.png",
+						"layers": {
+							"min": 15,
+							"max": 22
 						}
 					},
-					"file": "https://i.imgur.com/Zqp507E.png",
-					"layers": {
-						"min": 15,
-						"max": 22
-					}
+					"opacity": 1,
+					"pane": "tilePane"
 				},
-				"opacity": 1,
-				"pane": "tilePane"
+				"0": {
+					"meta": {
+						"position": {
+							"center": {
+								"origin": {
+									"location": "The Wizard Tower"
+								},
+								"offset": {
+									"lat": {
+										"meter": 0
+									},
+									"lng": {
+										"meter": 0
+									}
+								}
+							},
+							"width": {
+								"tiles": 60
+							},
+							"height": {
+								"tiles": 60
+							}
+						},
+						"file": "https://cdn.discordapp.com/attachments/820097953745469520/1097893254885802034/WizardTower-GF.png",
+						"layers": {
+							"min": 15,
+							"max": 22
+						}
+					},
+					"pane": "tilePane"
+				}
 			},
 			"marker": {
 				"meta": {
@@ -680,7 +713,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 9
+						"jump_zoom": 18
 					},
 					"layers": {
 						"min": 0,
