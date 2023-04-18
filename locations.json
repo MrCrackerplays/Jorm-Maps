@@ -1694,6 +1694,36 @@
 						}
 					},
 					"opacity" : 1
+				},
+				"3": {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 63
+							},
+							"height" : {
+								"feet": 67
+							},
+							"center": {
+								"distance" : {
+									"feet": 22.5
+								},
+								"direction" : {
+									"radians" : 4.41238898038
+								},
+								"origin": {
+									"location" : "Lighthouse of Selûne"
+								}
+							}
+						},
+						"file" : "lighthouse/f3.png",
+						"layers": {
+							"min": 0,
+							"max": 19
+						}
+					},
+					"opacity" : 1
 				}
 			},
 			"marker": {
