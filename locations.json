@@ -2444,7 +2444,106 @@
 				}
 			}
 		},
+		"Blood Witch Area": {
+			"image": {
+				"meta": {
+					"position": {
+						"center": {
+							"origin": {
+								"location": "Blood Witch's House"
+							},
+							"offset": {
+								"lat": {
+									"meter": 27.813
+								},
+								"lng": {
+									"meter": 6.286
+								}
+							}
+						},
+						"width": {
+							"tiles": 50.4
+						},
+						"height": {
+							"tiles": 67.2
+						}
+					},
+					"file": "https://assets.forge-vtt.com/6052102c39f6b832fea3e7c8/Witch%20cottage.jpg",
+					"layers": {
+						"min": 15,
+						"max": 22
+					}
+				},
+				"pane": "tilePane"
+			}
+		},
 		"Blood Witch's House": {
+			"images": {
+				"0": {
+					"meta": {
+						"position": {
+							"center": {
+								"origin": {
+									"location": "Blood Witch's House"
+								},
+								"offset": {
+									"lat": {
+										"meter": 0
+									},
+									"lng": {
+										"meter": 0.387
+									}
+								}
+							},
+							"width": {
+								"tiles": 11
+							},
+							"height": {
+								"tiles": 14
+							}
+						},
+						"file": "https://assets.forge-vtt.com/6052102c39f6b832fea3e7c8/Witch%20cottage%20ground%20floor.jpg",
+						"layers": {
+							"min": 15,
+							"max": 22
+						}
+					},
+					"opacity": 0.8,
+					"pane": "tilePane"
+				},
+				"-1": {
+					"meta": {
+						"position": {
+							"center": {
+								"origin": {
+									"location": "Blood Witch's House"
+								},
+								"offset": {
+									"lat": {
+										"meter": -3.732
+									},
+									"lng": {
+										"meter": 0.917
+									}
+								}
+							},
+							"width": {
+								"tiles": 11
+							},
+							"height": {
+								"tiles": 14
+							}
+						},
+						"file": "https://assets.forge-vtt.com/6052102c39f6b832fea3e7c8/Basement.jpg",
+						"layers": {
+							"min": 15,
+							"max": 22
+						}
+					},
+					"opacity": 0.8,
+					"pane": "tilePane"
+				}
+			},
 			"marker": {
 				"meta": {
 					"location": {
@@ -2461,7 +2560,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 10
+						"jump_zoom": 19
 					},
 					"layers": {
 						"min": 0,
