@@ -2634,6 +2634,37 @@
 			}
 		},
 		"Gitta's Cottage": {
+			"image": {
+				"meta": {
+					"position": {
+						"center": {
+							"origin": {
+								"location": "Gitta's Cottage"
+							},
+							"offset": {
+								"lat": {
+									"meter": 0.19
+								},
+								"lng": {
+									"meter": 0.92
+								}
+							}
+						},
+						"width": {
+							"tiles": 30
+						},
+						"height": {
+							"tiles": 20
+						}
+					},
+					"file": "https://cdn.discordapp.com/attachments/820097953745469520/1097892977680072744/Cottage_in_the_Woods.jpg",
+					"layers": {
+						"min": 15,
+						"max": 22
+					}
+				},
+				"pane": "tilePane"
+			},
 			"marker": {
 				"meta": {
 					"location": {
@@ -2650,7 +2681,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 10
+						"jump_zoom": 19
 					},
 					"layers": {
 						"min": 0,
