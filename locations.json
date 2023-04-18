@@ -1161,6 +1161,40 @@
 			}
 		},
 		"The Keep of Splendors": {
+			"images": {
+				"0" : {
+					"meta": {
+						"position": {
+							"rotation": 210,
+							"width": {
+								"feet": 200
+							},
+							"height": {
+								"feet": 100
+							},
+							"center": {
+								"distance": {
+									"duration": {
+										"days": 1.5
+									}
+								},
+								"direction": {
+									"compass": "W"
+								},
+								"origin": {
+									"location": "Dragon Road Signpost"
+								}
+							}
+						},
+						"file": "keep of splendors/keep_of_splendors.png",
+						"layers": {
+							"min": 0,
+							"max": 19
+						}
+					},
+					"opacity": 1
+				}
+			},
 			"marker": {
 				"meta": {
 					"location": {
@@ -1177,12 +1211,106 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 7
+						"jump_zoom": 18
 					},
 					"layers": {
 						"min": 3,
 						"max": 19
 					}
+				}
+			}
+		},
+		"Ruins of the League of Golemancers": {
+			"images": {
+				"0" : {
+					"meta": {
+						"position": {
+							"width": {
+								"feet": 240
+							},
+							"height": {
+								"feet": 135
+							},
+							"center": {
+								"distance": {
+									"duration": {
+										"days": 5.75
+									}
+								},
+								"direction": {
+									"degrees": 260
+								},
+								"origin": {
+									"location": "Nogdruith"
+								}
+							}
+						},
+						"file": "golem temple/final_golems.webp",
+						"layers": {
+							"min": 0,
+							"max": 19
+						}
+					},
+					"opacity": 1
+				}
+			},
+			"marker": {
+				"meta": {
+					"location": {
+						"distance": {
+							"duration": {
+								"days": 5.75
+							}
+						},
+						"direction": {
+							"degrees": 260
+						},
+						"origin": {
+							"location": "Nogdruith"
+						}
+					},
+					"click": {
+						"jump_zoom": 17
+					},
+					"layers": {
+						"min": 0,
+						"max": 19
+					}
+				}
+			}
+		},
+		"Diggle's Underground Lemon Farm": {
+			"images": {
+				"0" : {
+					"meta": {
+						"position": {
+							"width": {
+								"feet": 80
+							},
+							"height": {
+								"feet": 90
+							},
+							"center": {
+								"origin": {
+									"location": "Town Farm"
+								},
+								"offset": {
+									"lat": {
+										"meter": -66.6
+									},
+									"lng": {
+										"meter": 0
+									}
+								}
+							}
+						},
+						"file": "lemon farm/diggle_map.jpg",
+						"layers": {
+							"min": 23,
+							"max": 23
+						}
+					},
+					"opacity": 1
 				}
 			}
 		},
@@ -1445,7 +1573,159 @@
 				}
 			}
 		},
-		"Lighthouse of Selune": {
+		"Lighthouse of Selûne": {
+			"images": {
+				"-2": {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 175
+							},
+							"height" : {
+								"feet": 90
+							},
+							"center": {
+								"distance" : {
+									"feet": 72.5722092687
+								},
+								"direction" : {
+									"radians" : 5.17603658938
+								},
+								"origin": {
+									"location" : "Lighthouse of Selûne"
+								}
+							}
+						},
+						"file" : "lighthouse/Cave_Beneath_Lighthouse.webp",
+						"layers": {
+							"min": 0,
+							"max": 19
+						}
+					},
+					"opacity" : 1
+				},
+				"0": {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 63
+							},
+							"height" : {
+								"feet": 67
+							},
+							"center": {
+								"distance" : {
+									"feet": 22.5
+								},
+								"direction" : {
+									"radians" : 4.41238898038
+								},
+								"origin": {
+									"location" : "Lighthouse of Selûne"
+								}
+							}
+						},
+						"file" : "lighthouse/f0.png",
+						"layers": {
+							"min": 0,
+							"max": 19
+						}
+					},
+					"opacity" : 1
+				},
+				"1": {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 63
+							},
+							"height" : {
+								"feet": 67
+							},
+							"center": {
+								"distance" : {
+									"feet": 22.5
+								},
+								"direction" : {
+									"radians" : 4.41238898038
+								},
+								"origin": {
+									"location" : "Lighthouse of Selûne"
+								}
+							}
+						},
+						"file" : "lighthouse/f1.png",
+						"layers": {
+							"min": 0,
+							"max": 19
+						}
+					},
+					"opacity" : 1
+				},
+				"2": {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 63
+							},
+							"height" : {
+								"feet": 67
+							},
+							"center": {
+								"distance" : {
+									"feet": 22.5
+								},
+								"direction" : {
+									"radians" : 4.41238898038
+								},
+								"origin": {
+									"location" : "Lighthouse of Selûne"
+								}
+							}
+						},
+						"file" : "lighthouse/f2.png",
+						"layers": {
+							"min": 0,
+							"max": 19
+						}
+					},
+					"opacity" : 1
+				},
+				"3": {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 63
+							},
+							"height" : {
+								"feet": 67
+							},
+							"center": {
+								"distance" : {
+									"feet": 22.5
+								},
+								"direction" : {
+									"radians" : 4.41238898038
+								},
+								"origin": {
+									"location" : "Lighthouse of Selûne"
+								}
+							}
+						},
+						"file" : "lighthouse/f3.png",
+						"layers": {
+							"min": 0,
+							"max": 19
+						}
+					},
+					"opacity" : 1
+				}
+			},
 			"marker": {
 				"meta": {
 					"location": {
@@ -1462,7 +1742,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 8
+						"jump_zoom": 19
 					},
 					"layers": {
 						"min": 0,
