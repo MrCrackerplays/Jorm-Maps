@@ -1154,6 +1154,39 @@
 			}
 		},
 		"Halls of Dromar": {
+			"images": {
+				"-1": {
+					"meta": {
+						"position": {
+							"center": {
+								"origin": {
+									"location": "Halls of Dromar"
+								},
+								"offset": {
+									"lat": {
+										"meter": 0.763
+									},
+									"lng": {
+										"meter": 1.143
+									}
+								}
+							},
+							"width": {
+								"tiles": 50
+							},
+							"height": {
+								"tiles": 35
+							}
+						},
+						"file": "https://cdn.discordapp.com/attachments/820097953745469520/1097892698704334898/Halls_of_Dromar.jpg",
+						"layers": {
+							"min": 15,
+							"max": 22
+						}
+					},
+					"pane": "tilePane"
+				}
+			},
 			"marker": {
 				"meta": {
 					"location": {
@@ -1170,7 +1203,7 @@
 						}
 					},
 					"click": {
-						"jump_zoom": 7
+						"jump_zoom": 18
 					},
 					"layers": {
 						"min": 3,
