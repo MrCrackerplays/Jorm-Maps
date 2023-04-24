@@ -605,6 +605,32 @@
 				}
 			}
 		},
+		"Espy's Caravan": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "Dod'Estrin"
+						},
+						"offset": {
+							"lat": {
+								"meter": -18.288
+							},
+							"lng": {
+								"meter": -39.529
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 19
+					},
+					"layers": {
+						"min": 14,
+						"max": 19
+					}
+				}
+			}
+		},
 		"Research Center": {
 			"marker": {
 				"meta": {
@@ -618,6 +644,32 @@
 							},
 							"lng": {
 								"meter": -15.621
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 19
+					},
+					"layers": {
+						"min": 14,
+						"max": 19
+					}
+				}
+			}
+		},
+		"Golden Statue of Monkey": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "Missing Histories"
+						},
+						"offset": {
+							"lat": {
+								"meter": 16.45
+							},
+							"lng": {
+								"meter": 12
 							}
 						}
 					},
@@ -1586,11 +1638,13 @@
 								"feet": 90
 							},
 							"center": {
-								"distance" : {
-									"feet": 72.5722092687
-								},
-								"direction" : {
-									"radians" : 5.17603658938
+								"offset" : {
+									"lat": {
+										"feet": -32.5
+									},
+									"lng": {
+										"feet": -45
+									}
 								},
 								"origin": {
 									"location" : "Lighthouse of Selûne"
@@ -1616,11 +1670,13 @@
 								"feet": 67
 							},
 							"center": {
-								"distance" : {
-									"feet": 22.5
-								},
-								"direction" : {
-									"radians" : 4.41238898038
+								"offset" : {
+									"lat": {
+										"feet": 3
+									},
+									"lng": {
+										"feet": 0
+									}
 								},
 								"origin": {
 									"location" : "Lighthouse of Selûne"
@@ -1646,11 +1702,13 @@
 								"feet": 67
 							},
 							"center": {
-								"distance" : {
-									"feet": 22.5
-								},
-								"direction" : {
-									"radians" : 4.41238898038
+								"offset" : {
+									"lat": {
+										"feet": 3
+									},
+									"lng": {
+										"feet": 0
+									}
 								},
 								"origin": {
 									"location" : "Lighthouse of Selûne"
@@ -1676,11 +1734,13 @@
 								"feet": 67
 							},
 							"center": {
-								"distance" : {
-									"feet": 22.5
-								},
-								"direction" : {
-									"radians" : 4.41238898038
+								"offset" : {
+									"lat": {
+										"feet": 4
+									},
+									"lng": {
+										"feet": 0.3
+									}
 								},
 								"origin": {
 									"location" : "Lighthouse of Selûne"
@@ -1706,11 +1766,13 @@
 								"feet": 67
 							},
 							"center": {
-								"distance" : {
-									"feet": 22.5
-								},
-								"direction" : {
-									"radians" : 4.41238898038
+								"offset" : {
+									"lat": {
+										"feet": 3.75
+									},
+									"lng": {
+										"feet": 0.7
+									}
 								},
 								"origin": {
 									"location" : "Lighthouse of Selûne"
@@ -1746,7 +1808,7 @@
 					},
 					"layers": {
 						"min": 0,
-						"max": 19
+						"max": 15
 					}
 				}
 			}
