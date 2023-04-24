@@ -605,6 +605,32 @@
 				}
 			}
 		},
+		"Espy's Caravan": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "Dod'Estrin"
+						},
+						"offset": {
+							"lat": {
+								"meter": -18.288
+							},
+							"lng": {
+								"meter": -39.529
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 19
+					},
+					"layers": {
+						"min": 14,
+						"max": 19
+					}
+				}
+			}
+		},
 		"Research Center": {
 			"marker": {
 				"meta": {
@@ -618,6 +644,32 @@
 							},
 							"lng": {
 								"meter": -15.621
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 19
+					},
+					"layers": {
+						"min": 14,
+						"max": 19
+					}
+				}
+			}
+		},
+		"Golden Statue of Monkey": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "Missing Histories"
+						},
+						"offset": {
+							"lat": {
+								"meter": 16.45
+							},
+							"lng": {
+								"meter": 12
 							}
 						}
 					},
@@ -1794,7 +1846,7 @@
 					},
 					"pane": "tilePane"
 				},
-				"-8": {
+				"8": {
 					"meta": {
 						"position": {
 							"center": {
