@@ -1212,6 +1212,32 @@
 				}
 			}
 		},
+		"Pinecone Village": {
+			"marker": {
+				"meta": {
+					"location": {
+						"distance": {
+							"duration": {
+								"days": 10
+							}
+						},
+						"direction": {
+							"degrees": 60
+						},
+						"origin": {
+							"location": "The Keep of Splendors"
+						}
+					},
+					"click": {
+						"jump_zoom": 7
+					},
+					"layers": {
+						"min": 3,
+						"max": 19
+					}
+				}
+			}
+		},
 		"The Keep of Splendors": {
 			"images": {
 				"0" : {
@@ -1268,6 +1294,5427 @@
 					"layers": {
 						"min": 3,
 						"max": 19
+					}
+				}
+			}
+		},
+		"Greenhouse Stairs": {
+			"images": {
+				"0" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 5
+							},
+							"height": {
+								"feet": 5
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/stairs.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex" : 2
+				},
+				"1" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 5
+							},
+							"height": {
+								"feet": 5
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/stairs.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex" : 2
+				},
+				"2" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 5
+							},
+							"height": {
+								"feet": 5
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex" : 2
+				},
+				"3" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 5
+							},
+							"height": {
+								"feet": 5
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex" : 2
+				}
+			}
+		},
+		"Greenhouse Wall 0": {
+			"images": {
+				"0" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 5
+							},
+							"height": {
+								"feet": 5
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex" : 2
+				},
+				"1" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 1
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 125
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/wall.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex" : 6
+				},
+				"2" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 5
+							},
+							"height": {
+								"feet": 5
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex" : 2
+				},
+				"3" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 5
+							},
+							"height": {
+								"feet": 5
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex" : 2
+				}
+			}
+		},
+		"Greenhouse Wall 1": {
+			"images": {
+				"0" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 5
+							},
+							"height": {
+								"feet": 5
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex" : 2
+				},
+				"1" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 1
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 5
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/wall.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex" : 6
+				},
+				"2" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 5
+							},
+							"height": {
+								"feet": 5
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex" : 2
+				},
+				"3" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 5
+							},
+							"height": {
+								"feet": 5
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex" : 2
+				}
+			}
+		},
+		"Greenhouse Wall 6": {
+			"images": {
+				"0" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 5
+							},
+							"height": {
+								"feet": 5
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex" : 2
+				},
+				"2" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 1
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 115
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/wall.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex" : 6
+				},
+				"1" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 5
+							},
+							"height": {
+								"feet": 5
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex" : 2
+				},
+				"3" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 5
+							},
+							"height": {
+								"feet": 5
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex" : 2
+				}
+			}
+		},
+		"Greenhouse Wall 7": {
+			"images": {
+				"0" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 5
+							},
+							"height": {
+								"feet": 5
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex" : 2
+				},
+				"3" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 20
+							},
+							"height": {
+								"feet": 1
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -5
+									},
+									"lat": {
+										"feet": 115
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/wall.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex" : 6
+				},
+				"2" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 5
+							},
+							"height": {
+								"feet": 5
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex" : 2
+				},
+				"1" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 5
+							},
+							"height": {
+								"feet": 5
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex" : 2
+				}
+			}
+		},
+		"Greenhouse Wall 8": {
+			"images": {
+				"0" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 5
+							},
+							"height": {
+								"feet": 5
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex" : 2
+				},
+				"3" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 1
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 5
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/wall.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex" : 6
+				},
+				"2" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 5
+							},
+							"height": {
+								"feet": 5
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex" : 2
+				},
+				"1" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 5
+							},
+							"height": {
+								"feet": 5
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex" : 2
+				}
+			}
+		},
+		"Greenhouse Wall 9": {
+			"images": {
+				"0" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 5
+							},
+							"height": {
+								"feet": 5
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex" : 2
+				},
+				"3" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 1
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 125
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/wall.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex" : 6
+				},
+				"2" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 5
+							},
+							"height": {
+								"feet": 5
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex" : 2
+				},
+				"1" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 5
+							},
+							"height": {
+								"feet": 5
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex" : 2
+				}
+			}
+		},
+		"Greenhouse Wall": {
+			"images": {
+				"0" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 5
+							},
+							"height": {
+								"feet": 5
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex" : 2
+				},
+				"1" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 1
+							},
+							"height": {
+								"feet": 20
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -5
+									},
+									"lat": {
+										"feet": 115
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/wall.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex" : 6
+				},
+				"2" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 5
+							},
+							"height": {
+								"feet": 5
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex" : 2
+				},
+				"3" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 5
+							},
+							"height": {
+								"feet": 5
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex" : 2
+				}
+			}
+		},
+		"Greenhouse Stairs #2": {
+			"images": {
+				"0" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 5
+							},
+							"height": {
+								"feet": 5
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 110
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex" : 2
+				},
+				"1" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 5
+							},
+							"height": {
+								"feet": 5
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 110
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/stairs.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex" : 2
+				},
+				"2" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 5
+							},
+							"height": {
+								"feet": 5
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 110
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/stairs.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex" : 4
+				},
+				"3" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 5
+							},
+							"height": {
+								"feet": 5
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 110
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex" : 2
+				}
+			}
+		},
+		"Greenhouse Stairs #3": {
+			"images": {
+				"0" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 5
+							},
+							"height": {
+								"feet": 5
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 115
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex" : 3
+				},
+				"1" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 5
+							},
+							"height": {
+								"feet": 5
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 115
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex" : 3
+				},
+				"2" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 5
+							},
+							"height": {
+								"feet": 5
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 115
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/stairs.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex" : 2
+				},
+				"3" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 5
+							},
+							"height": {
+								"feet": 5
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 115
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/stairs.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex" : 3
+				}
+			}
+		},
+		"Patch of Cherries": {
+			"images": {
+				"0" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"1" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "https://upload.wikimedia.org/wikipedia/commons/a/ab/%D0%92%D0%B8%D1%88%D0%BD%D1%8F_%D0%B2%D0%BE%D0%B9%D0%BB%D0%BE%D1%87%D0%BD%D0%B0%D1%8F_04.jpg",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"2" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"3" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				}
+			},
+			"marker": {
+				"meta": {
+					"location": {
+						"offset" : {
+							"lng": {
+								"feet": 0
+							},
+							"lat": {
+								"feet": 120
+							}
+						},
+						"origin": {
+							"location" : "The Keep of Splendors"
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 17,
+						"max": 25
+					}
+				}
+			}
+		},
+		"Patch of Winterberries": {
+			"images": {
+				"0" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 110
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"3" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 110
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"2" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 110
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"1" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 110
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Ilex_verticillata_fruits_and_foliage_1.JPG",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				}
+			},
+			"marker": {
+				"meta": {
+					"location": {
+						"offset" : {
+							"lng": {
+								"feet": 0
+							},
+							"lat": {
+								"feet": 110
+							}
+						},
+						"origin": {
+							"location" : "The Keep of Splendors"
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 17,
+						"max": 25
+					}
+				}
+			}
+		},
+		"Patch of Mango's": {
+			"images": {
+				"0" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 10
+									},
+									"lat": {
+										"feet": 110
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"3" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 10
+									},
+									"lat": {
+										"feet": 110
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"2" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 10
+									},
+									"lat": {
+										"feet": 110
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"1" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 10
+									},
+									"lat": {
+										"feet": 110
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "https://upload.wikimedia.org/wikipedia/commons/9/90/Hapus_Mango.jpg",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				}
+			},
+			"marker": {
+				"meta": {
+					"location": {
+						"offset" : {
+							"lng": {
+								"feet": 10
+							},
+							"lat": {
+								"feet": 110
+							}
+						},
+						"origin": {
+							"location" : "The Keep of Splendors"
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 17,
+						"max": 25
+					}
+				}
+			}
+		},
+		"Patch of Figs": {
+			"images": {
+				"0" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 10
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"3" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 10
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"2" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 10
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"1" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 10
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "https://upload.wikimedia.org/wikipedia/commons/6/69/Smokve_na_grani.jpg",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				}
+			},
+			"marker": {
+				"meta": {
+					"location": {
+						"offset" : {
+							"lng": {
+								"feet": 10
+							},
+							"lat": {
+								"feet": 120
+							}
+						},
+						"origin": {
+							"location" : "The Keep of Splendors"
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 17,
+						"max": 25
+					}
+				}
+			}
+		},
+		"Patch of Juniper Berries": {
+			"images": {
+				"0" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 10
+									},
+									"lat": {
+										"feet": 130
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"3" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 10
+									},
+									"lat": {
+										"feet": 130
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"2" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 10
+									},
+									"lat": {
+										"feet": 130
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"1" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 10
+									},
+									"lat": {
+										"feet": 130
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Juniperus_communis_fruits_-_Keila.jpg/1920px-Juniperus_communis_fruits_-_Keila.jpg",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				}
+			},
+			"marker": {
+				"meta": {
+					"location": {
+						"offset" : {
+							"lng": {
+								"feet": 10
+							},
+							"lat": {
+								"feet": 130
+							}
+						},
+						"origin": {
+							"location" : "The Keep of Splendors"
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 17,
+						"max": 25
+					}
+				}
+			}
+		},
+		"Patch of Raspberries": {
+			"images": {
+				"0" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 130
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"3" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 130
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"2" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 130
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"1" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 130
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Fert%C5%91di_k%C3%A1rmin_m%C3%A1lna.JPG",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				}
+			},
+			"marker": {
+				"meta": {
+					"location": {
+						"offset" : {
+							"lng": {
+								"feet": -10
+							},
+							"lat": {
+								"feet": 130
+							}
+						},
+						"origin": {
+							"location" : "The Keep of Splendors"
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 17,
+						"max": 25
+					}
+				}
+			}
+		},
+		"Patch of Oranges": {
+			"images": {
+				"0" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 130
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"3" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 130
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"2" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 130
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"1" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 130
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "https://upload.wikimedia.org/wikipedia/commons/b/b0/OrangeBloss_wb.jpg",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				}
+			},
+			"marker": {
+				"meta": {
+					"location": {
+						"offset" : {
+							"lng": {
+								"feet": 0
+							},
+							"lat": {
+								"feet": 130
+							}
+						},
+						"origin": {
+							"location" : "The Keep of Splendors"
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 17,
+						"max": 25
+					}
+				}
+			}
+		},
+		"Patch of Durians": {
+			"images": {
+				"0" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"3" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"2" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"1" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "https://upload.wikimedia.org/wikipedia/commons/5/58/Durian_flower.jpg",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				}
+			},
+			"marker": {
+				"meta": {
+					"location": {
+						"offset" : {
+							"lng": {
+								"feet": -10
+							},
+							"lat": {
+								"feet": 120
+							}
+						},
+						"origin": {
+							"location" : "The Keep of Splendors"
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 17,
+						"max": 25
+					}
+				}
+			}
+		},
+		"Patch of Blueberries": {
+			"images": {
+				"0" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 110
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"3" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 110
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"2" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 110
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"1" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 110
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "https://upload.wikimedia.org/wikipedia/commons/1/15/Blueberries.jpg",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				}
+			},
+			"marker": {
+				"meta": {
+					"location": {
+						"offset" : {
+							"lng": {
+								"feet": -10
+							},
+							"lat": {
+								"feet": 110
+							}
+						},
+						"origin": {
+							"location" : "The Keep of Splendors"
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 17,
+						"max": 25
+					}
+				}
+			}
+		},
+		"Patch of Apples": {
+			"images": {
+				"0" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 110
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"1" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 110
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"3" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 110
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"2" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 110
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Jonagored.jpg",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex": 3
+				}
+			},
+			"marker": {
+				"meta": {
+					"location": {
+						"offset" : {
+							"lng": {
+								"feet": -10
+							},
+							"lat": {
+								"feet": 110
+							}
+						},
+						"origin": {
+							"location" : "The Keep of Splendors"
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 17,
+						"max": 25
+					}
+				}
+			}
+		},
+		"Patch of Nectarines": {
+			"images": {
+				"0" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 110
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"1" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 110
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"3" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 110
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"2" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 110
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "https://i.tuincentrum.nl/https://store.tuincentrum.nl/media/catalog/product/p/r/prunus-persica-nucipersica-nectarines_2.jpg",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				}
+			},
+			"marker": {
+				"meta": {
+					"location": {
+						"offset" : {
+							"lng": {
+								"feet": 0
+							},
+							"lat": {
+								"feet": 110
+							}
+						},
+						"origin": {
+							"location" : "The Keep of Splendors"
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 17,
+						"max": 25
+					}
+				}
+			}
+		},
+		"Patch of Kiwifruit": {
+			"images": {
+				"0" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 10
+									},
+									"lat": {
+										"feet": 110
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"1" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 10
+									},
+									"lat": {
+										"feet": 110
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"3" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 10
+									},
+									"lat": {
+										"feet": 110
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"2" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 10
+									},
+									"lat": {
+										"feet": 110
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/kiwifruit.webp",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				}
+			},
+			"marker": {
+				"meta": {
+					"location": {
+						"offset" : {
+							"lng": {
+								"feet": 10
+							},
+							"lat": {
+								"feet": 110
+							}
+						},
+						"origin": {
+							"location" : "The Keep of Splendors"
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 17,
+						"max": 25
+					}
+				}
+			}
+		},
+		"Patch of Grapes": {
+			"images": {
+				"0" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 10
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"1" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 10
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"3" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 10
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"2" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 10
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Abhar-iran.JPG",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				}
+			},
+			"marker": {
+				"meta": {
+					"location": {
+						"offset" : {
+							"lng": {
+								"feet": 10
+							},
+							"lat": {
+								"feet": 120
+							}
+						},
+						"origin": {
+							"location" : "The Keep of Splendors"
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 17,
+						"max": 25
+					}
+				}
+			}
+		},
+		"Patch of Lemons": {
+			"images": {
+				"0" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 10
+									},
+									"lat": {
+										"feet": 130
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"1" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 10
+									},
+									"lat": {
+										"feet": 130
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"3" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 10
+									},
+									"lat": {
+										"feet": 130
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"2" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 10
+									},
+									"lat": {
+										"feet": 130
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "https://upload.wikimedia.org/wikipedia/commons/e/e4/P1030323.JPG",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				}
+			},
+			"marker": {
+				"meta": {
+					"location": {
+						"offset" : {
+							"lng": {
+								"feet": 10
+							},
+							"lat": {
+								"feet": 130
+							}
+						},
+						"origin": {
+							"location" : "The Keep of Splendors"
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 17,
+						"max": 25
+					}
+				}
+			}
+		},
+		"Patch of Yumberries": {
+			"images": {
+				"0" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 130
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"1" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 130
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"3" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 130
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"2" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 130
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Yangmei_grown_in_Fremont%2C_California.jpg/1920px-Yangmei_grown_in_Fremont%2C_California.jpg",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				}
+			},
+			"marker": {
+				"meta": {
+					"location": {
+						"offset" : {
+							"lng": {
+								"feet": 0
+							},
+							"lat": {
+								"feet": 130
+							}
+						},
+						"origin": {
+							"location" : "The Keep of Splendors"
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 17,
+						"max": 25
+					}
+				}
+			}
+		},
+		"Patch of Peaches": {
+			"images": {
+				"0" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 130
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"1" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 130
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"3" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 130
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"2" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 130
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "https://upload.wikimedia.org/wikipedia/commons/4/4b/Prunus_persica_-_Peach_Hungary.jpg",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				}
+			},
+			"marker": {
+				"meta": {
+					"location": {
+						"offset" : {
+							"lng": {
+								"feet": -10
+							},
+							"lat": {
+								"feet": 130
+							}
+						},
+						"origin": {
+							"location" : "The Keep of Splendors"
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 17,
+						"max": 25
+					}
+				}
+			}
+		},
+		"Patch of Hackberries": {
+			"images": {
+				"0" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"1" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"3" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"2" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Celtis_sinensis3.jpg",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				}
+			},
+			"marker": {
+				"meta": {
+					"location": {
+						"offset" : {
+							"lng": {
+								"feet": -10
+							},
+							"lat": {
+								"feet": 120
+							}
+						},
+						"origin": {
+							"location" : "The Keep of Splendors"
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 17,
+						"max": 25
+					}
+				}
+			}
+		},
+		"Patch of Strawberries": {
+			"images": {
+				"0" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 110
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"1" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 110
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"2" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 110
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"3" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 110
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "https://cdn.bloomique.nl/uploads/tx_multishop/images/products/original/aar/aardbeienstruik.jpeg",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex": 2
+				}
+			},
+			"marker": {
+				"meta": {
+					"location": {
+						"offset" : {
+							"lng": {
+								"feet": -10
+							},
+							"lat": {
+								"feet": 110
+							}
+						},
+						"origin": {
+							"location" : "The Keep of Splendors"
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 17,
+						"max": 25
+					}
+				}
+			}
+		},
+		"Patch of Voavanga's": {
+			"images": {
+				"0" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 110
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"1" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 110
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"2" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 110
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"3" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 110
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "https://pepinieretullus.com/wp-content/uploads/2021/01/vavangue.jpg",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				}
+			},
+			"marker": {
+				"meta": {
+					"location": {
+						"offset" : {
+							"lng": {
+								"feet": 0
+							},
+							"lat": {
+								"feet": 110
+							}
+						},
+						"origin": {
+							"location" : "The Keep of Splendors"
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 17,
+						"max": 25
+					}
+				}
+			}
+		},
+		"Patch of Elderberries": {
+			"images": {
+				"0" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 10
+									},
+									"lat": {
+										"feet": 110
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"1" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 10
+									},
+									"lat": {
+										"feet": 110
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"2" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 10
+									},
+									"lat": {
+										"feet": 110
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"3" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 10
+									},
+									"lat": {
+										"feet": 110
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Sambucus-berries.jpg",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				}
+			},
+			"marker": {
+				"meta": {
+					"location": {
+						"offset" : {
+							"lng": {
+								"feet": 10
+							},
+							"lat": {
+								"feet": 110
+							}
+						},
+						"origin": {
+							"location" : "The Keep of Splendors"
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 17,
+						"max": 25
+					}
+				}
+			}
+		},
+		"Patch of Ximenia's": {
+			"images": {
+				"0" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 10
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"1" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 10
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"2" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 10
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"3" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 10
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Hog_Plum_%28Ximenia_americana%29_%285963679978%29.jpg",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				}
+			},
+			"marker": {
+				"meta": {
+					"location": {
+						"offset" : {
+							"lng": {
+								"feet": 10
+							},
+							"lat": {
+								"feet": 120
+							}
+						},
+						"origin": {
+							"location" : "The Keep of Splendors"
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 17,
+						"max": 25
+					}
+				}
+			}
+		},
+		"Patch of Tangerines": {
+			"images": {
+				"0" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 10
+									},
+									"lat": {
+										"feet": 130
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"1" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 10
+									},
+									"lat": {
+										"feet": 130
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"2" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 10
+									},
+									"lat": {
+										"feet": 130
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"3" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 10
+									},
+									"lat": {
+										"feet": 130
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "https://upload.wikimedia.org/wikipedia/commons/2/2a/TangerineFruit.jpg",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				}
+			},
+			"marker": {
+				"meta": {
+					"location": {
+						"offset" : {
+							"lng": {
+								"feet": 10
+							},
+							"lat": {
+								"feet": 130
+							}
+						},
+						"origin": {
+							"location" : "The Keep of Splendors"
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 17,
+						"max": 25
+					}
+				}
+			}
+		},
+		"Patch of Quinces": {
+			"images": {
+				"0" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 130
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"1" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 130
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"2" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 130
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"3" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 130
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Cydonia.jpg",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				}
+			},
+			"marker": {
+				"meta": {
+					"location": {
+						"offset" : {
+							"lng": {
+								"feet": 0
+							},
+							"lat": {
+								"feet": 130
+							}
+						},
+						"origin": {
+							"location" : "The Keep of Splendors"
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 17,
+						"max": 25
+					}
+				}
+			}
+		},
+		"Patch of Ugli's": {
+			"images": {
+				"0" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 130
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"1" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 130
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"2" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 130
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"3" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 130
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "https://fruituitzuid.nl/wp-content/uploads/2021/12/jamaican-tangelo-aan-boom-1-1.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				}
+			},
+			"marker": {
+				"meta": {
+					"location": {
+						"offset" : {
+							"lng": {
+								"feet": -10
+							},
+							"lat": {
+								"feet": 130
+							}
+						},
+						"origin": {
+							"location" : "The Keep of Splendors"
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 17,
+						"max": 25
+					}
+				}
+			}
+		},
+		"Patch of Icaco's": {
+			"images": {
+				"0" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"1" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"2" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"3" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": -10
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "https://upload.wikimedia.org/wikipedia/commons/9/90/Oleta_River_State_Park_-_Chrysobalanus_icaco_-_Cocoplum_fruit_01.jpg",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex": 4
+				}
+			},
+			"marker": {
+				"meta": {
+					"location": {
+						"offset" : {
+							"lng": {
+								"feet": -10
+							},
+							"lat": {
+								"feet": 120
+							}
+						},
+						"origin": {
+							"location" : "The Keep of Splendors"
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 17,
+						"max": 25
+					}
+				}
+			}
+		},
+		"Patch of Zucchini": {
+			"images": {
+				"0" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"1" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1
+				},
+				"2" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "keep of splendors/neutral.png",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex": 3
+				},
+				"3" : {
+					"meta": {
+						"position": {
+							"rotation": 0,
+							"width": {
+								"feet": 10
+							},
+							"height": {
+								"feet": 10
+							},
+							"center": {
+								"offset" : {
+									"lng": {
+										"feet": 0
+									},
+									"lat": {
+										"feet": 120
+									}
+								},
+								"origin": {
+									"location" : "The Keep of Splendors"
+								}
+							}
+						},
+						"file": "https://upload.wikimedia.org/wikipedia/commons/0/08/Courgette_J1.JPG",
+						"layers": {
+							"min": 17,
+							"max": 25
+						}
+					},
+					"opacity": 1,
+					"zIndex": 4
+				}
+			},
+			"marker": {
+				"meta": {
+					"location": {
+						"offset" : {
+							"lng": {
+								"feet": 0
+							},
+							"lat": {
+								"feet": 120
+							}
+						},
+						"origin": {
+							"location" : "The Keep of Splendors"
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 17,
+						"max": 25
 					}
 				}
 			}
