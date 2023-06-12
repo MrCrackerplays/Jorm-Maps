@@ -232,7 +232,13 @@ function updateFloor() {
 				continue;
 			if (old_floor != null && planeLayers[current_plane].images[loc][old_floor] != undefined && planeLayers[current_plane].imageLayer.hasLayer(planeLayers[current_plane].images[loc][old_floor]))
 				planeLayers[current_plane].imageLayer.removeLayer(planeLayers[current_plane].images[loc][old_floor]);
-			planeLayers[current_plane].imageLayer.addLayer(planeLayers[current_plane].images[loc][floor]);
+
+			const bounds = map.getBounds().pad(0.2);
+			let layer = planeLayers[current_plane].images[loc][floor];
+			if (bounds.intersects(layer.getBounds())
+				&& map.getZoom() >= locations[loc].images[floor].meta.layers.min
+				&& map.getZoom() <= locations[loc].images[floor].meta.layers.max)
+				planeLayers[current_plane].imageLayer.addLayer(planeLayers[current_plane].images[loc][floor]);
 		}
 	}
 }
