@@ -457,6 +457,9 @@ function getCoordinates(location, name, optional = { "for_marker": "true", "plan
 function loadImages(plane) {
 	for (let loc in locations) {
 		if (locations[loc].image != undefined) {
+			if (locations[loc].image.pane == undefined) {
+				locations[loc].image.pane = "tilePane";
+			}
 			let options = {};
 			for (let opt in locations[loc].image)
 				if (opt != "meta")

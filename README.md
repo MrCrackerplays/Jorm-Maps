@@ -53,7 +53,7 @@ An Images object is made of key-value pairs for [Image objects](#image) where th
 ```
 
 ### Image
-An Image has a required [`meta`](#image-meta) object containing meta data about where the image is located and optionally options that are passed to the leaflet constructor for the image.
+An Image has a required [`meta`](#image-meta) object containing meta data about where the image is located and optionally options that are passed to the leaflet constructor for the image. By default if not set an image will have the option `pane` set to "tilePane" which adds all generated html elements to the same container div.
 ```JSON
 "image": {
 	"meta": {...},
