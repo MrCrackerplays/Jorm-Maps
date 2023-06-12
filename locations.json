@@ -932,11 +932,11 @@
 					"location": {
 						"distance": {
 							"duration": {
-								"days": 2
+								"days": 2.734
 							}
 						},
 						"direction": {
-							"compass": "S"
+							"degrees": 161.2
 						},
 						"origin": {
 							"location": "Dod'Estrin"
