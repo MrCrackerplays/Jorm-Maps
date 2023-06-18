@@ -1056,6 +1056,32 @@
 				}
 			}
 		},
+		"Bank of Waukeen": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "Kathryn's Tower"
+						},
+						"distance": {
+							"duration": {
+								"hours": 4
+							}
+						},
+						"direction": {
+							"compass": "E"
+						}
+					},
+					"click": {
+						"jump_zoom": 8
+					},
+					"layers": {
+						"min": 0,
+						"max": 19
+					}
+				}
+			}
+		},
 		"Underdark Pit": {
 			"marker": {
 				"meta": {
@@ -7603,6 +7629,69 @@
 				}
 			}
 		},
+		"Treasure Island": {
+			"image": {
+				"meta": {
+					"position": {
+						"center": {
+							"origin": {
+								"location": "Treasure Island"
+							},
+							"direction": {
+								"degrees": 38
+							},
+							"distance": {
+								"duration": {
+									"days": 0.41421356237
+								}
+							}
+						},
+						"width": {
+							"duration": {
+								"days": 3
+							}
+						},
+						"height": {
+							"duration": {
+								"days": 3
+							}
+						}
+					},
+					"file": "https://cdn.discordapp.com/attachments/958408273147596883/1120085393338024066/0859c604ca8707b620aa97de8e44b3d2.png",
+					"layers": {
+						"min": 0,
+						"max": 19
+					}
+				},
+				"opacity": 1,
+				"pane": "tilePane",
+				"zIndex": -4
+			},
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "Disaster-struck archipelago"
+						},
+						"direction": {
+							"degrees": 30
+						},
+						"distance": {
+							"duration": {
+								"days": 8
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 6
+					},
+					"layers": {
+						"min": 0,
+						"max": 19
+					}
+				}
+			}
+		},
 		"Cape West": {
 			"marker": {
 				"meta": {
@@ -7848,6 +7937,58 @@
 					},
 					"click": {
 						"jump_zoom": 8
+					},
+					"layers": {
+						"min": 0,
+						"max": 19
+					}
+				}
+			}
+		},
+		"Valtros' Keep": {
+			"marker": {
+				"meta": {
+					"location": {
+						"distance": {
+							"duration": {
+								"days": 3
+							}
+						},
+						"direction": {
+							"degrees": 304
+						},
+						"origin": {
+							"location": "Ruins of the League of Golemancers"
+						}
+					},
+					"click": {
+						"jump_zoom": 6
+					},
+					"layers": {
+						"min": 0,
+						"max": 19
+					}
+				}
+			}
+		},
+		"Disaster-struck archipelago": {
+			"marker": {
+				"meta": {
+					"location": {
+						"distance": {
+							"duration": {
+								"days": 7.36545993133
+							}
+						},
+						"direction": {
+							"radians": 1.08114628
+						},
+						"origin": {
+							"location": "Karamja-City"
+						}
+					},
+					"click": {
+						"jump_zoom": 6
 					},
 					"layers": {
 						"min": 0,
