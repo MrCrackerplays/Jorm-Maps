@@ -59,7 +59,7 @@
 							"feet": 1478.45
 						}
 					},
-					"file": "https://cdn.discordapp.com/attachments/868183324944891934/1087855118810103918/DodEstron2.jpg",
+					"file": "https://cdn.discordapp.com/attachments/868183324944891934/1142155950308986901/DodEstron_map.jpg",
 					"layers": {
 						"min": 11,
 						"max": 22
@@ -536,10 +536,10 @@
 						},
 						"offset": {
 							"lat": {
-								"meter": 16.002
+								"meter": 21.717
 							},
 							"lng": {
-								"meter": 72.009
+								"meter": 165.354
 							}
 						}
 					},
@@ -670,6 +670,110 @@
 							},
 							"lng": {
 								"meter": 12
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 19
+					},
+					"layers": {
+						"min": 14,
+						"max": 19
+					}
+				}
+			}
+		},
+		"Post Office": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "Dod'Estrin"
+						},
+						"offset": {
+							"lat": {
+								"meter": 2.858
+							},
+							"lng": {
+								"meter": 63.056
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 19
+					},
+					"layers": {
+						"min": 14,
+						"max": 19
+					}
+				}
+			}
+		},
+		"Cin, Cendri & Aelia's house": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "Dod'Estrin"
+						},
+						"offset": {
+							"lat": {
+								"meter": 216.789
+							},
+							"lng": {
+								"meter": -32.004
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 19
+					},
+					"layers": {
+						"min": 14,
+						"max": 19
+					}
+				}
+			}
+		},
+		"Esio's Gym": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "Dod'Estrin"
+						},
+						"offset": {
+							"lat": {
+								"meter": -92.011
+							},
+							"lng": {
+								"meter": -101.155
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 19
+					},
+					"layers": {
+						"min": 14,
+						"max": 19
+					}
+				}
+			}
+		},
+		"Sib's tent": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "Dod'Estrin"
+						},
+						"offset": {
+							"lat": {
+								"meter": 48.197
+							},
+							"lng": {
+								"meter": -43.577
 							}
 						}
 					},
