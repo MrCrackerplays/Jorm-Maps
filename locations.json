@@ -24,7 +24,7 @@
 							"mile": 1296
 						}
 					},
-					"file": "https://cdn.discordapp.com/attachments/868183324944891934/1120140536792223795/jorm_player_edition.png",
+					"file": "https://cdn.discordapp.com/attachments/903006801635733504/1157007065827524688/jorm_player_edition.png",
 					"layers": {
 						"min": 0,
 						"max": 19
@@ -1348,11 +1348,11 @@
 					"location": {
 						"distance": {
 							"duration": {
-								"days": 10
+								"days": 10.875
 							}
 						},
 						"direction": {
-							"degrees": 60
+							"degrees": 52.367
 						},
 						"origin": {
 							"location": "The Keep of Splendors"
