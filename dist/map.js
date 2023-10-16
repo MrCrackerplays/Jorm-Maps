@@ -550,6 +550,11 @@ function calculateRelativePosition(latlng) {
 		offsetLat = "Plane Not Found";
 	document.getElementById("clickLatitude").value = latlng.lat;
 	document.getElementById("clickLongitude").value = latlng.lng;
+	/** @type {HTMLCollectionOf<HTMLAnchorElement>} */
+	let clicklatlnganchors = document.getElementsByClassName("clicklatlngurl");
+	for (let i = 0; i < clicklatlnganchors.length; i++) {
+		clicklatlnganchors[i].href = location.protocol + '//' + location.host + location.pathname + "?lat=" + latlng.lat + "&lng=" + latlng.lng;
+	}
 	let hexcoords = (FLAT_TOP) ?
 		H.axial_to_doubleheight(H.pixel_to_flat_hex({"x": latlng.lng, "y": latlng.lat}))
 		:
@@ -868,14 +873,30 @@ async function map_main() {
 	}
 	addDatalistOptions();
 	let searchparams = new URLSearchParams(window.location.search);
+	let has_panned = false;
 	if (searchparams.has("plane") && searchparams.has("location")) {
 		let location = searchparams.get("location");
 		let plane = searchparams.get("plane");
 		if (planeLayers[plane] != undefined && planeLayers[plane].markers[location] != undefined) {
 			map.panTo(planeLayers[plane].markers[location]._latlng);
 			current_plane = plane;
+			has_panned = true;
 		} else {
 			console.error("Invalid search parameter ", (planeLayers[plane] == undefined ? "plane [" + plane + "]" : "location [" + location + "]"));
+		}
+	}
+	if (!has_panned && searchparams.has("lat") && searchparams.has("lng")) {
+		let latparam = searchparams.get("lat");
+		let lngparam = searchparams.get("lng");
+		if (typeof latparam === "string" && (isNaN(Number(latparam)) || latparam == "")) {
+			latparam = null;
+		}
+		if (typeof lngparam === "string" && (isNaN(Number(lngparam)) || lngparam == "")) {
+			lngparam = null;
+		}
+		if (latparam != null && lngparam != null) {
+			map.panTo(L.latLng(latparam, lngparam));
+			has_panned = true;
 		}
 	}
 	if (searchparams.has("zoom")) {
