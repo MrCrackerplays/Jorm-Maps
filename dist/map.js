@@ -878,6 +878,13 @@ async function map_main() {
 			console.error("Invalid search parameter ", (planeLayers[plane] == undefined ? "plane [" + plane + "]" : "location [" + location + "]"));
 		}
 	}
+	if (searchparams.has("zoom")) {
+		let zoomparam = searchparams.get("zoom");
+		if (typeof zoomparam === "string" && isNaN(Number(zoomparam))) {
+			zoomparam = null;
+		}
+		map.setZoom(zoomparam);
+	}
 	if (current_plane != undefined) {
 		let radios = document.getElementsByName("plane");
 		let found = false;
