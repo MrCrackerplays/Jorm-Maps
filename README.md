@@ -3,6 +3,17 @@ A project to display the DnD westmarches world of Jorm using the [LeafletJS](htt
 
 Though made specifically for the world of Jorm, it can easily be reused for any other world by editing the locations.json file. Likewise to add/edit existing locations just edit the locations.json file. (Fork and pull request or ask to become a contributor to directly push changes)
 
+# Sharing locations
+Locations specified with markers in the [Locations.json](#locationsjson) file can be shared by specifying both a `plane=` and a `location=` url parameter. Alternatively any location can be shared by specifying its latitude and longitude with both the `lat=` and `lng=` url parameters. Additionally there `zoom=` url parameter can be specified to share a location at a specific zoom level (LeafletJS zoom levels, meaning 0 is zoomed out and 20 is zoomed in).
+
+Example
+```
+http://localhost:8000/?plane=Jorm&location=Dod%27Estrin
+http://localhost:8000/?plane=Jorm&location=Dod%27Estrin&zoom=5
+http://localhost:8000/?lat=2815360.8285000003&lng=3152704.8960000006
+http://localhost:8000/?lat=2815360.8285000003&lng=3152704.8960000006&zoom=5
+```
+
 # Running locally
 When trying to open the index.html after cloning you'll notice that it won't load correctly, this is due to the fact that you can't use a `fetch()`, which is used to load locations.json, on local files (Cross-Origin Request Blocked). So in order to test the page and anything on it you'll have to run an http server and open that in your browser instead, for example with python you can run `py -m http.server` in your working directory and it'll be available on http://localhost:8000 by default.
 
