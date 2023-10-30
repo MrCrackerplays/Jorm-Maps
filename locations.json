@@ -527,6 +527,68 @@
 				}
 			}
 		},
+		"Iorgha's House": {
+			"images": {
+				"0": {
+					"meta": {
+						"position": {
+							"center": {
+								"origin": {
+									"location": "Iorgha's House"
+								},
+								"offset": {
+									"lat": {
+										"meter": 0
+									},
+									"lng": {
+										"meter": 0
+									}
+								}
+							},
+							"width": {
+								"feet": 100
+							},
+							"height": {
+								"feet": 100
+							},
+							"rotation": 35
+						},
+						"file": "https://cdn.discordapp.com/attachments/868183324944891934/1142160542061035676/IorghaHome.png",
+						"layers": {
+							"min": 15,
+							"max": 22
+						}
+					},
+					"opacity": 1,
+					"pane": "tilePane"
+				}
+			},
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "Valtros & Holdric & Kolt's house"
+
+						},
+						"offset": {
+							"lat": {
+								"meter": 45
+							},
+							"lng": {
+								"meter": -14
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 19
+					},
+					"layers": {
+						"min": 14,
+						"max": 19
+					}
+				}
+			}
+		},
 		"Town Farm": {
 			"marker": {
 				"meta": {
@@ -744,10 +806,10 @@
 						},
 						"offset": {
 							"lat": {
-								"meter": -92.011
+								"meter": -96.011
 							},
 							"lng": {
-								"meter": -101.155
+								"meter": -101.8
 							}
 						}
 					},
@@ -758,6 +820,41 @@
 						"min": 14,
 						"max": 19
 					}
+				}
+			},
+			"images": {
+				"0": {
+					"meta": {
+						"position": {
+							"center": {
+								"origin": {
+									"location": "Esio's Gym"
+								},
+								"offset": {
+									"lat": {
+										"feet": 0
+									},
+									"lng": {
+										"meter": 0
+									}
+								}
+							},
+							"width": {
+								"feet": 100
+							},
+							"height": {
+								"feet": 53.33
+							},
+							"rotation": 270
+						},
+						"file": "https://cdn.discordapp.com/attachments/868183324944891934/1151250660608720907/Gym_DodEstrin_expansion_1_no_grid.png",
+						"layers": {
+							"min": 15,
+							"max": 22
+						}
+					},
+					"opacity": 1,
+					"pane": "tilePane"
 				}
 			}
 		},
@@ -5563,7 +5660,7 @@
 								}
 							}
 						},
-						"file": "https://cdn.bloomique.nl/uploads/tx_multishop/images/products/original/aar/aardbeienstruik.jpeg",
+						"file": "https://www.diggers.com.au/cdn/shop/products/strawberry-bush-alpine-s214_800x.jpg",
 						"layers": {
 							"min": 17,
 							"max": 25
