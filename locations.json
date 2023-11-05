@@ -24,7 +24,7 @@
 							"mile": 1296
 						}
 					},
-					"file": "https://cdn.discordapp.com/attachments/903006801635733504/1157007065827524688/jorm_player_edition.png",
+					"file": "https://assets.forge-vtt.com/6052102c39f6b832fea3e7c8/Jorm-Maps/jorm_player_edition.png",
 					"layers": {
 						"min": 0,
 						"max": 19
@@ -59,7 +59,7 @@
 							"feet": 1478.45
 						}
 					},
-					"file": "https://cdn.discordapp.com/attachments/868183324944891934/1142155950308986901/DodEstron_map.jpg",
+					"file": "https://assets.forge-vtt.com/6052102c39f6b832fea3e7c8/Jorm-Maps/DodEstron_map.jpg",
 					"layers": {
 						"min": 11,
 						"max": 22
@@ -553,7 +553,7 @@
 							},
 							"rotation": 35
 						},
-						"file": "https://cdn.discordapp.com/attachments/868183324944891934/1142160542061035676/IorghaHome.png",
+						"file": "https://assets.forge-vtt.com/6052102c39f6b832fea3e7c8/Jorm-Maps/IorghaHome.png",
 						"layers": {
 							"min": 15,
 							"max": 22
@@ -847,7 +847,7 @@
 							},
 							"rotation": 270
 						},
-						"file": "https://cdn.discordapp.com/attachments/868183324944891934/1151250660608720907/Gym_DodEstrin_expansion_1_no_grid.png",
+						"file": "https://assets.forge-vtt.com/6052102c39f6b832fea3e7c8/Jorm-Maps/Gym_DodEstrin_expansion_1_no_grid.png",
 						"layers": {
 							"min": 15,
 							"max": 22
@@ -941,7 +941,7 @@
 								"tiles": 60
 							}
 						},
-						"file": "https://cdn.discordapp.com/attachments/820097953745469520/1097893254885802034/WizardTower-GF.png",
+						"file": "https://assets.forge-vtt.com/6052102c39f6b832fea3e7c8/Jorm-Maps/WizardTower-GF.png",
 						"layers": {
 							"min": 15,
 							"max": 22
@@ -1057,7 +1057,7 @@
 								"tiles": 30
 							}
 						},
-						"file": "https://cdn.discordapp.com/attachments/857683710362255360/1092880185247940608/BuriedKeep-0.png",
+						"file": "https://assets.forge-vtt.com/6052102c39f6b832fea3e7c8/Jorm-Maps/BuriedKeep-0.png",
 						"layers": {
 							"min": 15,
 							"max": 22
@@ -1088,7 +1088,7 @@
 								"tiles": 30
 							}
 						},
-						"file": "https://cdn.discordapp.com/attachments/857683710362255360/1092880183507296377/BuriedKeep-1.png",
+						"file": "https://assets.forge-vtt.com/6052102c39f6b832fea3e7c8/Jorm-Maps/BuriedKeep-1.png",
 						"layers": {
 							"min": 15,
 							"max": 22
@@ -1119,7 +1119,7 @@
 								"tiles": 30
 							}
 						},
-						"file": "https://cdn.discordapp.com/attachments/857683710362255360/1092880180562903040/BuriedKeep-2.png",
+						"file": "https://assets.forge-vtt.com/6052102c39f6b832fea3e7c8/Jorm-Maps/BuriedKeep-2.png",
 						"layers": {
 							"min": 15,
 							"max": 22
@@ -7065,7 +7065,7 @@
 								"tiles": 35
 							}
 						},
-						"file": "https://cdn.discordapp.com/attachments/820097953745469520/1097892698704334898/Halls_of_Dromar.jpg",
+						"file": "https://assets.forge-vtt.com/6052102c39f6b832fea3e7c8/Jorm-Maps/Halls_of_Dromar.jpg",
 						"layers": {
 							"min": 15,
 							"max": 22
@@ -7207,7 +7207,7 @@
 								"tiles": 38.03125
 							}
 						},
-						"file": "https://cdn.discordapp.com/attachments/832873323175215105/1079871005549400144/Cave_System1.jpg",
+						"file": "https://assets.forge-vtt.com/6052102c39f6b832fea3e7c8/Jorm-Maps/Cave_System1.jpg",
 						"layers": {
 							"min": 15,
 							"max": 22
@@ -7858,7 +7858,7 @@
 							}
 						}
 					},
-					"file": "https://cdn.discordapp.com/attachments/958408273147596883/1120085393338024066/0859c604ca8707b620aa97de8e44b3d2.png",
+					"file": "https://assets.forge-vtt.com/6052102c39f6b832fea3e7c8/Jorm-Maps/Treasure_Island.png",
 					"layers": {
 						"min": 0,
 						"max": 19
@@ -8821,7 +8821,7 @@
 							"tiles": 20
 						}
 					},
-					"file": "https://cdn.discordapp.com/attachments/820097953745469520/1097892977680072744/Cottage_in_the_Woods.jpg",
+					"file": "https://assets.forge-vtt.com/6052102c39f6b832fea3e7c8/Jorm-Maps/Cottage_in_the_Woods.jpg",
 					"layers": {
 						"min": 15,
 						"max": 22
