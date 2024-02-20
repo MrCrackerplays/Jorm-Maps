@@ -886,38 +886,6 @@
 		},
 		"The Wizard Tower": {
 			"images": {
-				"-1": {
-					"meta": {
-						"position": {
-							"center": {
-								"origin": {
-									"location": "The Wizard Tower"
-								},
-								"offset": {
-									"lat": {
-										"meter": 0
-									},
-									"lng": {
-										"meter": 0
-									}
-								}
-							},
-							"width": {
-								"tiles": 51
-							},
-							"height": {
-								"tiles": 50
-							}
-						},
-						"file": "https://i.imgur.com/Zqp507E.png",
-						"layers": {
-							"min": 15,
-							"max": 22
-						}
-					},
-					"opacity": 1,
-					"pane": "tilePane"
-				},
 				"0": {
 					"meta": {
 						"position": {
@@ -948,6 +916,68 @@
 						}
 					},
 					"pane": "tilePane"
+				},
+				"1": {
+					"meta": {
+						"position": {
+							"center": {
+								"origin": {
+									"location": "The Wizard Tower"
+								},
+								"offset": {
+									"lat": {
+										"meter": 0
+									},
+									"lng": {
+										"meter": 0
+									}
+								}
+							},
+							"width": {
+								"tiles": 60
+							},
+							"height": {
+								"tiles": 60
+							}
+						},
+						"file": "https://assets.forge-vtt.com/6052102c39f6b832fea3e7c8/Jorm-Maps/WizardTower-1stFloor.jpg",
+						"layers": {
+							"min": 15,
+							"max": 22
+						}
+					},
+					"pane": "tilePane"
+				},
+				"2": {
+					"meta": {
+						"position": {
+							"center": {
+								"origin": {
+									"location": "The Wizard Tower"
+								},
+								"offset": {
+									"lat": {
+										"meter": 0
+									},
+									"lng": {
+										"meter": 0
+									}
+								}
+							},
+							"width": {
+								"tiles": 60
+							},
+							"height": {
+								"tiles": 60
+							}
+						},
+						"file": "https://assets.forge-vtt.com/6052102c39f6b832fea3e7c8/Jorm-Maps/WizardTower-2ndFloor.jpg",
+						"layers": {
+							"min": 15,
+							"max": 22
+						}
+					},
+					"pane": "tilePane"
 				}
 			},
 			"marker": {
@@ -971,6 +1001,812 @@
 					"layers": {
 						"min": 0,
 						"max": 19
+					}
+				}
+			}
+		},
+		"Portal to the Hanging City (0F)": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "The Wizard Tower"
+						},
+						"offset": {
+							"lat": {
+								"feet": -47.5
+							},
+							"lng": {
+								"feet": 75
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 0,
+						"max": 30
+					}
+				}
+			}
+		},
+		"Damaged portal pillar 1 (0F)": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "Portal to the Hanging City (0F)"
+						},
+						"offset": {
+							"lat": {
+								"feet": 5
+							},
+							"lng": {
+								"feet": 5
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 0,
+						"max": 30
+					}
+				}
+			}
+		},
+		"Damaged portal pillar 2 (0F)": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "Portal to the Hanging City (0F)"
+						},
+						"offset": {
+							"lat": {
+								"feet": -5
+							},
+							"lng": {
+								"feet": -5
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 0,
+						"max": 30
+					}
+				}
+			}
+		},
+		"Unknown Portal 1 (0F)": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "The Wizard Tower"
+						},
+						"offset": {
+							"lat": {
+								"feet": -47.5
+							},
+							"lng": {
+								"feet": 100
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 0,
+						"max": 30
+					}
+				}
+			}
+		},
+		"Damaged portal pillar 3 (0F)": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "Unknown Portal 1 (0F)"
+						},
+						"offset": {
+							"lat": {
+								"feet": 5
+							},
+							"lng": {
+								"feet": -5
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 0,
+						"max": 30
+					}
+				}
+			}
+		},
+		"Damaged portal pillar 4 (0F)": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "Unknown Portal 1 (0F)"
+						},
+						"offset": {
+							"lat": {
+								"feet": -5
+							},
+							"lng": {
+								"feet": -5
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 0,
+						"max": 30
+					}
+				}
+			}
+		},
+		"Portal to Isle of Stone and Scale (0F)": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "The Wizard Tower"
+						},
+						"offset": {
+							"lat": {
+								"feet": -20
+							},
+							"lng": {
+								"feet": 115
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 0,
+						"max": 30
+					}
+				}
+			}
+		},
+		"Damaged portal pillar 5 (0F)": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "Portal to Isle of Stone and Scale (0F)"
+						},
+						"offset": {
+							"lat": {
+								"feet": 5
+							},
+							"lng": {
+								"feet": -5
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 0,
+						"max": 30
+					}
+				}
+			}
+		},
+		"Damaged portal pillar 6 (0F)": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "Portal to Isle of Stone and Scale (0F)"
+						},
+						"offset": {
+							"lat": {
+								"feet": -5
+							},
+							"lng": {
+								"feet": 5
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 0,
+						"max": 30
+					}
+				}
+			}
+		},
+		"Damaged portal pillar 7 (0F)": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "Portal to Isle of Stone and Scale (0F)"
+						},
+						"offset": {
+							"lat": {
+								"feet": 5
+							},
+							"lng": {
+								"feet": 5
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 0,
+						"max": 30
+					}
+				}
+			}
+		},
+		"Unknown Portal 2 (0F)": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "The Wizard Tower"
+						},
+						"offset": {
+							"lat": {
+								"feet": 7.5
+							},
+							"lng": {
+								"feet": 105
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 0,
+						"max": 30
+					}
+				}
+			}
+		},
+		"Unknown Portal 3 (0F)": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "The Wizard Tower"
+						},
+						"offset": {
+							"lat": {
+								"feet": 7.5
+							},
+							"lng": {
+								"feet": 80
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 0,
+						"max": 30
+					}
+				}
+			}
+		},
+		"Damaged portal pillar 8 (0F)": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "Unknown Portal 3 (0F)"
+						},
+						"offset": {
+							"lat": {
+								"feet": -5
+							},
+							"lng": {
+								"feet": 5
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 0,
+						"max": 30
+					}
+				}
+			}
+		},
+		"Damaged portal pillar 9 (0F)": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "Unknown Portal 3 (0F)"
+						},
+						"offset": {
+							"lat": {
+								"feet": 5
+							},
+							"lng": {
+								"feet": -5
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 0,
+						"max": 30
+					}
+				}
+			}
+		},
+		"Damaged portal pillar 10 (0F)": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "Unknown Portal 3 (0F)"
+						},
+						"offset": {
+							"lat": {
+								"feet": -5
+							},
+							"lng": {
+								"feet": -5
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 0,
+						"max": 30
+					}
+				}
+			}
+		},
+		"Portal to The Masons (0F)": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "The Wizard Tower"
+						},
+						"offset": {
+							"lat": {
+								"feet": 7.5
+							},
+							"lng": {
+								"feet": 55
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 0,
+						"max": 30
+					}
+				}
+			}
+		},
+		"Unknown Portal 4 (0F)": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "The Wizard Tower"
+						},
+						"offset": {
+							"lat": {
+								"feet": 0
+							},
+							"lng": {
+								"feet": 32.5
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 0,
+						"max": 30
+					}
+				}
+			}
+		},
+		"Damaged portal pillar 11 (0F)": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "Unknown Portal 4 (0F)"
+						},
+						"offset": {
+							"lat": {
+								"feet": -2
+							},
+							"lng": {
+								"feet": 7.5
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 0,
+						"max": 30
+					}
+				}
+			}
+		},
+		"Damaged portal pillar 12 (0F)": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "Unknown Portal 4 (0F)"
+						},
+						"offset": {
+							"lat": {
+								"feet": 2
+							},
+							"lng": {
+								"feet": -7.5
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 0,
+						"max": 30
+					}
+				}
+			}
+		},
+		"Damaged portal pillar 13 (0F)": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "Unknown Portal 4 (0F)"
+						},
+						"offset": {
+							"lat": {
+								"feet": 7.5
+							},
+							"lng": {
+								"feet": 2
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 0,
+						"max": 30
+					}
+				}
+			}
+		},
+		"Damaged portal pillar 14 (0F)": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "Unknown Portal 4 (0F)"
+						},
+						"offset": {
+							"lat": {
+								"feet": -7.5
+							},
+							"lng": {
+								"feet": -2
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 0,
+						"max": 30
+					}
+				}
+			}
+		},
+		"Unknown Portal 5 (0F)": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "The Wizard Tower"
+						},
+						"offset": {
+							"lat": {
+								"feet": -40
+							},
+							"lng": {
+								"feet": 32.5
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 0,
+						"max": 30
+					}
+				}
+			}
+		},
+		"Damaged portal pillar 15 (Crystal missing) (0F)": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "Unknown Portal 5 (0F)"
+						},
+						"offset": {
+							"lat": {
+								"feet": 2
+							},
+							"lng": {
+								"feet": 7.5
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 0,
+						"max": 30
+					}
+				}
+			}
+		},
+		"Damaged portal pillar 16 (0F)": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "Unknown Portal 5 (0F)"
+						},
+						"offset": {
+							"lat": {
+								"feet": -7.5
+							},
+							"lng": {
+								"feet": 2
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 0,
+						"max": 30
+					}
+				}
+			}
+		},
+		"Damaged portal pillar 17 (0F)": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "Unknown Portal 5 (0F)"
+						},
+						"offset": {
+							"lat": {
+								"feet": -2
+							},
+							"lng": {
+								"feet": -7.5
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 0,
+						"max": 30
+					}
+				}
+			}
+		},
+		"Portal to Dromar's Tomb (0F)": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "The Wizard Tower"
+						},
+						"offset": {
+							"lat": {
+								"feet": 87.5
+							},
+							"lng": {
+								"feet": -77.5
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 0,
+						"max": 30
+					}
+				}
+			}
+		},
+		"Portal to Sixteeseven's Forest Area (0F)": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "Portal to Dromar's Tomb (0F)"
+						},
+						"offset": {
+							"lat": {
+								"feet": 15
+							},
+							"lng": {
+								"feet": 20
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 0,
+						"max": 30
+					}
+				}
+			}
+		},
+		"Portal to Cendri's Temple of Ra'Sha (0F)": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "Portal to Dromar's Tomb (0F)"
+						},
+						"offset": {
+							"lat": {
+								"feet": -135
+							},
+							"lng": {
+								"feet": 2.5
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 0,
+						"max": 30
+					}
+				}
+			}
+		},
+		"Portal to Pinecone Village (0F)": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "Portal to Cendri's Temple of Ra'Sha (0F)"
+						},
+						"offset": {
+							"lat": {
+								"feet": 7.5
+							},
+							"lng": {
+								"feet": 42.5
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 0,
+						"max": 30
+					}
+				}
+			}
+		},
+		"Portal to the Shadowfell (1F)": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "The Wizard Tower"
+						},
+						"offset": {
+							"lat": {
+								"feet": 110
+							},
+							"lng": {
+								"feet": 15
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 0,
+						"max": 30
+					}
+				}
+			}
+		},
+		"Portal to the Elemental Plane of Fire (2F)": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "The Wizard Tower"
+						},
+						"offset": {
+							"lat": {
+								"feet": -12.5
+							},
+							"lng": {
+								"feet": 12.5
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 18
+					},
+					"layers": {
+						"min": 0,
+						"max": 30
 					}
 				}
 			}
