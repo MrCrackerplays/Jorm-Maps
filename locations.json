@@ -9633,6 +9633,32 @@
 				}
 			}
 		},
+		"Lunar's Cemetery": {
+			"marker": {
+				"meta": {
+					"location": {
+						"origin": {
+							"location": "Dod'Estrin"
+						},
+						"offset": {
+							"lat": {
+								"meter":  -41608.248
+							},
+							"lng": {
+								"meter": -66108.453
+							}
+						}
+					},
+					"click": {
+						"jump_zoom": 19
+					},
+					"layers": {
+						"min": 0,
+						"max": 19
+					}
+				}
+			}
+		},
 		"Gitta's Cottage": {
 			"image": {
 				"meta": {
