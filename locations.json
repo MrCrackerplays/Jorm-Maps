@@ -24,7 +24,7 @@
 							"mile": 1296
 						}
 					},
-					"file": "https://assets.forge-vtt.com/6052102c39f6b832fea3e7c8/Jorm-Maps/jorm_player_edition.png",
+					"file": "http://tover.spre.uk/jorm_player_edition.png",
 					"layers": {
 						"min": 0,
 						"max": 19
@@ -59,7 +59,7 @@
 							"feet": 1478.45
 						}
 					},
-					"file": "https://assets.forge-vtt.com/6052102c39f6b832fea3e7c8/Jorm-Maps/DodEstron_map.jpg",
+					"file": "http://tover.spre.uk/DodEstron_map.jpg",
 					"layers": {
 						"min": 11,
 						"max": 22
@@ -553,7 +553,7 @@
 							},
 							"rotation": 35
 						},
-						"file": "https://assets.forge-vtt.com/6052102c39f6b832fea3e7c8/Jorm-Maps/IorghaHome.png",
+						"file": "http://tover.spre.uk/IorghaHome.png",
 						"layers": {
 							"min": 15,
 							"max": 22
@@ -847,7 +847,7 @@
 							},
 							"rotation": 270
 						},
-						"file": "https://assets.forge-vtt.com/6052102c39f6b832fea3e7c8/Jorm-Maps/Gym_DodEstrin_expansion_1_no_grid.png",
+						"file": "http://tover.spre.uk/Gym_DodEstrin_expansion_1_no_grid.png",
 						"layers": {
 							"min": 15,
 							"max": 22
@@ -909,7 +909,7 @@
 								"tiles": 60
 							}
 						},
-						"file": "https://assets.forge-vtt.com/6052102c39f6b832fea3e7c8/Jorm-Maps/WizardTower-GF.png",
+						"file": "http://tover.spre.uk/WizardTower-GF.png",
 						"layers": {
 							"min": 15,
 							"max": 22
@@ -940,7 +940,7 @@
 								"tiles": 60
 							}
 						},
-						"file": "https://assets.forge-vtt.com/6052102c39f6b832fea3e7c8/Jorm-Maps/WizardTower-1stFloor.jpg",
+						"file": "http://tover.spre.uk/WizardTower-1stFloor.jpg",
 						"layers": {
 							"min": 15,
 							"max": 22
@@ -971,7 +971,7 @@
 								"tiles": 60
 							}
 						},
-						"file": "https://assets.forge-vtt.com/6052102c39f6b832fea3e7c8/Jorm-Maps/WizardTower-2ndFloor.jpg",
+						"file": "http://tover.spre.uk/WizardTower-2ndFloor.jpg",
 						"layers": {
 							"min": 15,
 							"max": 22
@@ -1835,7 +1835,7 @@
 							"tiles": 25
 						}
 					},
-					"file": "https://assets.forge-vtt.com/6052102c39f6b832fea3e7c8/Water%20Tower.png",
+					"file": "http://tover.spre.uk/Water%20Tower.png",
 					"layers": {
 						"min": 15,
 						"max": 22
@@ -1893,7 +1893,7 @@
 								"tiles": 30
 							}
 						},
-						"file": "https://assets.forge-vtt.com/6052102c39f6b832fea3e7c8/Jorm-Maps/BuriedKeep-0.png",
+						"file": "http://tover.spre.uk/BuriedKeep-0.png",
 						"layers": {
 							"min": 15,
 							"max": 22
@@ -1924,7 +1924,7 @@
 								"tiles": 30
 							}
 						},
-						"file": "https://assets.forge-vtt.com/6052102c39f6b832fea3e7c8/Jorm-Maps/BuriedKeep-1.png",
+						"file": "http://tover.spre.uk/BuriedKeep-1.png",
 						"layers": {
 							"min": 15,
 							"max": 22
@@ -1955,7 +1955,7 @@
 								"tiles": 30
 							}
 						},
-						"file": "https://assets.forge-vtt.com/6052102c39f6b832fea3e7c8/Jorm-Maps/BuriedKeep-2.png",
+						"file": "http://tover.spre.uk/BuriedKeep-2.png",
 						"layers": {
 							"min": 15,
 							"max": 22
@@ -7901,7 +7901,7 @@
 								"tiles": 35
 							}
 						},
-						"file": "https://assets.forge-vtt.com/6052102c39f6b832fea3e7c8/Jorm-Maps/Halls_of_Dromar.jpg",
+						"file": "http://tover.spre.uk/Halls_of_Dromar.jpg",
 						"layers": {
 							"min": 15,
 							"max": 22
@@ -8043,7 +8043,7 @@
 								"tiles": 38.03125
 							}
 						},
-						"file": "https://assets.forge-vtt.com/6052102c39f6b832fea3e7c8/Jorm-Maps/Cave_System1.jpg",
+						"file": "http://tover.spre.uk/Cave_System1.jpg",
 						"layers": {
 							"min": 15,
 							"max": 22
@@ -8694,7 +8694,7 @@
 							}
 						}
 					},
-					"file": "https://assets.forge-vtt.com/6052102c39f6b832fea3e7c8/Jorm-Maps/Treasure_Island.png",
+					"file": "http://tover.spre.uk/Treasure_Island.png",
 					"layers": {
 						"min": 0,
 						"max": 19
@@ -9532,7 +9532,7 @@
 							"tiles": 67.2
 						}
 					},
-					"file": "https://assets.forge-vtt.com/6052102c39f6b832fea3e7c8/Witch%20cottage.jpg",
+					"file": "http://tover.spre.uk/Witch%20cottage.jpg",
 					"layers": {
 						"min": 15,
 						"max": 22
@@ -9566,7 +9566,7 @@
 								"tiles": 14
 							}
 						},
-						"file": "https://assets.forge-vtt.com/6052102c39f6b832fea3e7c8/Witch%20cottage%20ground%20floor.jpg",
+						"file": "http://tover.spre.uk/Witch%20cottage%20ground%20floor.jpg",
 						"layers": {
 							"min": 15,
 							"max": 22
@@ -9598,7 +9598,7 @@
 								"tiles": 14
 							}
 						},
-						"file": "https://assets.forge-vtt.com/6052102c39f6b832fea3e7c8/Basement.jpg",
+						"file": "http://tover.spre.uk/Basement.jpg",
 						"layers": {
 							"min": 15,
 							"max": 22
@@ -9683,7 +9683,7 @@
 							"tiles": 20
 						}
 					},
-					"file": "https://assets.forge-vtt.com/6052102c39f6b832fea3e7c8/Jorm-Maps/Cottage_in_the_Woods.jpg",
+					"file": "http://tover.spre.uk/Cottage_in_the_Woods.jpg",
 					"layers": {
 						"min": 15,
 						"max": 22
