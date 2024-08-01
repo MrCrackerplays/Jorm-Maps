@@ -168,7 +168,7 @@ A Latlng is a number array of 2 numbers representing a Latitude and Longitude, i
 ```
 
 ### Length
-A Length is a representation of a distance, either by specifying the length itself, via `meter`, `feet`, `tiles`, `kilometers`, and  `mile`, or by specifying a [`duration`](#duration). (Taking precedence in that order)
+A Length is a representation of a distance, either by specifying the length itself, via `meter`, `feet`, `tiles`, `kilometers`, and `mile`, or by specifying a [`duration`](#duration). (Taking precedence in that order)
 ```JSON
 "length": {
 	"meter": 10
