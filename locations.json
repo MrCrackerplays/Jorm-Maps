@@ -9058,6 +9058,65 @@
 				}
 			}
 		},
+		"Isle of Old Wealth": {
+			"image": {
+				"meta": {
+					"position": {
+						"center": {
+							"origin": {
+								"location": "Isle of Old Wealth"
+							},
+							"offset": {
+								"lat": {
+									"mile": -9
+								},
+								"lng": {
+									"meter": 0
+								}
+							}
+						},
+						"width": {
+							"mile": 108
+						},
+						"height": {
+							"mile": 93
+						}
+					},
+					"file": "https://tover.spre.uk/Isle_of_Old_Wealth.png",
+					"layers": {
+						"min": 0,
+						"max": 19
+					}
+				},
+				"opacity": 1,
+				"pane": "tilePane",
+				"zIndex": -4
+			},
+			"marker": {
+				"meta": {
+					"location": {
+						"offset": {
+							"lat": {
+								"meter": -67802.889
+							},
+							"lng": {
+								"meter": 343254.719
+							}
+						},
+						"origin": {
+							"location": "Karamja"
+						}
+					},
+					"click": {
+						"jump_zoom": 6
+					},
+					"layers": {
+						"min": 0,
+						"max": 19
+					}
+				}
+			}
+		},
 		"Large Strange Statue": {
 			"marker": {
 				"meta": {
