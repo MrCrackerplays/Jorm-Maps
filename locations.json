@@ -8708,7 +8708,7 @@
 				"meta": {
 					"location": {
 						"origin": {
-							"location": "Disaster-struck archipelago"
+							"location": "Viewing point of the Shattered Archipelago"
 						},
 						"direction": {
 							"degrees": 30
@@ -9008,7 +9008,7 @@
 				}
 			}
 		},
-		"Disaster-struck archipelago": {
+		"Viewing point of the Shattered Archipelago": {
 			"marker": {
 				"meta": {
 					"location": {
@@ -9022,6 +9022,30 @@
 						},
 						"origin": {
 							"location": "Karamja-City"
+						}
+					},
+					"click": {
+						"jump_zoom": 6
+					},
+					"layers": {
+						"min": 0,
+						"max": 19
+					}
+				}
+			}
+		},
+		"Neutral island in the Isle of Old Wealth": {
+			"marker": {
+				"meta": {
+					"location": {
+						"distance": {
+							"meter": 57070.758
+						},
+						"direction": {
+							"degrees": 124.731
+						},
+						"origin": {
+							"location": "Viewing point of the Shattered Archipelago"
 						}
 					},
 					"click": {
