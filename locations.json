@@ -7929,7 +7929,31 @@
 						"jump_zoom": 18
 					},
 					"layers": {
-						"min": 3,
+						"min": 0,
+						"max": 19
+					}
+				}
+			}
+		},
+		"Spellkeep": {
+			"marker": {
+				"meta": {
+					"location": {
+						"distance": {
+							"meter": 11907.437
+						},
+						"direction": {
+							"degrees": 274.036
+						},
+						"origin": {
+							"location": "Halls of Dromar"
+						}
+					},
+					"click": {
+						"jump_zoom": 8
+					},
+					"layers": {
+						"min": 0,
 						"max": 19
 					}
 				}
