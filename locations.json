@@ -8184,7 +8184,7 @@
 					}
 				}
 				},
-				"file": "lighthouse/f0.png",
+				"file": "http://tover.spre.uk/img/lighthouse/f0.png",
 				"layers": {
 				"min": 0,
 				"max": 19
@@ -8216,7 +8216,7 @@
 					}
 				}
 				},
-				"file": "lighthouse/f1.png",
+				"file": "http://tover.spre.uk/img/lighthouse/f1.png",
 				"layers": {
 				"min": 0,
 				"max": 19
@@ -8248,7 +8248,7 @@
 					}
 				}
 				},
-				"file": "lighthouse/f2.png",
+				"file": "http://tover.spre.uk/img/lighthouse/f2.png",
 				"layers": {
 				"min": 0,
 				"max": 19
@@ -8280,7 +8280,7 @@
 					}
 				}
 				},
-				"file": "lighthouse/f3.png",
+				"file": "http://tover.spre.uk/img/lighthouse/f3.png",
 				"layers": {
 				"min": 0,
 				"max": 19
@@ -8312,7 +8312,7 @@
 					}
 				}
 				},
-				"file": "lighthouse/Cave_Beneath_Lighthouse.webp",
+				"file": "http://tover.spre.uk/img/lighthouse/Cave_Beneath_Lighthouse.webp",
 				"layers": {
 				"min": 0,
 				"max": 19
